@@ -66,7 +66,7 @@ export function Cloud() {
           ))}
         </div>
 
-        <div className="mt-8">
+        <div className="mt-8 flex justify-center">
           <Button asChild>
             <a href="/cloud">Learn more about Maestro Cloud</a>
           </Button>

@@ -2,7 +2,6 @@
 
 import * as React from "react";
 
-import { Download } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 
 import { ThemeToggle } from "@/components/elements/theme-toggle";
@@ -150,7 +149,7 @@ function Navbar({ currentPage }: NavbarProps) {
             </Button>
           </div>
           {/* Desktop Navigation */}
-          <div className="ms-8 hidden flex-1 items-center justify-between lg:flex">
+          <div className="ms-auto hidden flex-1 items-center justify-end gap-3 lg:flex">
             <NavigationMenu>
               <NavigationMenuList className="gap-2">
                 {navigationItems.map((item) => (
@@ -230,12 +229,6 @@ const NavBarAction = () => {
   return (
     <div className="bordered-div-padding flex items-center justify-between border lg:border-none lg:!py-0 lg:ps-0 lg:pe-6">
       <ThemeToggle className="hidden lg:block" />
-      <a href="/download" className="ms-3">
-        <Button size="sm" variant="default" className="">
-          <Download className="size-5" />
-          Download
-        </Button>
-      </a>
     </div>
   );
 };

@@ -60,38 +60,40 @@ export function Features() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 border-t md:grid-cols-3">
-        {features.map((feature, index) => (
-          <Card
-            key={feature.title}
-            className={[
-              "rounded-none border-x-0 border-y-0 shadow-none",
-              index > 0 ? "md:border-l" : "",
-              index > 0 ? "border-t md:border-t-0" : "",
-            ].join(" ")}
-          >
-            <CardContent className="flex h-full flex-col gap-6">
-              <div className="space-y-4">
-                <h4 className="text-muted-foreground flex items-center gap-2 text-sm leading-snug font-medium md:text-base">
-                  <feature.icon className="size-5" />
-                  {feature.title}
-                </h4>
-                <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
-                  {feature.description}
-                </p>
-              </div>
-              <div className="bg-muted mt-auto overflow-hidden rounded-md border">
-                <img
-                  src={feature.image.src}
-                  alt={feature.image.alt}
-                  width={feature.image.width}
-                  height={feature.image.height}
-                  className="h-auto w-full"
-                />
-              </div>
-            </CardContent>
-          </Card>
-        ))}
+      <div className="bordered-div-padding !pt-0">
+        <div className="grid grid-cols-1 border md:grid-cols-3">
+          {features.map((feature, index) => (
+            <Card
+              key={feature.title}
+              className={[
+                "rounded-none border-x-0 border-y-0 shadow-none",
+                index > 0 ? "md:border-l" : "",
+                index > 0 ? "border-t md:border-t-0" : "",
+              ].join(" ")}
+            >
+              <CardContent className="flex h-full flex-col gap-6">
+                <div className="space-y-4">
+                  <h4 className="text-muted-foreground flex items-center gap-2 text-sm leading-snug font-medium md:text-base">
+                    <feature.icon className="size-5" />
+                    {feature.title}
+                  </h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
+                    {feature.description}
+                  </p>
+                </div>
+                <div className="bg-muted mt-auto overflow-hidden rounded-md border">
+                  <img
+                    src={feature.image.src}
+                    alt={feature.image.alt}
+                    width={feature.image.width}
+                    height={feature.image.height}
+                    className="h-auto w-full"
+                  />
+                </div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </section>
   );
