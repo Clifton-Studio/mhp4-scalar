@@ -50,7 +50,7 @@ export function Features() {
             <PocketKnife className="size-5" />
             Features
           </h2>
-          <h3 className="font-weight-display text-2xl leading-snug tracking-tighter md:text-3xl lg:text-5xl">
+          <h3 className="section-heading">
             Battle-tested. AI-native.
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
@@ -73,7 +73,7 @@ export function Features() {
             >
               <CardContent className="flex h-full flex-col gap-6">
                 <div className="space-y-4">
-                  <h4 className="text-muted-foreground flex items-center gap-2 text-sm leading-snug font-medium md:text-base">
+                  <h4 className="card-heading flex items-center gap-2">
                     <feature.icon className="size-5" />
                     {feature.title}
                   </h4>

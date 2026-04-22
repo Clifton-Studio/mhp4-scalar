@@ -32,7 +32,7 @@ export function Cloud() {
             <CloudIcon className="size-5" />
             Maestro Cloud
           </h2>
-          <h3 className="font-weight-display text-2xl leading-snug tracking-tighter md:text-3xl lg:text-5xl">
+          <h3 className="section-heading">
             Scale in our cloud
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
@@ -55,7 +55,7 @@ export function Cloud() {
             <div className="flex gap-3" key={feature.title}>
               <feature.icon className="mt-1 size-5 shrink-0" />
               <div>
-                <h4 className="font-weight-display text-lg leading-snug">
+                <h4 className="card-heading">
                   {feature.title}
                 </h4>
                 <p className="text-muted-foreground mt-2 text-sm leading-relaxed">

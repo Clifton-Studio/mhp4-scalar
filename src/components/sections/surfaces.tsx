@@ -44,7 +44,7 @@ export function Surfaces() {
             <Shapes className="size-5" />
             Surfaces
           </h2>
-          <h3 className="font-weight-display text-2xl leading-snug tracking-tighter md:text-3xl lg:text-5xl">
+          <h3 className="section-heading">
             Build like the wind
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
@@ -75,7 +75,7 @@ export function Surfaces() {
                   />
                 </div>
                 <div>
-                  <h4 className="font-weight-display text-lg leading-snug md:text-xl">
+                  <h4 className="card-heading">
                     {surface.title}
                   </h4>
                   <p className="text-muted-foreground mt-3 text-sm leading-relaxed">

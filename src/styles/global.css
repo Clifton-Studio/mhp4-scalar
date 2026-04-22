@@ -190,6 +190,14 @@
   .bordered-div-padding {
     @apply p-6 md:p-8 lg:p-10;
   }
+
+  .section-heading {
+    @apply text-foreground font-weight-display leading-snug md:text-xl;
+  }
+
+  .card-heading {
+    @apply text-foreground text-sm leading-snug font-semibold md:text-base;
+  }
 }
 
 /* Shiki syntax highlighting support */
