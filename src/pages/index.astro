@@ -1,16 +1,20 @@
 ---
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 
-import { Compatibility } from '@/components/sections/compatibility';
-import { Features } from '@/components/sections/features';
-import { Hero } from '@/components/sections/hero';
-import { Testimonials } from '@/components/sections/testimonials';
-import DefaultLayout from '@/layouts/DefaultLayout.astro';
+import { Agentify } from "@/components/sections/agentify";
+import { Cloud } from "@/components/sections/cloud";
+import { Features } from "@/components/sections/features";
+import { Hero } from "@/components/sections/hero";
+import { Surfaces } from "@/components/sections/surfaces";
+import { TrustedTeams } from "@/components/sections/trusted-teams";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
 ---
 
 <DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <Hero client:load />
+  <TrustedTeams />
   <Features client:visible />
-  <Compatibility client:visible />
-  <Testimonials client:visible />
+  <Surfaces />
+  <Cloud />
+  <Agentify />
 </DefaultLayout>

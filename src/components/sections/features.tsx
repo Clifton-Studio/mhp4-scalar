@@ -1,122 +1,96 @@
-import { Images, Layers, ToggleLeft, Users2 } from 'lucide-react';
+import { CalendarClock, ChartBar, PocketKnife, SquarePen } from "lucide-react";
 
-import { PlusSigns } from '@/components/icons/plus-signs';
-import { cn } from '@/lib/utils';
+import { Card, CardContent } from "@/components/ui/card";
+
 const features = [
   {
-    icon: Layers,
-    title: (
-      <>
-        Schema
-        <br />
-        Builder
-      </>
-    ),
-    description: 'Design content structures your way.',
-    subDescription:
-      'Scalar CMS gives you full control over content with a streamlined, API-first experience — perfect for teams who want speed without sacrificing flexibility.',
-    className: '!pb-0',
-    images: [
-      {
-        src: '/images/landing/feature-1.webp',
-        alt: 'Schema Builder',
-        width: 700,
-        height: 320,
-      },
-    ],
+    icon: SquarePen,
+    title: "Agentic test management",
+    description:
+      "Unblock high-velocity development by powering up your local agents or activating fully autonomous agents to manage test coverage upon every PR. Ensure your 100s of PRs are doing what they should, well.",
+    image: {
+      src: "/images/homepage/feature-agentic-test-management-dark.png",
+      alt: "Agentic test management interface",
+      width: 626,
+      height: 800,
+    },
   },
   {
-    icon: Users2,
-    title: 'Real Time Collaboration',
-    description: 'Built for content teams.',
-    subDescription:
-      'Draft, review, and publish content with confidence. Autosave, rich text editing, role-based permissions, and revision history come standard.',
-    className: '!pb-0',
-    images: [
-      {
-        src: '/images/landing/feature-2-1.webp',
-        alt: 'Real Time Collaboration',
-        width: 620,
-        height: 108,
-      },
-      {
-        src: '/images/landing/feature-2-2.webp',
-        alt: 'Real Time Collaboration',
-        width: 620,
-        height: 108,
-      },
-      {
-        src: '/images/landing/feature-2-3.webp',
-        alt: 'Real Time Collaboration',
-        width: 620,
-        height: 108,
-      },
-    ],
+    icon: CalendarClock,
+    title: "Deterministic test execution",
+    description:
+      "Maestro flows are defined in human-readable YAML files so you and your agents always track to ground truth, not a black box. Have complete confidence with concrete, auditable tests.",
+    image: {
+      src: "/images/homepage/feature-deterministic-test-execution-dark.png",
+      alt: "Deterministic test execution details",
+      width: 800,
+      height: 1020,
+    },
   },
   {
-    icon: Images,
-    title: 'Asset Management',
-    description: 'Organize your media like a pro.',
-    subDescription:
-      'Upload, crop, tag, and reuse images, videos, and docs with our sleek asset manager. Automatically optimizes files and handles CDN delivery.',
-  },
-  {
-    icon: ToggleLeft,
-    title: 'Granular Permissions',
-    description: 'Control who does what.',
-    subDescription:
-      'Create roles for editors, developers, and guests with precision. Lock down fields, models, or even specific actions.',
+    icon: ChartBar,
+    title: "Reliable, open-source framework",
+    description:
+      "Trusted by thousands of top-tier teams, Maestro is a super-efficient, transparent platform for your QA. Build on a trustworthy foundation dedicated to the agentic future. Extend it yourself if you like.",
+    image: {
+      src: "/images/homepage/feature-reliable-open-source-framework-dark.png",
+      alt: "Reliable open-source framework report",
+      width: 800,
+      height: 1020,
+    },
   },
 ];
 
 export function Features() {
   return (
     <section className="container">
-      <div className="grid grid-cols-1 border border-t-0 md:grid-cols-2">
+      <div className="bordered-div-padding border border-t-0">
+        <div className="max-w-3xl space-y-4">
+          <h2 className="text-muted-foreground flex items-center gap-2 text-sm leading-snug font-medium md:text-base">
+            <PocketKnife className="size-5" />
+            Features
+          </h2>
+          <h3 className="font-weight-display text-2xl leading-snug tracking-tighter md:text-3xl lg:text-5xl">
+            Battle-tested. AI-native.
+          </h3>
+          <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
+            Robust, open-source, time-tested - and now fully primed for human
+            and AI development.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 border-x md:grid-cols-3">
         {features.map((feature, index) => (
-          <div
-            key={index}
-            className={cn(
-              'bordered-div-padding relative space-y-8',
-              index == 0 && 'border-b md:border-e',
-              index == 1 && 'border-b md:border-b-0',
-              index == 3 && 'border-t md:border-s',
-              feature.className,
-            )}
+          <Card
+            key={feature.title}
+            className={[
+              "rounded-none border-x-0 border-t-0 shadow-none",
+              index > 0 ? "md:border-l" : "",
+              index < features.length - 1 ? "border-b md:border-b-0" : "",
+            ].join(" ")}
           >
-            {index === 0 && (
-              // Height is 100% + 2px to account for parent border not being included in the calculation
-              <PlusSigns className="absolute inset-0 -mt-0.25 hidden !h-[calc(100%+2px)] -translate-x-full border-y md:block" />
-            )}
-            <div className="space-y-4 md:space-y-6">
+            <CardContent className="flex h-full flex-col gap-6">
               <div className="space-y-4">
-                <h2 className="text-muted-foreground flex items-center gap-2 text-sm leading-snug font-medium md:text-base">
+                <h4 className="text-muted-foreground flex items-center gap-2 text-sm leading-snug font-medium md:text-base">
                   <feature.icon className="size-5" />
                   {feature.title}
-                </h2>
-                <h3 className="text-foreground font-weight-display leading-snug md:text-xl">
+                </h4>
+                <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
                   {feature.description}
-                </h3>
+                </p>
               </div>
-              <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
-                {feature.subDescription}
-              </p>
-            </div>
-
-            {feature.images && (
-              <div className="flex flex-col gap-4 mask-b-from-30% mask-b-to-95%">
-                {feature.images.map((image, index) => (
-                  <img
-                    key={index}
-                    src={image.src}
-                    alt={''}
-                    width={image.width}
-                    height={image.height}
-                  />
-                ))}
+              <div className="bg-muted mt-auto overflow-hidden rounded-md border">
+                <img
+                  src={feature.image.src}
+                  alt={feature.image.alt}
+                  width={feature.image.width}
+                  height={feature.image.height}
+                  className="h-auto w-full"
+                />
               </div>
-            )}
-          </div>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </section>
