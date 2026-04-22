@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils';
+import { cn } from "@/lib/utils";
 
 interface LogoProps {
   iconClassName?: string;
@@ -11,23 +11,20 @@ export default function Logo({
   iconClassName,
   wordmarkClassName,
   className,
-  href = '/',
+  href = "/",
 }: LogoProps) {
   return (
-    <a href={href} className={cn('flex items-center gap-2.5', className)}>
+    <a href={href} className={cn("flex items-center", className)}>
       <img
-        src="/layout/logo-icon.svg"
-        alt="Scalar Logo"
-        width={22}
-        height={24}
-        className={cn('object-contain', iconClassName)}
-      />
-      <img
-        src="/layout/logo-wordmark.svg"
-        alt="Scalar"
-        width={51.353}
-        height={14.009}
-        className={cn('object-contain', wordmarkClassName)}
+        src="/layout/maestro-logo.svg"
+        alt="Maestro"
+        width={116}
+        height={18}
+        className={cn(
+          "h-[18px] w-auto object-contain",
+          iconClassName,
+          wordmarkClassName,
+        )}
       />
     </a>
   );

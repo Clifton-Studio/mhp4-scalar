@@ -1,120 +1,33 @@
-'use client';
+"use client";
 
-import * as React from 'react';
+import * as React from "react";
 
-import {
-  Box,
-  ChevronDown,
-  Code2,
-  Database,
-  GitBranch,
-  Pencil,
-  Terminal,
-  Users,
-} from 'lucide-react';
-import { motion, AnimatePresence } from 'motion/react';
-import { FaGithub } from 'react-icons/fa6';
+import { Download } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
 
-import { ThemeToggle } from '@/components/elements/theme-toggle';
-import Logo from '@/components/layout/logo';
-import { Button } from '@/components/ui/button';
+import { ThemeToggle } from "@/components/elements/theme-toggle";
+import Logo from "@/components/layout/logo";
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
-  NavigationMenuContent,
   NavigationMenuItem,
-  NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
-import { useMediaQuery } from '@/hooks/use-media-query';
-import { cn } from '@/lib/utils';
+} from "@/components/ui/navigation-menu";
+import { useMediaQuery } from "@/hooks/use-media-query";
+import { cn } from "@/lib/utils";
 
 type NavItem = {
   title: string;
-  href?: string;
-  subitems?: Array<{
-    title: string;
-    items: Array<{
-      title: string;
-      href: string;
-      description?: string;
-      icon?: React.ComponentType<{ className?: string }>;
-      isHighlighted?: boolean;
-    }>;
-  }>;
+  href: string;
 };
 
 const navigationItems: NavItem[] = [
-  {
-    title: 'Product',
-    subitems: [
-      {
-        title: 'CMS',
-        items: [
-          {
-            title: 'Visual Content Editor',
-            href: '/product',
-            description: 'Rich text, media, and structured field editing',
-            icon: Pencil,
-            isHighlighted: true,
-          },
-          {
-            title: 'Real-time Collaboration',
-            href: '/product',
-            description: 'Commenting, presence, autosave, versioning',
-            icon: Users,
-          },
-        ],
-      },
-      {
-        title: 'Developer Tools',
-        items: [
-          {
-            title: 'GraphQL & REST APIs',
-            href: '/product',
-            description: 'Auto-generated, blazing fast, type-safe APIs',
-            icon: Database,
-          },
-          {
-            title: 'Local Development',
-            href: '/product',
-            description: 'Run Scalar locally with npx scalar dev',
-            icon: Terminal,
-          },
-          {
-            title: 'Code-first Models',
-            href: '/product',
-            description: 'Define models in code, sync to the UI',
-            icon: Code2,
-          },
-        ],
-      },
-      {
-        title: 'Integrations',
-        items: [
-          {
-            title: 'Next.js, Astro, etc.',
-            href: '/product',
-            description: 'Plug into your favorite frameworks instantly',
-            icon: Box,
-          },
-          {
-            title: 'GitHub Sync',
-            href: '/product',
-            description: 'Backup and version content model files',
-            icon: GitBranch,
-          },
-        ],
-      },
-    ],
-  },
-  { title: 'About', href: '/about' },
-  { title: 'Roadmap', href: '/roadmap' },
-  { title: 'FAQs', href: '/faq' },
-  { title: 'Blog', href: '/blog' },
-  { title: 'Docs', href: '/docs' },
-  { title: 'Contact', href: '/contact' },
+  { title: "Documentation", href: "/docs" },
+  { title: "Cloud", href: "/cloud" },
+  { title: "Community", href: "/community" },
+  { title: "Blog", href: "/blog" },
+  { title: "Pricing", href: "/pricing" },
 ];
 
 interface NavbarProps {
@@ -124,83 +37,79 @@ interface NavbarProps {
 function Navbar({ currentPage }: NavbarProps) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const { isAtMost } = useMediaQuery();
-  const isMobile = isAtMost('md');
-  const [theme, setTheme] = React.useState<'light' | 'dark'>('light');
+  const isMobile = isAtMost("md");
+  const [theme, setTheme] = React.useState<"light" | "dark">("light");
 
   const isMenuColorInverted = isMenuOpen && isMobile;
 
   React.useEffect(() => {
     // Get initial theme from localStorage, default to 'light' if none exists
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
-    setTheme(savedTheme || 'light');
+    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
+    setTheme(savedTheme || "light");
 
     // Listen for theme changes
     const handleStorageChange = () => {
-      const newTheme = localStorage.getItem('theme') as 'light' | 'dark' | null;
+      const newTheme = localStorage.getItem("theme") as "light" | "dark" | null;
       if (newTheme) {
         setTheme(newTheme);
       }
     };
 
-    window.addEventListener('storage', handleStorageChange);
+    window.addEventListener("storage", handleStorageChange);
 
     // Listen for direct DOM class changes (for immediate updates)
     const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains('dark');
-      setTheme(isDark ? 'dark' : 'light');
+      const isDark = document.documentElement.classList.contains("dark");
+      setTheme(isDark ? "dark" : "light");
     });
 
     observer.observe(document.documentElement, {
       attributes: true,
-      attributeFilter: ['class'],
+      attributeFilter: ["class"],
     });
 
     return () => {
-      window.removeEventListener('storage', handleStorageChange);
+      window.removeEventListener("storage", handleStorageChange);
       observer.disconnect();
     };
   }, []);
 
   React.useEffect(() => {
     if (isMenuOpen && isMobile) {
-      document.documentElement.style.overflow = 'hidden';
-      document.body.style.overflow = 'hidden';
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
-      document.documentElement.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
     }
 
     return () => {
-      document.body.style.overflow = 'unset';
-      document.documentElement.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
+      document.documentElement.style.overflow = "unset";
     };
   }, [isMenuOpen, isMobile]);
 
   return (
     <header
       className={cn(
-        'border-b transition-all duration-300',
+        "bg-background relative z-50 transition-all duration-300",
         isMenuColorInverted
-          ? theme === 'dark'
-            ? 'light bg-foreground text-background [&_*]:border-border/30'
-            : 'dark bg-background text-foreground'
-          : '',
+          ? theme === "dark"
+            ? "light bg-foreground text-background [&_*]:border-border/30"
+            : "dark bg-background text-foreground"
+          : "",
       )}
     >
-      <div className="container max-w-[120rem] px-4">
-        <div
-          className={cn(
-            'flex items-center border-x py-4 lg:border-none lg:py-6',
-          )}
-        >
+      <div className="container">
+        <div className={cn("flex items-center border-x border-b py-4 lg:py-6")}>
           <Logo
             className={cn(
-              'ps-6 transition-all duration-300 lg:ps-0',
+              "ps-6 transition-all duration-300",
               isMenuColorInverted
-                ? theme === 'dark'
-                  ? '[&>img]:invert-0'
-                  : '[&>img]:invert'
-                : 'dark:[&>img]:invert',
+                ? theme === "dark"
+                  ? "[&>img]:invert-0"
+                  : "[&>img]:invert"
+                : "dark:[&>img]:invert",
             )}
           />
 
@@ -211,7 +120,7 @@ function Navbar({ currentPage }: NavbarProps) {
             <Button
               variant="outline"
               size="icon"
-              className={cn('relative flex !bg-transparent')}
+              className={cn("relative flex !bg-transparent")}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
@@ -219,22 +128,22 @@ function Navbar({ currentPage }: NavbarProps) {
                 <span
                   aria-hidden="true"
                   className={cn(
-                    'absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out',
-                    isMenuOpen ? 'rotate-45' : '-translate-y-1.5',
+                    "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
+                    isMenuOpen ? "rotate-45" : "-translate-y-1.5",
                   )}
                 ></span>
                 <span
                   aria-hidden="true"
                   className={cn(
-                    'absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out',
-                    isMenuOpen ? 'opacity-0' : '',
+                    "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
+                    isMenuOpen ? "opacity-0" : "",
                   )}
                 ></span>
                 <span
                   aria-hidden="true"
                   className={cn(
-                    'absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out',
-                    isMenuOpen ? '-rotate-45' : 'translate-y-1.5',
+                    "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
+                    isMenuOpen ? "-rotate-45" : "translate-y-1.5",
                   )}
                 ></span>
               </div>
@@ -269,22 +178,14 @@ function Navbar({ currentPage }: NavbarProps) {
                   ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic-bezier for smooth feel
                 }}
                 className={cn(
-                  'fixed inset-0 top-16 z-50 container flex flex-col overflow-hidden text-sm font-medium lg:hidden',
+                  "bg-background fixed inset-x-0 top-16 bottom-0 z-40 container flex flex-col overflow-hidden text-sm font-medium lg:hidden",
                   isMenuColorInverted
-                    ? theme === 'dark'
-                      ? 'light bg-foreground text-background'
-                      : 'dark bg-background text-foreground'
-                    : '',
+                    ? theme === "dark"
+                      ? "light bg-foreground text-background"
+                      : "dark bg-background text-foreground"
+                    : "",
                 )}
               >
-                <motion.div
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.1, duration: 0.3 }}
-                >
-                  <NavBarAction setIsMenuOpen={setIsMenuOpen} />
-                </motion.div>
-
                 <motion.div
                   className="bordered-div-padding flex flex-1 flex-col space-y-3 overflow-y-auto border-x"
                   initial={{ opacity: 0 }}
@@ -299,7 +200,7 @@ function Navbar({ currentPage }: NavbarProps) {
                       transition={{
                         delay: 0.2 + index * 0.05,
                         duration: 0.3,
-                        ease: 'easeOut',
+                        ease: "easeOut",
                       }}
                     >
                       <MobileNavItem
@@ -325,43 +226,16 @@ function Navbar({ currentPage }: NavbarProps) {
   );
 }
 
-const NavBarAction = ({
-  setIsMenuOpen,
-}: {
-  setIsMenuOpen?: (isMenuOpen: boolean) => void;
-}) => {
+const NavBarAction = () => {
   return (
-    <div className="bordered-div-padding flex items-center justify-between border lg:border-none lg:!p-0">
-      <a href="#" className="flex items-center">
-        <Button
-          variant="ghost"
-          className="gap-2 font-medium lg:text-base"
-          size="sm"
-        >
-          <FaGithub className="size-5" />
-          <span className="">14.3k</span>
+    <div className="bordered-div-padding flex items-center justify-between border lg:border-none lg:!py-0 lg:ps-0 lg:pe-6">
+      <ThemeToggle className="hidden lg:block" />
+      <a href="/download" className="ms-3">
+        <Button size="sm" variant="default" className="">
+          <Download className="size-5" />
+          Download
         </Button>
       </a>
-
-      <div className="flex flex-1 items-center gap-2">
-        <div className="flex flex-1 items-center justify-center">
-          <ThemeToggle className="hidden lg:block" />
-          <a href="/login" onClick={() => setIsMenuOpen?.(false)}>
-            <Button size="sm" variant="ghost" className="lg:text-base">
-              Log In
-            </Button>
-          </a>
-        </div>
-        <a
-          href="/signup"
-          className="ms-3"
-          onClick={() => setIsMenuOpen?.(false)}
-        >
-          <Button size="sm" variant="default" className="">
-            Start Free Trial
-          </Button>
-        </a>
-      </div>
     </div>
   );
 };
@@ -373,93 +247,12 @@ function MobileNavItem({
   item: NavItem;
   setIsMenuOpen: (isMenuOpen: boolean) => void;
 }) {
-  const [isOpen, setIsOpen] = React.useState(false);
-
-  if (!item.subitems) {
-    return (
-      <a
-        href={item.href!}
-        className="block"
-        onClick={() => setIsMenuOpen(false)}
-      >
-        <Button variant="ghost" size="sm">
-          {item.title}
-        </Button>
-      </a>
-    );
-  }
-
   return (
-    <div>
-      <div
-        className="flex w-full items-center justify-between"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <Button variant="ghost" size="sm">
-          {item.title}
-        </Button>
-        <ChevronDown
-          className={`h-5 w-5 transition-transform duration-200 ${
-            isOpen ? 'rotate-180' : ''
-          }`}
-        />
-      </div>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{
-              height: 'auto',
-              opacity: 1,
-            }}
-            exit={{
-              height: 0,
-              opacity: 0,
-            }}
-            transition={{
-              duration: 0.3,
-              ease: [0.25, 0.46, 0.45, 0.94],
-              opacity: { duration: 0.2 },
-            }}
-            style={{ overflow: 'hidden' }}
-          >
-            <motion.div
-              className="mt-3"
-              initial={{ y: -10 }}
-              animate={{ y: 0 }}
-              transition={{ delay: 0.1, duration: 0.2 }}
-            >
-              {item.subitems.flatMap((section, sectionIndex) =>
-                section.items.map((subitem, itemIndex) => (
-                  <motion.div
-                    key={subitem.title}
-                    initial={{ opacity: 0, x: -15 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{
-                      delay:
-                        0.15 +
-                        (sectionIndex * section.items.length + itemIndex) *
-                          0.03,
-                      duration: 0.25,
-                      ease: 'easeOut',
-                    }}
-                  >
-                    <a
-                      href={subitem.href}
-                      className="text-muted-foreground hover:text-foreground flex items-center gap-3 p-3 transition-colors duration-200"
-                    >
-                      {subitem.icon && <subitem.icon className="size-4.5" />}
-                      <span className="">{subitem.title}</span>
-                    </a>
-                  </motion.div>
-                )),
-              )}
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+    <a href={item.href} className="block" onClick={() => setIsMenuOpen(false)}>
+      <Button variant="ghost" size="sm">
+        {item.title}
+      </Button>
+    </a>
   );
 }
 
@@ -470,102 +263,20 @@ function DesktopNavItem({
   item: NavItem;
   currentPage?: string;
 }) {
-  if (!item.subitems) {
-    return (
-      <NavigationMenuItem className="">
-        <a
-          href={item.href!}
-          className={cn(
-            navigationMenuTriggerStyle(),
-            'text-base font-medium',
-            currentPage === item.href && 'text-secondary',
-          )}
-        >
-          {item.title}
-        </a>
-      </NavigationMenuItem>
-    );
-  }
-
   return (
-    <NavigationMenuItem>
-      <NavigationMenuTrigger className="text-base font-medium">
+    <NavigationMenuItem className="">
+      <a
+        href={item.href}
+        className={cn(
+          navigationMenuTriggerStyle(),
+          "text-base font-medium",
+          currentPage === item.href && "text-secondary",
+        )}
+      >
         {item.title}
-      </NavigationMenuTrigger>
-      <NavigationMenuContent className="p-3">
-        <div className="grid w-[min(1173px,70vw)] grid-cols-3 gap-6">
-          {item.subitems.map((section) => (
-            <div key={section.title} className="">
-              <div className="text-muted-foreground p-3 text-base font-medium">
-                {section.title}
-              </div>
-              <ul className="">
-                {section.items.map((subitem) => (
-                  <ListItem
-                    key={subitem.title}
-                    title={subitem.title}
-                    href={subitem.href}
-                    icon={subitem.icon}
-                    isHighlighted={subitem.isHighlighted}
-                  >
-                    {subitem.description}
-                  </ListItem>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </NavigationMenuContent>
+      </a>
     </NavigationMenuItem>
   );
 }
-
-const ListItem = React.forwardRef<
-  React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'> & {
-    title: string;
-    icon?: React.ComponentType<{ className?: string }>;
-    isHighlighted?: boolean;
-  }
->(
-  (
-    { className, title, children, icon: Icon, isHighlighted, ...props },
-    ref,
-  ) => {
-    return (
-      <li>
-        <NavigationMenuLink asChild>
-          <a
-            ref={ref}
-            className={cn(
-              'hover:bg-accent group hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md border-none p-3 leading-none no-underline transition-colors select-none',
-              className,
-            )}
-            {...props}
-          >
-            <div className="flex items-center gap-3">
-              <div
-                className={cn(
-                  'flex size-8 shrink-0 items-center justify-center rounded-md',
-                  isHighlighted &&
-                    'bg-secondary [&>svg]:!text-secondary-foreground',
-                )}
-              >
-                {Icon && <Icon className="text-foreground size-4" />}
-              </div>
-              <div>
-                <div className="leading-none font-medium">{title}</div>
-                <p className="text-muted-foreground group-hover:text-foreground mt-1 text-sm transition-colors">
-                  {children}
-                </p>
-              </div>
-            </div>
-          </a>
-        </NavigationMenuLink>
-      </li>
-    );
-  },
-);
-ListItem.displayName = 'ListItem';
 
 export default Navbar;

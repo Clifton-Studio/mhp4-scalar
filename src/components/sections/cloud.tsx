@@ -25,8 +25,8 @@ const cloudFeatures = [
 
 export function Cloud() {
   return (
-    <section id="cloud" className="container">
-      <div className="bordered-div-padding border border-t-0">
+    <section id="cloud">
+      <div className="bordered-div-padding">
         <div className="max-w-3xl space-y-4">
           <h2 className="text-muted-foreground flex items-center gap-2 text-sm leading-snug font-medium md:text-base">
             <CloudIcon className="size-5" />

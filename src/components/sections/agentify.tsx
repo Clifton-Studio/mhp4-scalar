@@ -23,8 +23,8 @@ const agentifyFeatures = [
 
 export function Agentify() {
   return (
-    <section id="agentify" className="container">
-      <div className="bordered-div-padding border border-t-0">
+    <section id="agentify">
+      <div className="bordered-div-padding">
         <div className="max-w-3xl space-y-4">
           <h2 className="text-muted-foreground flex items-center gap-2 text-sm leading-snug font-medium md:text-base">
             <Workflow className="size-5" />

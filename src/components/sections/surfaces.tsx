@@ -44,8 +44,8 @@ const surfaces = [
 
 export function Surfaces() {
   return (
-    <section id="surfaces" className="container">
-      <div className="bordered-div-padding border border-t-0">
+    <section id="surfaces">
+      <div className="bordered-div-padding">
         <div className="max-w-3xl space-y-4">
           <h2 className="text-muted-foreground flex items-center gap-2 text-sm leading-snug font-medium md:text-base">
             <Shapes className="size-5" />
@@ -60,14 +60,14 @@ export function Surfaces() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 border-x md:grid-cols-3">
+      <div className="grid grid-cols-1 border-t md:grid-cols-3">
         {surfaces.map((surface, index) => (
           <Card
             key={surface.title}
             className={[
-              "rounded-none border-x-0 border-t-0 shadow-none",
+              "rounded-none border-x-0 border-y-0 shadow-none",
               index > 0 ? "md:border-l" : "",
-              index < surfaces.length - 1 ? "border-b md:border-b-0" : "",
+              index > 0 ? "border-t md:border-t-0" : "",
             ].join(" ")}
           >
             <CardContent className="flex h-full flex-col gap-6">
