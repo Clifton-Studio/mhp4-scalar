@@ -2,6 +2,7 @@
 import BaseHead from '@/components/BaseHead.astro';
 import Footer from '@/components/layout/footer';
 import Navbar from '@/components/layout/navbar';
+import WindowChrome from '@/components/layout/window-chrome.astro';
 
 const { title, description, currentPage, frontmatter } = Astro.props;
 
@@ -23,6 +24,7 @@ const pageTitle = frontmatter?.title || title;
     <BaseHead title={title} description={description} />
   </head>
   <body class="antialiased">
+    <WindowChrome />
     <Navbar currentPage={currentPage} client:load />
     <main>
       <section class="container">

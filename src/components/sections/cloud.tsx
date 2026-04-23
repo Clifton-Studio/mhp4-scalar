@@ -1,4 +1,4 @@
-import { CloudIcon, FastForward, Plug, SearchCheck } from "lucide-react";
+import { FastForward, Plug, SearchCheck } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
@@ -26,12 +26,24 @@ const cloudFeatures = [
 export function Cloud() {
   return (
     <section id="cloud">
+      <div className="flex items-center gap-3 border-b px-[19px] py-3">
+        <div className="flex items-center gap-2">
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#ff5f57]"></span>
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#febc2e]"></span>
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#28c840]"></span>
+        </div>
+        <p
+          className="text-muted-foreground text-xs font-medium tracking-normal uppercase md:text-sm"
+          style={{
+            fontFamily:
+              'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+          }}
+        >
+          Maestro Cloud
+        </p>
+      </div>
       <div className="bordered-div-padding">
         <div className="max-w-3xl space-y-4">
-          <h2 className="text-muted-foreground flex items-center gap-2 text-sm leading-snug font-medium md:text-base">
-            <CloudIcon className="size-5" />
-            Maestro Cloud
-          </h2>
           <h3 className="section-heading">
             Scale in our cloud
           </h3>
