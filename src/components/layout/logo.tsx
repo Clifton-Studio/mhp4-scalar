@@ -21,7 +21,7 @@ export default function Logo({
         width={116}
         height={18}
         className={cn(
-          "h-[18px] w-auto object-contain",
+          "h-[15px] w-auto object-contain",
           iconClassName,
           wordmarkClassName,
         )}

@@ -9,6 +9,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+  --text-xxs: 0.625rem;
+  --text-xxs--line-height: calc(0.875 / 0.625);
   --text-4xxl: 2.5rem;
   --radius: 0.625rem;
   --font-display: var(--display-family);
@@ -197,6 +199,10 @@
 
   .card-heading {
     @apply text-foreground text-sm leading-snug font-semibold md:text-base;
+  }
+
+  .section-overline {
+    @apply text-muted-foreground text-xxs font-medium tracking-[0.18em] uppercase md:text-xs lg:text-sm;
   }
 }
 

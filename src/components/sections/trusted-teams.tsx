@@ -159,8 +159,8 @@ export function TrustedTeams({
     >
       <div className="space-y-8 lg:space-y-12">
         <div className="text-center">
-          <h2 className="font-ui-mono mb-4 text-balance font-normal uppercase leading-[1.5] tracking-[0.06em]">
-            <span className="md:hidden">Trusted by</span>
+          <p className="section-overline">
+            <span className="md:hidden">Trusted By Thousands</span>
             <span className="max-md:hidden">{heading}</span>
             {subheading ? (
               <>
@@ -168,7 +168,7 @@ export function TrustedTeams({
                 <span className="text-muted-foreground">{subheading}</span>
               </>
             ) : null}
-          </h2>
+          </p>
         </div>
 
         <div className="hidden w-full flex-col items-center gap-6 md:flex">

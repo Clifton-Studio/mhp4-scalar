@@ -5,6 +5,7 @@ import { Agentify } from "@/components/sections/agentify";
 import { Cloud } from "@/components/sections/cloud";
 import { Features } from "@/components/sections/features";
 import { Hero } from "@/components/sections/hero";
+import { HeroVideo } from "@/components/sections/hero-video";
 import { Surfaces } from "@/components/sections/surfaces";
 import { TrustedTeams } from "@/components/sections/trusted-teams";
 import DefaultLayout from "@/layouts/DefaultLayout.astro";
@@ -13,11 +14,14 @@ import DefaultLayout from "@/layouts/DefaultLayout.astro";
 <DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <main class="container">
     <div class="border-x">
-      <div class="border-b">
+      <div>
         <Hero client:load />
       </div>
-      <div class="border-b">
+      <div>
         <TrustedTeams client:only="react" />
+      </div>
+      <div class="border-b">
+        <HeroVideo client:load />
       </div>
       <div class="border-b">
         <Features client:visible />
