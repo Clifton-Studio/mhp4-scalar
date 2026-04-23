@@ -100,10 +100,10 @@ function Navbar({ currentPage }: NavbarProps) {
       )}
     >
       <div className="container">
-        <div className={cn("flex items-center border-x border-b py-4 lg:py-6")}>
+        <div className={cn("flex items-center border-x border-b px-[19px] py-3")}>
           <Logo
             className={cn(
-              "ps-6 transition-all duration-300",
+              "transition-all duration-300",
               isMenuColorInverted
                 ? theme === "dark"
                   ? "[&>img]:invert-0"
@@ -113,13 +113,13 @@ function Navbar({ currentPage }: NavbarProps) {
           />
 
           {/* Hamburger Menu Button (Mobile Only) */}
-          <div className="me-6 ml-auto flex flex-1 items-center justify-end lg:me-0 lg:hidden">
-            <ThemeToggle />
+          <div className="ml-auto flex flex-1 items-center justify-end gap-2 lg:hidden">
+            <ThemeToggle className="h-8 w-8 p-0 lg:hidden" />
 
             <Button
-              variant="outline"
+              variant="ghost"
               size="icon"
-              className={cn("relative flex !bg-transparent")}
+              className={cn("relative flex h-8 w-8 p-0")}
               onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
@@ -149,9 +149,9 @@ function Navbar({ currentPage }: NavbarProps) {
             </Button>
           </div>
           {/* Desktop Navigation */}
-          <div className="ms-auto hidden flex-1 items-center justify-end gap-3 lg:flex">
+          <div className="ms-auto hidden flex-1 items-center justify-end gap-2 lg:flex">
             <NavigationMenu>
-              <NavigationMenuList className="gap-2">
+              <NavigationMenuList className="gap-1">
                 {navigationItems.map((item) => (
                   <DesktopNavItem
                     key={item.title}
@@ -227,7 +227,7 @@ function Navbar({ currentPage }: NavbarProps) {
 
 const NavBarAction = () => {
   return (
-    <div className="bordered-div-padding flex items-center justify-between border lg:border-none lg:!py-0 lg:ps-0 lg:pe-6">
+    <div className="bordered-div-padding flex items-center justify-between border lg:border-none lg:!p-0">
       <ThemeToggle className="hidden lg:block" />
     </div>
   );
@@ -262,7 +262,7 @@ function DesktopNavItem({
         href={item.href}
         className={cn(
           navigationMenuTriggerStyle(),
-          "text-base font-medium",
+          "h-8 px-3 text-sm font-medium",
           currentPage === item.href && "text-secondary",
         )}
       >
