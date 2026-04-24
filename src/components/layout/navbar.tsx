@@ -91,7 +91,7 @@ function Navbar({ currentPage }: NavbarProps) {
   return (
     <header
       className={cn(
-        "bg-background relative z-50 transition-all duration-300",
+        "relative z-50 transition-all duration-300",
         isMenuColorInverted
           ? theme === "dark"
             ? "light bg-foreground text-background [&_*]:border-border/30"
@@ -100,7 +100,11 @@ function Navbar({ currentPage }: NavbarProps) {
       )}
     >
       <div className="container">
-        <div className={cn("flex items-center border-x border-b px-[19px] py-3")}>
+        <div
+          className={cn(
+            "bg-background flex items-center border-x border-b px-[19px] py-3",
+          )}
+        >
           <Logo
             className={cn(
               "transition-all duration-300",
