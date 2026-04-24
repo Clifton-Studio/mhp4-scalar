@@ -42,7 +42,7 @@ export function Cloud() {
           Maestro Cloud
         </p>
       </div>
-      <div className="bordered-div-padding !pb-10 md:!pb-16 lg:!pb-20">
+      <div className="bordered-div-padding !pb-0">
         <div className="max-w-3xl space-y-4">
           <h3 className="section-heading">
             Scale in our cloud
@@ -51,8 +51,10 @@ export function Cloud() {
             Maestro Cloud provides high-speed, test-tuned infrastructure.
           </p>
         </div>
+      </div>
 
-        <div className="bg-muted mt-8 overflow-hidden rounded-md border">
+      <div className="bordered-div-padding !pt-6 !pb-10 md:!pt-7 md:!pb-[50px] lg:!pt-8 lg:!pb-[60px]">
+        <div className="bg-muted overflow-hidden rounded-md border">
           <img
             src="/images/homepage/maestro-dashboard.png"
             alt="Maestro Cloud dashboard"

@@ -40,7 +40,7 @@ export function Agentify() {
           Intelligence
         </p>
       </div>
-      <div className="bordered-div-padding !pb-10 md:!pb-16 lg:!pb-20">
+      <div className="bordered-div-padding !pb-0">
         <div className="max-w-3xl space-y-4">
           <h3 className="section-heading">
             Agentify your workflow
@@ -49,8 +49,10 @@ export function Agentify() {
             Bring Maestro into your pull requests - and go full self-driving.
           </p>
         </div>
+      </div>
 
-        <div className="mt-8 grid gap-8 md:grid-cols-3">
+      <div className="bordered-div-padding !pt-6 !pb-10 md:!pt-7 md:!pb-[50px] lg:!pt-8 lg:!pb-[60px]">
+        <div className="grid gap-8 md:grid-cols-3">
           {agentifyFeatures.map((feature) => (
             <div className="flex gap-3" key={feature.title}>
               <feature.icon className="mt-1 size-5 shrink-0" />

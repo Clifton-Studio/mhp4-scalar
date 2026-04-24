@@ -52,7 +52,7 @@ export function Surfaces() {
           Surfaces
         </p>
       </div>
-      <div className="bordered-div-padding">
+      <div className="bordered-div-padding !pb-0">
         <div className="max-w-3xl space-y-4">
           <h3 className="section-heading">
             Build like the wind
@@ -63,7 +63,7 @@ export function Surfaces() {
         </div>
       </div>
 
-      <div className="bordered-div-padding !pt-0 !pb-10 md:!pb-16 lg:!pb-20">
+      <div className="bordered-div-padding !pt-6 !pb-10 md:!pt-7 md:!pb-[50px] lg:!pt-8 lg:!pb-[60px]">
         <div className="grid grid-cols-1 border md:grid-cols-3">
           {surfaces.map((surface, index) => (
             <Card

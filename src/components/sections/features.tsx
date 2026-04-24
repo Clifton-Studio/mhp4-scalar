@@ -60,7 +60,7 @@ export function Features() {
           Features
         </p>
       </div>
-      <div className="bordered-div-padding">
+      <div className="bordered-div-padding !pb-0">
         <div className="max-w-3xl space-y-4">
           <h3 className="section-heading">
             Battle-tested. AI-native.
@@ -72,7 +72,7 @@ export function Features() {
         </div>
       </div>
 
-      <div className="bordered-div-padding !pt-0 !pb-10 md:!pb-16 lg:!pb-20">
+      <div className="bordered-div-padding !pt-6 !pb-10 md:!pt-7 md:!pb-[50px] lg:!pt-8 lg:!pb-[60px]">
         <div className="grid grid-cols-1 border md:grid-cols-3">
           {features.map((feature, index) => (
             <Card
