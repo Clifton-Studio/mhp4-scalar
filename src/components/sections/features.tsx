@@ -72,7 +72,7 @@ export function Features() {
         </div>
       </div>
 
-      <div className="bordered-div-padding !pt-0">
+      <div className="bordered-div-padding !pt-0 !pb-10 md:!pb-16 lg:!pb-20">
         <div className="grid grid-cols-1 border md:grid-cols-3">
           {features.map((feature, index) => (
             <Card
