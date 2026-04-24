@@ -262,7 +262,7 @@ function DesktopNavItem({
         href={item.href}
         className={cn(
           navigationMenuTriggerStyle(),
-          "h-8 px-3 text-sm font-medium",
+          "h-8 px-3 text-sm font-normal tracking-normal",
           currentPage === item.href && "text-secondary",
         )}
       >
