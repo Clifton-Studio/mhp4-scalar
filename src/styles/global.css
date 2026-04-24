@@ -201,11 +201,11 @@
   }
 
   .section-heading {
-    @apply text-foreground font-weight-display leading-snug md:text-xl;
+    @apply text-foreground leading-snug font-medium md:text-xl;
   }
 
   .card-heading {
-    @apply text-foreground text-sm leading-snug font-semibold md:text-base;
+    @apply text-foreground text-sm leading-snug font-medium md:text-base;
   }
 
   .section-overline {
