@@ -204,6 +204,90 @@
   .section-overline {
     @apply text-muted-foreground text-xxs font-medium tracking-[0.18em] uppercase md:text-xs lg:text-sm;
   }
+
+  .hero-composite {
+    --hero-section-px: 1.5rem;
+    --hero-section-pb: 2.5rem;
+    --hero-top-pad: 3rem;
+    --hero-flow-gap: 2rem;
+    --hero-copy-gap: 1.5rem;
+    --hero-overline-gap: 0.25rem;
+    --hero-proof-gap: 2rem;
+    @apply flex flex-col;
+    padding-inline: var(--hero-section-px);
+    padding-bottom: var(--hero-section-pb);
+    gap: var(--hero-flow-gap);
+  }
+
+  .hero-copy-compact {
+    @apply relative flex flex-col items-center text-center;
+    padding-top: var(--hero-top-pad);
+    gap: var(--hero-flow-gap);
+  }
+
+  .hero-intro-stack {
+    @apply max-w-4xl;
+    display: flex;
+    flex-direction: column;
+    gap: var(--hero-copy-gap);
+  }
+
+  .hero-title-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hero-overline-gap);
+  }
+
+  .trusted-teams-compact {
+    padding: 0;
+    width: 100%;
+  }
+
+  .trusted-teams-stack {
+    display: flex;
+    flex-direction: column;
+    gap: var(--hero-proof-gap);
+  }
+
+  .hero-video-compact {
+    padding: 0;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  @media (width >= --theme(--breakpoint-md)) {
+    .hero-composite {
+      --hero-section-px: 2rem;
+      --hero-section-pb: 4rem;
+      --hero-top-pad: 4rem;
+      --hero-flow-gap: 2.5rem;
+      --hero-copy-gap: 2rem;
+      --hero-proof-gap: 2rem;
+    }
+
+    .hero-video-compact {
+      margin-top: 1.5rem;
+    }
+  }
+
+  @media (width >= --theme(--breakpoint-lg)) {
+    .hero-composite {
+      --hero-section-px: 2.5rem;
+      --hero-section-pb: 5rem;
+      --hero-top-pad: 6.25rem;
+      --hero-flow-gap: 3rem;
+      --hero-copy-gap: 2.5rem;
+      --hero-proof-gap: 2.25rem;
+    }
+
+    .trusted-teams-compact {
+      margin-top: 2rem;
+    }
+
+    .hero-video-compact {
+      margin-top: 2rem;
+    }
+  }
 }
 
 /* Shiki syntax highlighting support */

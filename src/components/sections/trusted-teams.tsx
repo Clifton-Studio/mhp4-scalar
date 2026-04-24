@@ -16,6 +16,7 @@ interface TrustedTeamsProps {
   topRowCompanies?: Company[];
   bottomRowCompanies?: Company[];
   className?: string;
+  compact?: boolean;
 }
 
 const brandfetchToken = "1idjMwySZlfLUyQ7x24";
@@ -144,6 +145,7 @@ export function TrustedTeams({
   topRowCompanies = maestroCompanies.slice(0, 14),
   bottomRowCompanies = maestroCompanies.slice(14),
   className,
+  compact = false,
 }: TrustedTeamsProps) {
   const desktopRows = [
     maestroCompanies.slice(0, 6),
@@ -155,9 +157,13 @@ export function TrustedTeams({
 
   return (
     <section
-      className={cn("overflow-hidden px-4 py-8 md:py-10 lg:py-12", className)}
+      className={cn(
+        "overflow-hidden px-4 py-8 md:py-10 lg:py-12",
+        compact && "trusted-teams-compact",
+        className,
+      )}
     >
-      <div className="space-y-8 lg:space-y-12">
+      <div className={cn(compact ? "trusted-teams-stack" : "space-y-8 lg:space-y-12")}>
         <div className="text-center">
           <p className="section-overline">
             <span className="md:hidden">Trusted By Thousands</span>
@@ -177,7 +183,7 @@ export function TrustedTeams({
           ))}
         </div>
 
-        <div className="flex w-full flex-col items-center gap-8 md:hidden">
+        <div className="flex w-full flex-col items-center gap-5 md:hidden">
           <LogoMarquee companies={topRowCompanies} />
           <LogoMarquee companies={bottomRowCompanies} direction="right" />
         </div>

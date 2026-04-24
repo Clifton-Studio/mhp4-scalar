@@ -14,14 +14,12 @@ import DefaultLayout from "@/layouts/DefaultLayout.astro";
 <DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <main class="container">
     <div class="border-x">
-      <div>
-        <Hero client:load />
-      </div>
-      <div>
-        <TrustedTeams client:only="react" />
-      </div>
       <div class="border-b">
-        <HeroVideo client:load />
+        <section class="hero-composite">
+          <Hero compact client:load />
+          <TrustedTeams compact client:only="react" />
+          <HeroVideo compact client:load />
+        </section>
       </div>
       <div class="border-b">
         <Features client:visible />

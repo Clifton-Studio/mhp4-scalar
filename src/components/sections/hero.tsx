@@ -3,18 +3,28 @@
 import { DownloadMenu } from "@/components/elements/download-menu";
 import { cn } from "@/lib/utils";
 
-export function Hero() {
+interface HeroProps {
+  compact?: boolean;
+}
+
+export function Hero({ compact = false }: HeroProps) {
   return (
     <section className="relative overflow-hidden">
-      <div className="bordered-div-padding relative flex flex-col items-center gap-8 text-center md:gap-10 lg:gap-16 lg:!py-25">
+      <div
+        className={cn(
+          "bordered-div-padding relative flex flex-col items-center gap-8 text-center md:gap-10 lg:gap-16 lg:!py-25",
+          compact && "hero-copy-compact px-0 pb-0 lg:!pb-0",
+        )}
+      >
         {/* Main Heading */}
-        <div className="max-w-4xl space-y-6 md:space-y-8 lg:space-y-12">
-          <div className="space-y-1">
+        <div className={cn(compact ? "hero-intro-stack" : "max-w-4xl space-y-6 md:space-y-8 lg:space-y-12")}>
+          <div className={cn(compact ? "hero-title-stack" : "space-y-1")}>
             <p className="section-overline">
               E2E UI TESTING
             </p>
             <h1 className="text-3xl leading-snug tracking-tighter font-light md:text-4xl lg:text-5xl">
-              Go ahead. <span className="block">Code at 150mph.</span>
+              Go ahead.{" "}
+              <span className="block whitespace-nowrap">Code at 150mph.</span>
             </h1>
           </div>
           <p className="text-muted-foreground mx-auto max-w-[700px] text-sm leading-relaxed md:text-lg lg:text-xl">

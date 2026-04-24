@@ -1,9 +1,15 @@
 "use client";
 
-export function HeroVideo() {
+import { cn } from "@/lib/utils";
+
+interface HeroVideoProps {
+  compact?: boolean;
+}
+
+export function HeroVideo({ compact = false }: HeroVideoProps) {
   return (
     <section className="relative overflow-hidden">
-      <div className="bordered-div-padding !pt-0">
+      <div className={cn("bordered-div-padding !pt-0", compact && "hero-video-compact")}>
         <div className="mx-auto w-full max-w-[1000px] overflow-hidden rounded-[24px] border p-1 shadow-lg md:rounded-[40px]">
           <div className="aspect-[1.31/1] w-full overflow-hidden rounded-[20px] bg-black md:rounded-[36px]">
             <iframe
