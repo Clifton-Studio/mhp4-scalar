@@ -9,10 +9,10 @@ const features = [
     description:
       "Unblock high-velocity development by powering up your local agents or activating fully autonomous agents to manage test coverage upon every PR. Ensure your 100s of PRs are doing what they should, well.",
     image: {
-      src: "/images/homepage/feature-agentic-test-management-dark.png",
-      alt: "Agentic test management interface",
-      width: 626,
-      height: 800,
+      src: "/images/homepage/cursor-reference/cursor-reference-3.png",
+      alt: "Cursor search workflow screenshot",
+      width: 484,
+      height: 672,
     },
   },
   {
@@ -21,10 +21,10 @@ const features = [
     description:
       "Maestro flows are defined in human-readable YAML files so you and your agents always track to ground truth, not a black box. Have complete confidence with concrete, auditable tests.",
     image: {
-      src: "/images/homepage/feature-deterministic-test-execution-dark.png",
-      alt: "Deterministic test execution details",
-      width: 800,
-      height: 1020,
+      src: "/images/homepage/cursor-reference/cursor-reference-2.png",
+      alt: "Cursor agent terminal screenshot",
+      width: 482,
+      height: 670,
     },
   },
   {
@@ -33,10 +33,10 @@ const features = [
     description:
       "Trusted by thousands of top-tier teams, Maestro is a super-efficient, transparent platform for your QA. Build on a trustworthy foundation dedicated to the agentic future. Extend it yourself if you like.",
     image: {
-      src: "/images/homepage/feature-reliable-open-source-framework-dark.png",
-      alt: "Reliable open-source framework report",
-      width: 800,
-      height: 1020,
+      src: "/images/homepage/cursor-reference/cursor-reference-1.png",
+      alt: "Cursor code review screenshot",
+      width: 480,
+      height: 672,
     },
   },
 ];

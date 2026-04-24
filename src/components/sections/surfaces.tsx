@@ -6,9 +6,9 @@ const surfaces = [
     description:
       'Turn your coding agent into a mobile expert with our official Skill, MCP server, and Claude Plugin. Give agents the "eyes and hands" to build and verify E2E coverage locally, ensuring every change is fully tested before you ever open a PR.',
     image: {
-      src: "/images/homepage/adaptive-agent-dark.png",
-      width: 1000,
-      height: 602,
+      src: "/images/homepage/cursor-reference/cursor-square-reference-1.png",
+      width: 1300,
+      height: 1300,
     },
   },
   {
@@ -16,9 +16,9 @@ const surfaces = [
     description:
       'A visual IDE for Mac and Windows that makes manual test creation feel like magic. Contextual autocomplete, "tap-tap-tap" YAML generation, deep selector inspection, and an embedded emulator to fix broken flows or validate agent-generated coverage in seconds.',
     image: {
-      src: "/images/homepage/adaptive-studio-dark.png",
-      width: 1740,
-      height: 1050,
+      src: "/images/homepage/cursor-reference/cursor-square-reference-2.png",
+      width: 1300,
+      height: 1300,
     },
   },
   {
@@ -26,9 +26,9 @@ const surfaces = [
     description:
       "The lightweight, open-source engine for developers who prefer to bring their own IDE. Use the CLI to run human-readable YAML tests with the fastest, most dependable runner in mobile - whether you're iterating locally or executing at scale in CI.",
     image: {
-      src: "/images/homepage/adaptive-cli-dark.png",
-      width: 1112,
-      height: 658,
+      src: "/images/homepage/cursor-reference/cursor-square-reference-3.png",
+      width: 1358,
+      height: 1356,
     },
   },
 ];

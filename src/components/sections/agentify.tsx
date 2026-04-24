@@ -52,7 +52,17 @@ export function Agentify() {
       </div>
 
       <div className="bordered-div-padding !pt-6 !pb-10 md:!pt-7 md:!pb-[50px] lg:!pt-8 lg:!pb-[60px]">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="bg-muted overflow-hidden rounded-md border lg:h-[320px]">
+          <img
+            src="/images/homepage/cursor-reference/cursor-square-reference-5.png"
+            alt="Cursor model picker screenshot"
+            width={760}
+            height={760}
+            className="h-auto w-full lg:h-full lg:object-cover lg:object-top"
+          />
+        </div>
+
+        <div className="mt-8 grid gap-8 md:grid-cols-3">
           {agentifyFeatures.map((feature) => (
             <div className="flex gap-3" key={feature.title}>
               <feature.icon className="mt-1 size-5 shrink-0" />

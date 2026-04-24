@@ -54,13 +54,13 @@ export function Cloud() {
       </div>
 
       <div className="bordered-div-padding !pt-6 !pb-10 md:!pt-7 md:!pb-[50px] lg:!pt-8 lg:!pb-[60px]">
-        <div className="bg-muted overflow-hidden rounded-md border">
+        <div className="bg-muted overflow-hidden rounded-md border lg:h-[320px]">
           <img
-            src="/images/homepage/maestro-dashboard.png"
-            alt="Maestro Cloud dashboard"
-            width={2561}
-            height={712}
-            className="h-auto w-full"
+            src="/images/homepage/cursor-reference/cursor-square-reference-4.png"
+            alt="Cursor dashboard screenshot"
+            width={1200}
+            height={1200}
+            className="h-auto w-full lg:h-full lg:object-cover lg:object-top"
           />
         </div>
 
