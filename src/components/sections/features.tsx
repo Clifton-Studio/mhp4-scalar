@@ -93,7 +93,7 @@ export function Features() {
                     {feature.description}
                   </p>
                 </div>
-                <div className="bg-muted mt-auto overflow-hidden rounded-md border">
+                <div className="bg-muted mt-auto overflow-hidden rounded-md">
                   <img
                     src={feature.image.src}
                     alt={feature.image.alt}
