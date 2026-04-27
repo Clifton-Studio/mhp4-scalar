@@ -7,7 +7,7 @@ const features = [
     icon: SquarePen,
     title: "Agentic test management",
     description:
-      "Unblock high-velocity development by powering up your local agents or activating fully autonomous agents to manage test coverage upon every PR. Ensure your 100s of PRs are doing what they should, well.",
+      "Unblock high-velocity development by powering up your local or cloud agents with Maestro's AI toolkit. Let agents efficiently create mobile tests as they code, and automate test repairs and maintenance.",
     image: {
       src: "/images/homepage/cursor-reference/cursor-reference-3.png",
       alt: "Cursor search workflow screenshot",
@@ -66,8 +66,7 @@ export function Features() {
             Battle-tested. AI-native.
           </h3>
           <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
-            Robust, open-source, time-tested - and now fully primed for human
-            and AI development.
+            Robust, open-source, time-tested - and now fully primed for human+AI development.
           </p>
         </div>
       </div>

@@ -4,7 +4,7 @@ const surfaces = [
   {
     title: "Power up your favorite agent",
     description:
-      'Turn your coding agent into a mobile expert with our official Skill, MCP server, and Claude Plugin. Give agents the "eyes and hands" to build and verify E2E coverage locally, ensuring every change is fully tested before you ever open a PR.',
+      'The agent-first approach. Turn your coding agent into a mobile expert with our official MCP server. Give agents the "eyes and hands" to build and verify E2E coverage locally, fast and efficient, ensuring every change is fully tested before you ever open a PR.',
     image: {
       src: "/images/homepage/cursor-reference/cursor-square-reference-1.png",
       width: 1300,
