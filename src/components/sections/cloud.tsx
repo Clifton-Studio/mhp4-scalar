@@ -54,7 +54,7 @@ export function Cloud() {
       </div>
 
       <div className="bordered-div-padding !pt-6 !pb-10 md:!pt-7 md:!pb-[50px] lg:!pt-8 lg:!pb-[60px]">
-        <div className="bg-muted overflow-hidden rounded-md border lg:h-[320px]">
+        <div className="bg-muted overflow-hidden rounded-3xl border lg:h-[320px]">
           <img
             src="/images/homepage/cursor-reference/cursor-square-reference-4.png"
             alt="Cursor dashboard screenshot"

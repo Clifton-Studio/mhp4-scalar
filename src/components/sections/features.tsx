@@ -9,10 +9,10 @@ const features = [
     description:
       "Unblock high-velocity development by powering up your local or cloud agents with Maestro's AI toolkit. Let agents efficiently create mobile tests as they code, and automate test repairs and maintenance.",
     image: {
-      src: "/images/homepage/cursor-reference/cursor-reference-3.png",
-      alt: "Cursor search workflow screenshot",
-      width: 484,
-      height: 672,
+      src: "/images/homepage/cursor-reference/terminal-output-wrapped-instruction-light-clean-faded.png",
+      alt: "Terminal output showing a Maestro test planning instruction",
+      width: 438,
+      height: 584,
     },
   },
   {
@@ -21,10 +21,10 @@ const features = [
     description:
       "Maestro flows are defined in human-readable YAML files so you and your agents always track to ground truth, not a black box. Have complete confidence with concrete, auditable tests.",
     image: {
-      src: "/images/homepage/cursor-reference/cursor-reference-2.png",
-      alt: "Cursor agent terminal screenshot",
-      width: 482,
-      height: 670,
+      src: "/images/homepage/cursor-reference/wikipedia-ios-settings-crop-light-clean-faded.png",
+      alt: "Terminal output showing deterministic iOS settings test execution",
+      width: 438,
+      height: 584,
     },
   },
   {
@@ -33,10 +33,10 @@ const features = [
     description:
       "Trusted by thousands of top-tier teams, Maestro is a super-efficient, transparent platform for your QA. Build on a trustworthy foundation dedicated to the agentic future. Extend it yourself if you like.",
     image: {
-      src: "/images/homepage/cursor-reference/cursor-reference-1.png",
-      alt: "Cursor code review screenshot",
-      width: 480,
-      height: 672,
+      src: "/images/homepage/cursor-reference/code-git-clone-crop-light-clean-faded-v2.png",
+      alt: "Terminal output showing a Maestro repository clone",
+      width: 438,
+      height: 584,
     },
   },
 ];
@@ -92,7 +92,7 @@ export function Features() {
                     {feature.description}
                   </p>
                 </div>
-                <div className="bg-muted mt-auto overflow-hidden rounded-md">
+                <div className="bg-muted mt-auto overflow-hidden rounded-l-3xl rounded-r-none border-2 border-white/40">
                   <img
                     src={feature.image.src}
                     alt={feature.image.alt}
