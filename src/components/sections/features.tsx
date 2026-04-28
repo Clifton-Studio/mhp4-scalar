@@ -386,6 +386,122 @@ function AgenticLoopCodeMockup() {
   );
 }
 
+function AgentPlanningCodeMockup() {
+  return (
+    <TerminalCodeMockup ariaLabel="Agent planning Maestro tests for a settings screen">
+      <div className="space-y-3 whitespace-nowrap text-[#3f3f42]">
+        <p className="font-semibold">
+          <span className="text-[#9b9b9b]">&gt; </span>
+          write Maestro tests for the new settings screen, including
+          setting/testing each setting within
+          <br />
+          <span className="pl-[2ch]">with full test plan, pls</span>
+        </p>
+        <p>
+          <span className="text-[#3f3f42]">● </span>
+          Let me look at the live screen and existing Maestro tests to
+          understand what needs testing.
+        </p>
+        <p className="pl-5 text-[#9b9b9b]">
+          Read emulator screen hierarchy, searched for{" "}
+          <span className="font-semibold">1</span> pattern, read{" "}
+          <span className="font-semibold">4</span> files, listed{" "}
+          <span className="font-semibold">1</span> directory
+        </p>
+        <p>
+          <span className="text-[#3f3f42]">● </span>
+          Now I have a clear picture of the settings screen. Let me write a
+          suite of focused Maestro tests.
+        </p>
+        <p>---</p>
+        <p>Here are the tests I propose:</p>
+        <div className="pl-[2ch]">
+          <p className="font-semibold">Structure / Smoke</p>
+          <p>
+            1. <span className="text-[#9997ff]">settings_sections_visible</span>{" "}
+            - scroll through the full screen and assert every section header is
+            present
+          </p>
+        </div>
+        <div className="pl-[2ch]">
+          <p className="font-semibold">Content Correctness</p>
+          <p>
+            2. <span className="text-[#9997ff]">settings_about_shows_version</span>{" "}
+            - About section shows Version and Build rows
+          </p>
+          <p>
+            3. <span className="text-[#9997ff]">settings_voice_section_no_api_key</span>{" "}
+            - voice section shows no voices loaded
+          </p>
+        </div>
+        <div className="pl-[2ch]">
+          <p className="font-semibold">Pickers</p>
+          <p>
+            4. <span className="text-[#9997ff]">settings_sample_rate_picker</span>{" "}
+            - verify sample rate options
+          </p>
+          <p>
+            5. <span className="text-[#9997ff]">settings_effects_profile_picker</span>{" "}
+            - verify effects profile options
+          </p>
+        </div>
+        <div className="pl-[2ch]">
+          <p className="font-semibold">Persistence</p>
+          <p>
+            6. <span className="text-[#9997ff]">settings_toggles_persist</span>{" "}
+            - toggle every switch, restart app, verify saved state
+          </p>
+          <p>
+            7. <span className="text-[#9997ff]">settings_voice_rate_persists</span>{" "}
+            - adjust speaking rate and verify value after relaunch
+          </p>
+          <p>
+            8. <span className="text-[#9997ff]">settings_audio_encoding_persists</span>{" "}
+            - choose MP3 and confirm selection survives restart
+          </p>
+        </div>
+        <div className="pl-[2ch]">
+          <p className="font-semibold">Reset</p>
+          <p>
+            9. <span className="text-[#9997ff]">settings_reset_to_defaults</span>{" "}
+            - reset all TTS settings and verify confirmation
+          </p>
+          <p>
+            10. <span className="text-[#9997ff]">settings_reset_cancel</span>{" "}
+            - cancel reset flow and verify settings remain unchanged
+          </p>
+        </div>
+        <div className="pl-[2ch]">
+          <p className="font-semibold">Navigation</p>
+          <p>
+            11. <span className="text-[#9997ff]">settings_history_button_navigates</span>{" "}
+            - tap History and verify empty state or recent sessions
+          </p>
+          <p>
+            12. <span className="text-[#9997ff]">settings_back_returns_home</span>{" "}
+            - navigate back and assert the home screen is visible
+          </p>
+        </div>
+        <div className="pl-[2ch]">
+          <p className="font-semibold">Accessibility</p>
+          <p>
+            13. <span className="text-[#9997ff]">settings_controls_accessible_labels</span>{" "}
+            - verify controls expose stable accessible labels
+          </p>
+          <p>
+            14. <span className="text-[#9997ff]">settings_dynamic_type_layout</span>{" "}
+            - increase text size and verify rows remain tappable
+          </p>
+          <p>
+            15. <span className="text-[#9997ff]">settings_voiceover_order</span>{" "}
+            - assert VoiceOver traversal follows visual order
+          </p>
+        </div>
+      </div>
+    </TerminalCodeMockup>
+  );
+}
+
 function GitCloneCodeMockup() {
   return (
     <TerminalCodeMockup ariaLabel="Terminal output showing a Maestro repository clone">
@@ -499,7 +615,9 @@ export function Features() {
                   </p>
                 </div>
                 <div className="bg-muted mt-auto mb-4 overflow-hidden rounded-sm rounded-tl-3xl shadow-md">
-                  {index === 1 ? (
+                  {index === 0 ? (
+                    <AgentPlanningCodeMockup />
+                  ) : index === 1 ? (
                     <AgenticLoopCodeMockup />
                   ) : index === 2 ? (
                     <GitCloneCodeMockup />
