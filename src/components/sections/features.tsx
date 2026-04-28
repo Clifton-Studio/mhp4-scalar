@@ -92,7 +92,7 @@ export function Features() {
                     {feature.description}
                   </p>
                 </div>
-                <div className="bg-muted mt-auto overflow-hidden rounded-l-3xl rounded-r-none border-2 border-white/40">
+                <div className="bg-muted mt-auto mb-4 overflow-hidden rounded-l-3xl rounded-r-none shadow-md md:mx-8">
                   <img
                     src={feature.image.src}
                     alt={feature.image.alt}
