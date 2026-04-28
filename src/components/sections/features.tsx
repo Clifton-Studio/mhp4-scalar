@@ -41,8 +41,41 @@ const features = [
   },
 ];
 
+type TerminalCodeRow = {
+  line: string;
+  check: string;
+  content: React.ReactNode;
+};
+
+function TerminalCodeMockup({
+  ariaLabel,
+  children,
+}: {
+  ariaLabel: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div
+      aria-label={ariaLabel}
+      className="relative aspect-[3/4] overflow-hidden bg-[#f8f7f5] text-[#5d5d64]"
+      role="img"
+    >
+      <div className="absolute inset-0 flex flex-col">
+        <div className="flex h-14 shrink-0 items-center gap-3 border-b border-black/5 bg-[#eeecea] px-5">
+          <span className="size-4 rounded-full bg-[#c7c2bb]" />
+          <span className="size-4 rounded-full bg-[#c7c2bb]" />
+          <span className="size-4 rounded-full bg-[#c7c2bb]" />
+        </div>
+        <div className="min-h-0 flex-1 overflow-hidden px-5 py-6 font-mono text-sm leading-[1.45] tracking-normal md:text-xs lg:text-base">
+          {children}
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function AgenticLoopCodeMockup() {
-  const rows = [
+  const rows: TerminalCodeRow[] = [
     {
       line: "1",
       check: "",
@@ -338,31 +371,79 @@ function AgenticLoopCodeMockup() {
   ];
 
   return (
-    <div
-      aria-label="Generated Maestro YAML test"
-      className="relative aspect-[438/584] overflow-hidden bg-[#f8f7f5] text-[#5d5d64]"
-      role="img"
-    >
-      <div className="absolute inset-0 flex flex-col">
-        <div className="flex h-14 shrink-0 items-center gap-3 border-b border-black/5 bg-[#eeecea] px-5">
-          <span className="size-4 rounded-full bg-[#c7c2bb]" />
-          <span className="size-4 rounded-full bg-[#c7c2bb]" />
-          <span className="size-4 rounded-full bg-[#c7c2bb]" />
+    <TerminalCodeMockup ariaLabel="Generated Maestro YAML test">
+      {rows.map((row) => (
+        <div
+          className="grid grid-cols-[1.15rem_1rem_max-content] whitespace-nowrap md:grid-cols-[1.15rem_1.4rem_max-content]"
+          key={row.line}
+        >
+          <span className="text-right text-[#8d8b86]">{row.line}</span>
+          <span className="text-right text-[#229b59]">{row.check}</span>
+          <span className="pl-2 md:pl-3">{row.content}</span>
         </div>
-        <div className="min-h-0 flex-1 overflow-hidden px-5 py-6 font-mono text-sm leading-[1.45] tracking-normal md:text-xs lg:text-base">
-          {rows.map((row) => (
-            <div
-              className="grid grid-cols-[1.15rem_1rem_max-content] whitespace-nowrap md:grid-cols-[1.15rem_1.4rem_max-content]"
-              key={row.line}
-            >
-              <span className="text-right text-[#8d8b86]">{row.line}</span>
-              <span className="text-right text-[#229b59]">{row.check}</span>
-              <span className="pl-2 md:pl-3">{row.content}</span>
-            </div>
-          ))}
-        </div>
+      ))}
+    </TerminalCodeMockup>
+  );
+}
+
+function GitCloneCodeMockup() {
+  return (
+    <TerminalCodeMockup ariaLabel="Terminal output showing a Maestro repository clone">
+      <div className="space-y-0.5 whitespace-nowrap text-[#3f3f42]">
+        <p>
+          <span className="text-[#19834e]">t@macbookpro</span>
+          <span className="text-[#5d5d64]"> </span>
+          <span className="text-[#1e63c8]">Code</span>
+          <span className="text-[#5d5d64]"> % </span>
+          <span className="text-[#3f3f42]">
+            git clone https://github.com/mobile-dev-inc/Maestro.git
+          </span>
+        </p>
+        <p className="text-[#c77722]">---</p>
+        <p>
+          Cloning into <span className="text-[#19834e]">'Maestro'</span>...
+        </p>
+        <p>
+          remote: Enumerating objects:{" "}
+          <span className="text-[#c77722]">32693</span>, done.
+        </p>
+        <p>
+          remote: Counting objects:{" "}
+          <span className="text-[#c77722]">100%</span> (
+          <span className="text-[#c77722]">1379/1379</span>), done.
+        </p>
+        <p>
+          remote: Compressing objects:{" "}
+          <span className="text-[#c77722]">100%</span> (
+          <span className="text-[#c77722]">652/652</span>), done.
+        </p>
+        <p>
+          remote: Total <span className="text-[#c77722]">32693</span> (delta{" "}
+          <span className="text-[#c77722]">1101</span>), reused{" "}
+          <span className="text-[#c77722]">743</span> (delta{" "}
+          <span className="text-[#c77722]">723</span>), pack-reused{" "}
+          <span className="text-[#c77722]">31314</span>
+        </p>
+        <p>
+          Receiving objects: <span className="text-[#c77722]">100%</span> (
+          <span className="text-[#c77722]">32693/32693</span>),{" "}
+          <span className="text-[#c77722]">925.09</span> MiB |{" "}
+          <span className="text-[#c77722]">13.99</span> MiB/s, done.
+        </p>
+        <p>
+          Resolving deltas: <span className="text-[#c77722]">100%</span> (
+          <span className="text-[#c77722]">14496/14496</span>), done.
+        </p>
+        <p className="text-[#c77722]">---</p>
+        <p>
+          <span className="text-[#19834e]">t@macbookpro</span>
+          <span className="text-[#5d5d64]"> </span>
+          <span className="text-[#1e63c8]">Code</span>
+          <span className="text-[#5d5d64]"> % </span>
+          <span className="inline-block h-[1em] w-[0.55em] translate-y-0.5 bg-[#3f3f42]" />
+        </p>
       </div>
-    </div>
+    </TerminalCodeMockup>
   );
 }
 
@@ -420,6 +501,8 @@ export function Features() {
                 <div className="bg-muted mt-auto mb-4 overflow-hidden rounded-sm rounded-tl-3xl shadow-md">
                   {index === 1 ? (
                     <AgenticLoopCodeMockup />
+                  ) : index === 2 ? (
+                    <GitCloneCodeMockup />
                   ) : (
                     <img
                       src={feature.image.src}
