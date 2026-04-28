@@ -242,7 +242,7 @@
   .hero-title-stack {
     display: flex;
     flex-direction: column;
-    gap: var(--hero-overline-gap);
+    gap: 0.5rem;
   }
 
   .trusted-teams-compact {
@@ -253,7 +253,7 @@
   .trusted-teams-stack {
     display: flex;
     flex-direction: column;
-    gap: var(--hero-proof-gap);
+    gap: 1rem;
   }
 
   .hero-video-compact {
@@ -275,6 +275,10 @@
     .hero-video-compact {
       margin-top: 1.5rem;
     }
+
+    .trusted-teams-stack {
+      gap: 1.5rem;
+    }
   }
 
   @media (width >= --theme(--breakpoint-lg)) {
@@ -289,6 +293,10 @@
 
     .trusted-teams-compact {
       margin-top: 2rem;
+    }
+
+    .trusted-teams-stack {
+      gap: 2rem;
     }
 
     .hero-video-compact {
