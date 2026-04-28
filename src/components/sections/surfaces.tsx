@@ -2,9 +2,9 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const surfaces = [
   {
-    title: "Power up your favorite agent",
+    title: "Maestro MCP",
     description:
-      'The agent-first approach. Turn your coding agent into a mobile expert with our official MCP server. Give agents the "eyes and hands" to build and verify E2E coverage locally, fast and efficient, ensuring every change is fully tested before you ever open a PR.',
+      'Power up your favorite agent with our official MCP server. Give agents the "eyes and hands" to build and verify E2E coverage locally, fast and efficient, ensuring every change is fully tested before you ever open a PR.',
     image: {
       src: "/images/homepage/cursor-reference/cursor-square-reference-1.png",
       width: 1300,
@@ -12,9 +12,9 @@ const surfaces = [
     },
   },
   {
-    title: "Build tests in Maestro Studio",
+    title: "Maestro Studio",
     description:
-      'A visual IDE for Mac and Windows that makes manual test creation feel like magic. Contextual autocomplete, "tap-tap-tap" YAML generation, deep selector inspection, and an embedded emulator to fix broken flows or validate agent-generated coverage in seconds.',
+      'Build tests in a visual IDE for Mac and Windows that makes manual test creation feel like magic. Contextual autocomplete, "tap-tap-tap" YAML generation, deep selector inspection, and an embedded emulator.',
     image: {
       src: "/images/homepage/cursor-reference/cursor-square-reference-2.png",
       width: 1300,
@@ -22,9 +22,9 @@ const surfaces = [
     },
   },
   {
-    title: "Use the Maestro CLI",
+    title: "Maestro CLI",
     description:
-      "The lightweight, open-source engine for developers who prefer to bring their own IDE. Use the CLI to run human-readable YAML tests with the fastest, most dependable runner in mobile - whether you're iterating locally or executing at scale in CI.",
+      "The lightweight, open-source engine for developers who prefer to bring their own IDE. Run human-readable YAML tests with the fastest, best runner in mobile - whether iterating locally or executing at scale in CI.",
     image: {
       src: "/images/homepage/cursor-reference/cursor-square-reference-3.png",
       width: 1358,

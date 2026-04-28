@@ -5,9 +5,9 @@ import { Card, CardContent } from "@/components/ui/card";
 const features = [
   {
     icon: SquarePen,
-    title: "Agentic test management",
+    title: "Close the agentic loop",
     description:
-      "Unblock high-velocity development by powering up your local or cloud agents with Maestro's AI toolkit. Let agents efficiently create mobile tests as they code, and automate test repairs and maintenance.",
+      "Unlock high-velocity mobile development by powering up your agents with Maestro's AI toolkit.",
     image: {
       src: "/images/homepage/cursor-reference/terminal-output-wrapped-instruction-light-clean-faded.png",
       alt: "Terminal output showing a Maestro test planning instruction",
@@ -17,9 +17,9 @@ const features = [
   },
   {
     icon: CalendarClock,
-    title: "Deterministic test execution",
+    title: "Generate deterministic E2E tests",
     description:
-      "Maestro flows are defined in human-readable YAML files so you and your agents always track to ground truth, not a black box. Have complete confidence with concrete, auditable tests.",
+      "Maestro tests are human-readable YAML files, not black boxes. Repeatable, auditable, trustworthy.",
     image: {
       src: "/images/homepage/cursor-reference/wikipedia-ios-settings-crop-light-clean-faded.png",
       alt: "Terminal output showing deterministic iOS settings test execution",
@@ -29,9 +29,9 @@ const features = [
   },
   {
     icon: ChartBar,
-    title: "Reliable, open-source framework",
+    title: "Build on open-source integrity",
     description:
-      "Trusted by thousands of top-tier teams, Maestro is a super-efficient, transparent platform for your QA. Build on a trustworthy foundation dedicated to the agentic future. Extend it yourself if you like.",
+      "Extensible and with no vendor lock-in, Maestro is the foundation for thousands of teams’ mobile testing.",
     image: {
       src: "/images/homepage/cursor-reference/code-git-clone-crop-light-clean-faded-v2.png",
       alt: "Terminal output showing a Maestro repository clone",

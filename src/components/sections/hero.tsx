@@ -20,7 +20,7 @@ export function Hero({ compact = false }: HeroProps) {
         <div className={cn(compact ? "hero-intro-stack" : "max-w-4xl space-y-6 md:space-y-8 lg:space-y-12")}>
           <div className={cn(compact ? "hero-title-stack" : "space-y-1")}>
             <p className="section-overline">
-              E2E UI TESTING
+              AGENTIC UI TESTING
             </p>
             <h1 className="text-3xl leading-snug tracking-tighter font-light md:text-4xl lg:text-5xl">
               Go ahead.{" "}
