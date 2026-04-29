@@ -67,6 +67,153 @@ function SurfaceGrainOverlay() {
   );
 }
 
+function DiffLine({
+  line,
+  added,
+  children,
+}: {
+  line: string;
+  added?: boolean;
+  children: React.ReactNode;
+}) {
+  return (
+    <p
+      className={[
+        "flex font-mono text-[0.42rem] leading-[1.55]",
+        added ? "bg-[#e2f4e8]" : "",
+      ].join(" ")}
+    >
+      <span className={["w-3.5 shrink-0 text-right", added ? "text-[#2f9d48]" : "text-[#666]"].join(" ")}>
+        {line}
+      </span>
+      <span className="w-2 shrink-0 text-center text-[#777]">-</span>
+      <span className="min-w-0 flex-1 whitespace-pre">
+        {children}
+      </span>
+    </p>
+  );
+}
+
+const savedFlowDiffCode = `appId: org.wikimedia.wikipedia
+tags:
+  - ios
+---
+
+- launchApp:
+    clearState: true
+- runFlow: subflows/onboarding-ios.yaml
+- runFlow:
+    when:
+      visible:
+        text: Explore your Wikipedia Year in Review
+    commands:
+      - tapOn: Done
+    label: Dismiss Year In Review popup, if visible
+- runFlow:
+    when:
+      visible: "You have been logged out"
+    commands:
+      - tapOn:
+          text: "Continue without logging in"
+    label: Dismiss the auth modal if visible`;
+
+function MaestroMcpMockup() {
+  return (
+    <div
+      aria-label="Agent review interface showing Maestro test changes"
+      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[radial-gradient(ellipse_at_70%_4%,rgba(255,255,255,0.48)_0%,rgba(255,255,255,0.16)_30%,rgba(255,255,255,0.04)_58%,transparent_74%),radial-gradient(ellipse_at_0%_55%,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.1)_30%,transparent_62%),radial-gradient(ellipse_at_88%_84%,rgba(255,255,255,0.24)_0%,rgba(255,255,255,0.08)_34%,transparent_66%),linear-gradient(135deg,#171717_0%,#252525_48%,#111111_100%)] pt-5 pl-5"
+      role="img"
+    >
+      <SurfaceGrainOverlay />
+      <div className="origin-top-left scale-[0.72] sm:scale-[0.76] md:scale-[0.72] lg:scale-100">
+        <div className="h-[320px] w-[340px] overflow-hidden rounded-sm bg-white text-[#252525] shadow-md">
+          <SurfaceWindowTopBar title="Claude Codex" className="!px-2" />
+          <div className="grid h-[304px] min-h-0 grid-cols-[2fr_1fr] text-[0.5rem] leading-[1.45]">
+            <div className="relative flex min-w-0 flex-col overflow-hidden border-r border-black/10 bg-white px-4 py-3">
+              <p className="text-[0.48rem] leading-snug">
+                I’m turning that exact proof into an iOS Maestro test now, with the one-time education popups handled so it can run from clean state.
+              </p>
+              <p className="mt-2.5 text-[#a0a0a0]">
+                Explored 2 files, 2 searches, 1 list
+              </p>
+              <p className="mt-2.5 text-[0.46rem] leading-snug">
+                I’m adding a dedicated <span className="rounded bg-black/5 px-1 font-mono">ios-saved-flow.yaml</span> rather than burying this inside the general smoke flow.
+              </p>
+              <p className="mt-2.5 text-[#a0a0a0]">
+                Created 1 file, edited 1 file
+              </p>
+              <p className="mt-2.5 text-[0.46rem] leading-snug">
+                The new flow is in place and wired into <span className="rounded bg-black/5 px-1 font-mono">ios-advanced-flow.yaml</span>. I’m going to syntax-check it, then run the dedicated Saved flow.
+              </p>
+              <p className="mt-2.5 text-[#a0a0a0]">
+                Used Maestro MCP to inspect emulator hierarchy
+              </p>
+              <p className="mt-2.5 text-[0.46rem] leading-snug">
+                I can see the onboarding card and the logged-out modal. I’m adding guarded <span className="rounded bg-black/5 px-1 font-mono">runFlow</span> steps so the test handles either clean or warm app state.
+              </p>
+              <p className="mt-2.5 text-[#a0a0a0]">
+                Tapped through emulator prompts, ran 1 flow
+              </p>
+              <p className="mt-2.5 text-[0.46rem] leading-snug">
+                The Saved tab is reachable now. I’m asserting the article appears after restart so the test proves persistence, not just a successful tap.
+              </p>
+              <div className="absolute right-4 bottom-4 left-4 rounded-xl border border-black/10 bg-white/95 px-3 py-1.5 text-[#b8b8b8] shadow-lg">
+                Ask for follow-up changes
+              </div>
+            </div>
+            <div className="min-w-0 overflow-hidden bg-[#fbfbfb] px-2 py-3">
+              <div className="mb-4 flex items-center gap-1.5 text-[0.46rem]">
+                <span className="text-[#8d8b86]">Summary</span>
+                <span className="rounded-md bg-black/6 px-1.5 py-0.5 font-medium">Review</span>
+                <span className="ml-auto text-[#2f9d48]">+72</span>
+                <span className="text-[#b5392f]">-0</span>
+              </div>
+              <div className="mb-5">
+                <p className="mb-2 text-[0.46rem] font-medium">
+                  ios-advanced-flow.yaml <span className="text-[#2f9d48]">+1</span> <span className="text-[#b5392f]">-0</span>
+                </p>
+                <p className="mb-2 text-[0.46rem] text-[#8d8b86]">39 unmodified lines</p>
+                <div className="overflow-hidden">
+                  <DiffLine line="40">
+                    <span className="text-[#c8493f]">eraseText</span>
+                  </DiffLine>
+                  <DiffLine line="41">
+                    <span className="text-[#c8493f]">inputText</span>
+                    <span>: </span>
+                    <span className="text-[#19834e]">qwerty</span>
+                  </DiffLine>
+                  <DiffLine line="42">
+                    <span className="text-[#c8493f]">assertVisible</span>
+                    <span>: </span>
+                    <span className="text-[#19834e]">${"{output.result}"}</span>
+                  </DiffLine>
+                  <DiffLine line="43" added>
+                    <span className="text-[#c8493f]">runFlow</span>
+                    <span>: </span>
+                    <span className="text-[#19834e]">ios-saved-flow.yaml</span>
+                  </DiffLine>
+                </div>
+              </div>
+              <div>
+                <p className="mb-2 text-[0.46rem] font-medium">
+                  ios-saved-flow.yaml <span className="text-[#2f9d48]">+71</span> <span className="text-[#b5392f]">-0</span>
+                </p>
+                <div className="overflow-hidden bg-[#e2f4e8]">
+                  {savedFlowDiffCode.split("\n").map((line, index) => (
+                    <DiffLine added key={`${index}-${line}`} line={`${index + 1}`}>
+                      <HighlightedYamlLine line={line} />
+                    </DiffLine>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function StudioCodeLine({
   line,
   children,
@@ -433,7 +580,9 @@ export function Surfaces() {
             >
               <CardContent className="flex h-full flex-col gap-6">
                 <div className="bg-muted overflow-hidden rounded-md border">
-                  {index === 1 ? (
+                  {index === 0 ? (
+                    <MaestroMcpMockup />
+                  ) : index === 1 ? (
                     <MaestroStudioMockup />
                   ) : index === 2 ? (
                     <CliSurfaceMockup />
