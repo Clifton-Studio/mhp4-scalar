@@ -599,7 +599,7 @@ export function Features() {
             <Card
               key={feature.title}
               className={[
-                "rounded-none border-x-0 border-y-0 shadow-none",
+                "overflow-hidden rounded-none border-x-0 border-y-0 shadow-none",
                 index > 0 ? "md:border-l" : "",
                 index > 0 ? "border-t md:border-t-0" : "",
               ].join(" ")}
@@ -614,22 +614,24 @@ export function Features() {
                     {feature.description}
                   </p>
                 </div>
-                <div className="bg-muted mt-auto mb-4 overflow-hidden rounded-sm rounded-tl-3xl shadow-md">
-                  {index === 0 ? (
-                    <AgentPlanningCodeMockup />
-                  ) : index === 1 ? (
-                    <AgenticLoopCodeMockup />
-                  ) : index === 2 ? (
-                    <GitCloneCodeMockup />
-                  ) : (
-                    <img
-                      src={feature.image.src}
-                      alt={feature.image.alt}
-                      width={feature.image.width}
-                      height={feature.image.height}
-                      className="h-auto w-full"
-                    />
-                  )}
+                <div className="mt-auto -mr-4 -mb-4 ml-4">
+                  <div className="bg-muted overflow-hidden rounded-sm rounded-tl-3xl shadow-md">
+                    {index === 0 ? (
+                      <AgentPlanningCodeMockup />
+                    ) : index === 1 ? (
+                      <AgenticLoopCodeMockup />
+                    ) : index === 2 ? (
+                      <GitCloneCodeMockup />
+                    ) : (
+                      <img
+                        src={feature.image.src}
+                        alt={feature.image.alt}
+                        width={feature.image.width}
+                        height={feature.image.height}
+                        className="h-auto w-full"
+                      />
+                    )}
+                  </div>
                 </div>
               </CardContent>
             </Card>
