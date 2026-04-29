@@ -29,10 +29,13 @@ export function HeroVideo({ compact = false }: HeroVideoProps) {
   return (
     <section className="relative overflow-hidden">
       <div className={cn("bordered-div-padding !pt-0", compact && "hero-video-compact")}>
-        <div className="mx-auto w-full max-w-[1000px] overflow-hidden rounded-[24px] border p-1 shadow-lg md:rounded-[40px]">
+        <p className="section-overline mb-4 text-center md:mb-6 lg:mb-8">
+          Maestro in action
+        </p>
+        <div className="mx-auto w-full max-w-[1000px] overflow-hidden rounded-[24px] md:rounded-[40px]">
           <button
             type="button"
-            className="aspect-4/3 w-full cursor-pointer overflow-hidden rounded-[20px] bg-black text-left md:rounded-[36px]"
+            className="block aspect-4/3 w-full cursor-pointer overflow-hidden rounded-[24px] border-0 bg-black p-0 text-left md:rounded-[40px]"
             onClick={togglePlayback}
             aria-label="Pause or play the demo video"
           >
@@ -40,7 +43,7 @@ export function HeroVideo({ compact = false }: HeroVideoProps) {
               ref={videoRef}
               src="/videos/homepage/todoist-no-bg.mp4"
               title="Maestro demo"
-              className="h-full w-full object-contain"
+              className="block h-full w-full transform-gpu object-contain"
               autoPlay
               loop
               muted
