@@ -121,7 +121,7 @@ function MaestroMcpMockup() {
   return (
     <div
       aria-label="Agent review interface showing Maestro test changes"
-      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[radial-gradient(ellipse_at_70%_4%,rgba(255,255,255,0.48)_0%,rgba(255,255,255,0.16)_30%,rgba(255,255,255,0.04)_58%,transparent_74%),radial-gradient(ellipse_at_0%_55%,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.1)_30%,transparent_62%),radial-gradient(ellipse_at_88%_84%,rgba(255,255,255,0.24)_0%,rgba(255,255,255,0.08)_34%,transparent_66%),linear-gradient(135deg,#171717_0%,#252525_48%,#111111_100%)] pt-5 pl-5"
+      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[radial-gradient(ellipse_at_58%_-8%,rgba(255,239,212,0.7)_0%,rgba(242,205,163,0.3)_28%,rgba(255,255,255,0.07)_56%,transparent_76%),radial-gradient(ellipse_at_0%_54%,rgba(226,183,134,0.4)_0%,rgba(226,183,134,0.14)_34%,transparent_64%),radial-gradient(ellipse_at_88%_88%,rgba(255,223,185,0.22)_0%,rgba(255,223,185,0.08)_36%,transparent_68%),linear-gradient(135deg,#332923_0%,#44382f_46%,#241f1b_100%)] pt-5 pl-5"
       role="img"
     >
       <SurfaceGrainOverlay />
@@ -162,17 +162,17 @@ function MaestroMcpMockup() {
               </div>
             </div>
             <div className="min-w-0 overflow-hidden bg-[#fbfbfb] px-2 py-3">
-              <div className="mb-4 flex items-center gap-1.5 text-[0.46rem]">
+              <div className="mb-4 flex items-center gap-1 text-[0.4rem]">
                 <span className="text-[#8d8b86]">Summary</span>
-                <span className="rounded-md bg-black/6 px-1.5 py-0.5 font-medium">Review</span>
+                <span className="rounded-md bg-black/6 px-1 py-0.5 font-medium">Review</span>
                 <span className="ml-auto text-[#2f9d48]">+72</span>
                 <span className="text-[#b5392f]">-0</span>
               </div>
               <div className="mb-5">
-                <p className="mb-2 text-[0.46rem] font-medium">
+                <p className="mb-2 text-[0.4rem] font-medium">
                   ios-advanced-flow.yaml <span className="text-[#2f9d48]">+1</span> <span className="text-[#b5392f]">-0</span>
                 </p>
-                <p className="mb-2 text-[0.46rem] text-[#8d8b86]">39 unmodified lines</p>
+                <p className="mb-2 text-[0.4rem] text-[#8d8b86]">39 unmodified lines</p>
                 <div className="overflow-hidden">
                   <DiffLine line="40">
                     <span className="text-[#c8493f]">eraseText</span>
@@ -195,7 +195,7 @@ function MaestroMcpMockup() {
                 </div>
               </div>
               <div>
-                <p className="mb-2 text-[0.46rem] font-medium">
+                <p className="mb-2 text-[0.4rem] font-medium">
                   ios-saved-flow.yaml <span className="text-[#2f9d48]">+71</span> <span className="text-[#b5392f]">-0</span>
                 </p>
                 <div className="overflow-hidden bg-[#e2f4e8]">
@@ -334,7 +334,7 @@ function MaestroStudioMockup() {
   return (
     <div
       aria-label="Maestro Studio interface showing a simulator and YAML editor"
-      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[radial-gradient(ellipse_at_18%_8%,rgba(255,255,255,0.5)_0%,rgba(255,255,255,0.18)_28%,rgba(255,255,255,0.04)_54%,transparent_72%),radial-gradient(ellipse_at_86%_28%,rgba(255,255,255,0.24)_0%,rgba(255,255,255,0.08)_34%,transparent_64%),radial-gradient(ellipse_at_36%_92%,rgba(255,255,255,0.22)_0%,rgba(255,255,255,0.08)_34%,transparent_66%),linear-gradient(135deg,#202020_0%,#151515_48%,#2a2a2a_100%)] pt-5 pl-5"
+      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[radial-gradient(ellipse_at_18%_8%,rgba(255,238,210,0.48)_0%,rgba(255,206,156,0.18)_30%,rgba(255,255,255,0.04)_56%,transparent_74%),radial-gradient(ellipse_at_86%_26%,rgba(207,169,126,0.28)_0%,rgba(207,169,126,0.1)_36%,transparent_66%),radial-gradient(ellipse_at_34%_92%,rgba(255,231,190,0.22)_0%,rgba(255,231,190,0.08)_34%,transparent_66%),linear-gradient(135deg,#2a211b_0%,#171514_50%,#3a3028_100%)] pt-5 pl-5"
       role="img"
     >
       <SurfaceGrainOverlay />
@@ -418,7 +418,7 @@ function CliSurfaceMockup() {
   return (
     <div
       aria-label="Terminal output showing Maestro CLI help"
-      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[radial-gradient(ellipse_at_42%_-10%,rgba(255,255,255,0.58)_0%,rgba(255,255,255,0.24)_24%,rgba(255,255,255,0.06)_48%,transparent_68%),radial-gradient(ellipse_at_6%_34%,rgba(255,255,255,0.34)_0%,rgba(255,255,255,0.12)_28%,transparent_58%),radial-gradient(ellipse_at_80%_86%,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.1)_34%,transparent_64%),linear-gradient(135deg,#181818_0%,#242424_46%,#151515_100%)] pt-8 pl-8"
+      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[radial-gradient(ellipse_at_34%_-14%,rgba(255,231,196,0.84)_0%,rgba(232,180,126,0.34)_23%,rgba(255,255,255,0.05)_46%,transparent_66%),radial-gradient(ellipse_at_-8%_44%,rgba(235,190,140,0.48)_0%,rgba(235,190,140,0.15)_28%,transparent_56%),radial-gradient(ellipse_at_94%_78%,rgba(255,214,172,0.42)_0%,rgba(255,214,172,0.13)_32%,transparent_62%),linear-gradient(135deg,#130d0a_0%,#281d16_44%,#090706_100%)] pt-8 pl-8"
       role="img"
     >
       <div

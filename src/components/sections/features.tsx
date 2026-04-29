@@ -605,7 +605,7 @@ export function Features() {
               ].join(" ")}
             >
               <CardContent className="flex h-full flex-col gap-6">
-                <div className="space-y-4">
+                <div className="space-y-4 pt-2">
                   <h4 className="card-heading flex items-center gap-2">
                     <feature.icon className="size-5" />
                     {feature.title}
