@@ -1,11 +1,51 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import { FaDiscord, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
+import { FaGithub, FaSlack, FaXTwitter } from "react-icons/fa6";
 
 import Logo from "@/components/layout/logo";
 import { EXTERNAL_LINKS } from "@/constants/external-links";
 import { cn } from "@/lib/utils";
+
+const footerLinkGroups = [
+  {
+    title: "Product",
+    links: [
+      { label: "Maestro Studio", href: EXTERNAL_LINKS.STUDIO },
+      { label: "Maestro CLI", href: EXTERNAL_LINKS.CLI },
+      { label: "Cloud", href: EXTERNAL_LINKS.CLOUD },
+      { label: "Pricing", href: EXTERNAL_LINKS.PRICING },
+    ],
+  },
+  {
+    title: "Resources",
+    links: [
+      { label: "Documentation", href: EXTERNAL_LINKS.DOCS },
+      { label: "Blog", href: EXTERNAL_LINKS.BLOG },
+      { label: "Playground", href: EXTERNAL_LINKS.PLAYGROUND },
+    ],
+  },
+  {
+    title: "Community",
+    links: [
+      { label: "GitHub", href: EXTERNAL_LINKS.GITHUB_REPO },
+      { label: "Slack", href: EXTERNAL_LINKS.SLACK },
+      { label: "X/Twitter", href: EXTERNAL_LINKS.TWITTER },
+      { label: "Email us", href: EXTERNAL_LINKS.EMAIL },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Terms of Service", href: "/terms-of-service" },
+      { label: "Privacy Notice", href: "/privacy-policy" },
+    ],
+  },
+];
+
+function isExternalLink(href: string) {
+  return href.startsWith("http") || href.startsWith("mailto:");
+}
 
 const Footer = () => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
@@ -58,24 +98,29 @@ const Footer = () => {
     "w-[min(100%,400px)] translate-y-1/4 md:translate-y-1/3 md:h-32 md:w-full lg:h-73 opacity-10",
     mounted && theme === "dark" ? "invert-0" : "invert",
   );
+  const smallLogoClass = cn(
+    "h-4 w-auto",
+    mounted && theme === "dark" ? "invert-0" : "invert",
+  );
 
   return (
     <footer className={cn("overflow-hidden", themeClass)}>
       <div className="container">
-        {/* Social Section */}
-        <div className="flex flex-col justify-between border-x border-b md:flex-row">
-          <div className="bordered-div-padding flex items-center space-x-3">
+        <div className="grid border-x border-b md:grid-cols-[1fr_2fr]">
+          <div className="bordered-div-padding flex flex-col justify-between gap-8 border-b md:border-r md:border-b-0">
+            <Logo href="/" wordmarkClassName={smallLogoClass} />
+            <div className="flex items-center space-x-3">
             <a
-              href={EXTERNAL_LINKS.DISCORD}
+              href={EXTERNAL_LINKS.SLACK}
               className="px-3 py-2.5 transition-opacity hover:opacity-80"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Discord"
+              aria-label="Slack"
             >
-              <FaDiscord className="size-5" />
+              <FaSlack className="size-5" />
             </a>
             <a
-              href={EXTERNAL_LINKS.GITHUB}
+              href={EXTERNAL_LINKS.GITHUB_REPO}
               className="px-3 py-2.5 transition-opacity hover:opacity-80"
               target="_blank"
               rel="noopener noreferrer"
@@ -92,33 +137,37 @@ const Footer = () => {
             >
               <FaXTwitter className="size-5" />
             </a>
-            <a
-              href={EXTERNAL_LINKS.LINKEDIN}
-              className="px-3 py-2.5 transition-opacity hover:opacity-80"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="LinkedIn"
-            >
-              <FaLinkedin className="size-5" />
-            </a>
+            </div>
           </div>
-        </div>
+          <div className="bordered-div-padding grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {footerLinkGroups.map((group) => (
+              <div key={group.title}>
+                <h2 className="text-sm font-medium">{group.title}</h2>
+                <ul className="text-muted-foreground mt-4 space-y-3 text-sm">
+                  {group.links.map((link) => {
+                    const external = isExternalLink(link.href);
 
-        {/* Legal Links Section */}
-        <div className="bordered-div-padding text-muted-foreground flex items-center justify-center space-x-6 border-x border-b text-sm">
-          <a
-            href="/privacy-policy"
-            className="hover:text-foreground transition-opacity hover:opacity-80"
-          >
-            Privacy Policy
-          </a>
-          <span className="text-border">•</span>
-          <a
-            href="/terms-of-service"
-            className="hover:text-foreground transition-opacity hover:opacity-80"
-          >
-            Terms of Service
-          </a>
+                    return (
+                      <li key={link.href}>
+                        <a
+                          href={link.href}
+                          className="hover:text-foreground transition-opacity hover:opacity-80"
+                          {...(external
+                            ? {
+                                target: "_blank",
+                                rel: "noopener noreferrer",
+                              }
+                            : {})}
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Large Logo */}

@@ -2,15 +2,19 @@
  * External links used throughout the application
  */
 export const EXTERNAL_LINKS = {
-  // Social media
-  DISCORD: 'https://www.shadcnblocks.com/',
-  GITHUB: 'https://www.shadcnblocks.com/',
-  TWITTER: 'https://www.shadcnblocks.com/',
-  LINKEDIN: 'https://www.shadcnblocks.com/',
+  DOCS: 'https://docs.maestro.dev',
+  CLOUD: 'https://maestro.dev/cloud',
+  BLOG: 'https://maestro.dev/blog',
+  PRICING: 'https://maestro.dev/pricing',
+  STUDIO: 'https://studio.maestro.dev',
+  CLI: 'https://docs.maestro.dev/maestro-cli/how-to-install-maestro-cli',
+  PLAYGROUND: 'https://playground.maestro.dev',
 
   // Contact
-  EMAIL: 'mailto:team@scalar.com',
+  EMAIL: 'mailto:hello@mobile.dev',
 
-  // Open Source
-  GITHUB_REPO: 'https://www.shadcnblocks.com/',
+  // Community
+  SLACK: 'https://slack.maestro.dev',
+  TWITTER: 'https://x.com/maestro__dev',
+  GITHUB_REPO: 'https://github.com/mobile-dev-inc/maestro',
 };

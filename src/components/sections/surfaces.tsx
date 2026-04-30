@@ -1,10 +1,15 @@
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const surfaces = [
   {
     title: "Maestro MCP",
     description:
       'Power up your favorite agent with our official MCP server. Give agents the "eyes and hands" to build and verify E2E coverage locally, fast and efficient, ensuring every change is fully tested before you ever open a PR.',
+    cta: {
+      label: "Install",
+      href: "https://docs.maestro.dev/get-started/maestro-mcp",
+    },
     image: {
       src: "/images/homepage/cursor-reference/cursor-square-reference-1.png",
       width: 1300,
@@ -15,6 +20,10 @@ const surfaces = [
     title: "Maestro Studio",
     description:
       'Build tests in a visual IDE for Mac and Windows that makes manual test creation feel like magic. Contextual autocomplete, "tap-tap-tap" YAML generation, deep selector inspection, and an embedded emulator.',
+    cta: {
+      label: "Download",
+      href: "https://docs.maestro.dev/maestro-studio/run-tests-with-maestro-studio",
+    },
     image: {
       src: "/images/homepage/cursor-reference/cursor-square-reference-2.png",
       width: 1300,
@@ -25,6 +34,10 @@ const surfaces = [
     title: "Maestro CLI",
     description:
       "The lightweight, open-source engine for developers who prefer to bring their own IDE. Run human-readable YAML tests with the fastest, best runner in mobile - whether iterating locally or executing at scale in CI.",
+    cta: {
+      label: "Install",
+      href: "https://docs.maestro.dev/maestro-cli/how-to-install-maestro-cli",
+    },
     image: {
       src: "/images/homepage/cursor-reference/cursor-square-reference-3.png",
       width: 1358,
@@ -603,6 +616,13 @@ export function Surfaces() {
                   <p className="text-muted-foreground mt-3 text-sm leading-relaxed">
                     {surface.description}
                   </p>
+                  <div className="mt-5 flex justify-center">
+                    <Button asChild>
+                      <a href={surface.cta.href} target="_blank" rel="noreferrer">
+                        {surface.cta.label}
+                      </a>
+                    </Button>
+                  </div>
                 </div>
               </CardContent>
             </Card>

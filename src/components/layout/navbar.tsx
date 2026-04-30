@@ -3,10 +3,12 @@
 import * as React from "react";
 
 import { motion, AnimatePresence } from "motion/react";
+import { FaGithub } from "react-icons/fa6";
 
 import { ThemeToggle } from "@/components/elements/theme-toggle";
 import Logo from "@/components/layout/logo";
 import { Button } from "@/components/ui/button";
+import { EXTERNAL_LINKS } from "@/constants/external-links";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -118,6 +120,7 @@ function Navbar({ currentPage }: NavbarProps) {
 
           {/* Hamburger Menu Button (Mobile Only) */}
           <div className="ml-auto flex flex-1 items-center justify-end gap-2 lg:hidden">
+            <GitHubLink className="h-8 w-8 p-0" />
             <ThemeToggle className="h-8 w-8 p-0 lg:hidden" />
 
             <Button
@@ -231,11 +234,28 @@ function Navbar({ currentPage }: NavbarProps) {
 
 const NavBarAction = () => {
   return (
-    <div className="bordered-div-padding flex items-center justify-between border lg:border-none lg:!p-0">
+    <div className="bordered-div-padding flex items-center justify-between gap-2 border lg:border-none lg:!p-0">
+      <GitHubLink className="hidden lg:inline-flex" />
       <ThemeToggle className="hidden lg:block" />
     </div>
   );
 };
+
+function GitHubLink({ className }: { className?: string }) {
+  return (
+    <Button asChild variant="ghost" size="sm" className={cn("gap-1.5 rounded-md px-2", className)}>
+      <a
+        href={EXTERNAL_LINKS.GITHUB_REPO}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="GitHub"
+      >
+        <FaGithub className="size-4" />
+        <span className="text-sm font-normal">13.8k</span>
+      </a>
+    </Button>
+  );
+}
 
 function MobileNavItem({
   item,
