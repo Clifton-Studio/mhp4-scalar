@@ -614,7 +614,7 @@ export function Features() {
                     {feature.description}
                   </p>
                 </div>
-                <div className="mt-auto -mr-4 -mb-4 ml-4">
+                <div className="mt-auto -mr-5 -mb-4 ml-5">
                   <div className="bg-muted overflow-hidden rounded-sm rounded-tl-3xl shadow-md">
                     {index === 0 ? (
                       <AgentPlanningCodeMockup />

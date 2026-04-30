@@ -42,7 +42,7 @@ const roadmapItems: RoadmapItem[] = [
     date: 'Beta by May 2025',
     team: {
       name: 'Core Team',
-      image: '/layout/logo-icon.svg',
+      image: '/layout/maestro-logo.svg',
     },
   },
   {
@@ -52,7 +52,7 @@ const roadmapItems: RoadmapItem[] = [
     date: 'Q2 2025',
     team: {
       name: 'Core Team',
-      image: '/layout/logo-icon.svg',
+      image: '/layout/maestro-logo.svg',
     },
   },
   {
@@ -96,7 +96,7 @@ const roadmapItems: RoadmapItem[] = [
     date: 'March 2025',
     team: {
       name: 'Core Team',
-      image: '/layout/logo-icon.svg',
+      image: '/layout/maestro-logo.svg',
     },
   },
   {
@@ -118,7 +118,7 @@ const roadmapItems: RoadmapItem[] = [
     date: 'January 2025',
     team: {
       name: 'Core Team',
-      image: '/layout/logo-icon.svg',
+      image: '/layout/maestro-logo.svg',
     },
   },
 ];

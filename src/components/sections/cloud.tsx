@@ -23,6 +23,115 @@ const cloudFeatures = [
   },
 ];
 
+const dashboardRows = [
+  ["Today, 10:42 AM", "wikipedia-ios", "iOS", "iPhone 17 Pro / iOS 26.2", "3m 18s", "24 success / 0 failure"],
+  ["Today, 10:31 AM", "checkout-android", "Android", "Pixel 9 / API 36", "5m 04s", "18 success / 0 failure"],
+  ["Today, 10:18 AM", "maps-regression", "iOS", "iPad Air / iOS 26.2", "4m 46s", "21 success / 2 failure"],
+  ["Today, 10:02 AM", "settings-smoke", "Android", "Galaxy S25 / API 35", "2m 12s", "16 success / 0 failure"],
+  ["Today, 9:49 AM", "release-candidate", "Mixed", "24-device matrix", "6m 38s", "29 success / 0 failure"],
+  ["Today, 9:34 AM", "onboarding-flow", "iOS", "iPhone SE / iOS 25.6", "1m 54s", "12 success / 0 failure"],
+  ["Today, 9:17 AM", "profile-tests", "Android", "Pixel Fold / API 36", "3m 52s", "20 success / 0 failure"],
+  ["Today, 8:59 AM", "search-suite", "iOS", "iPhone 16 / iOS 26.0", "2m 43s", "15 success / 0 failure"],
+  ["Today, 8:41 AM", "payments-smoke", "Android", "Galaxy Tab S10 / API 35", "6m 11s", "27 success / 0 failure"],
+  ["Today, 8:22 AM", "saved-items", "iOS", "iPad Pro / iOS 26.2", "4m 09s", "19 success / 0 failure"],
+  ["Today, 8:05 AM", "auth-regression", "Android", "Pixel 8 / API 35", "5m 31s", "23 success / 0 failure"],
+  ["Yesterday, 5:48 PM", "notifications", "iOS", "iPhone 15 / iOS 25.7", "2m 27s", "14 success / 0 failure"],
+  ["Yesterday, 5:21 PM", "article-reader", "Android", "OnePlus 13 / API 36", "3m 06s", "22 success / 0 failure"],
+  ["Yesterday, 4:56 PM", "deep-links", "iOS", "iPhone 17 Pro / iOS 26.2", "1m 38s", "11 success / 0 failure"],
+  ["Yesterday, 4:30 PM", "nightly-matrix", "Mixed", "18-device matrix", "6m 55s", "30 success / 0 failure"],
+];
+
+function CloudDashboardMockup() {
+  return (
+    <div
+      aria-label="Maestro Cloud dashboard showing agent usage metrics"
+      className="relative aspect-square overflow-hidden bg-[radial-gradient(ellipse_at_18%_8%,rgba(255,238,210,0.48)_0%,rgba(255,206,156,0.18)_30%,rgba(255,255,255,0.04)_56%,transparent_74%),radial-gradient(ellipse_at_86%_26%,rgba(207,169,126,0.28)_0%,rgba(207,169,126,0.1)_36%,transparent_66%),radial-gradient(ellipse_at_34%_92%,rgba(255,231,190,0.22)_0%,rgba(255,231,190,0.08)_34%,transparent_66%),linear-gradient(135deg,#2a211b_0%,#171514_50%,#3a3028_100%)] lg:aspect-auto lg:h-full"
+      role="img"
+    >
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.18] mix-blend-screen"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.72'/%3E%3C/svg%3E\")",
+        }}
+        aria-hidden="true"
+      />
+      <div className="@container absolute top-[5%] left-[5%] aspect-[1040/1440] w-[90%] overflow-hidden rounded-[1.15cqw] border border-black/10 bg-[#f7f7f4] shadow-2xl [container-type:inline-size]">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="flex h-[4.65cqw] items-center border-b border-black/5 bg-[#eeecea] px-[2.31cqw]">
+            <div className="flex items-center gap-[1.14cqw]">
+              <span className="size-[1.48cqw] rounded-full bg-[#c7c2bb]" />
+              <span className="size-[1.48cqw] rounded-full bg-[#c7c2bb]" />
+              <span className="size-[1.48cqw] rounded-full bg-[#c7c2bb]" />
+            </div>
+            <p className="mx-auto text-[1.62cqw] leading-none font-medium tracking-normal text-[#8d8b86]">app.maestro.dev/test-runs</p>
+          </div>
+        <div className="flex h-[5.45cqw] items-center gap-[3.08cqw] border-b border-black/10 px-[2.69cqw] text-[1.35cqw]">
+          <img className="h-[1.25cqw] w-auto" src="/layout/maestro-logo.svg" alt="Maestro" />
+          <span>Dashboard</span>
+          <span className="flex h-full items-center border-b-[0.19cqw] border-[#24241f] font-semibold">Test runs</span>
+        </div>
+        <div className="px-[3.08cqw] pt-[3.46cqw]">
+          <div className="grid grid-cols-4 gap-[2.5cqw]">
+            {[
+              ["Total flow runs", "3069", "+1% m/m"],
+              ["Average run time", "3min", ""],
+              ["Failed flow runs", "23", ""],
+              ["Passing rate", "99.25%", "+1% m/m"],
+            ].map(([label, value, delta]) => (
+              <div className="rounded-[1.92cqw] border border-black/10 bg-white p-[1.73cqw]" key={label}>
+                <p className="text-[1.35cqw] leading-none font-semibold text-[#5d5a6f]">{label}</p>
+                <p className="mt-[1.15cqw] flex items-baseline text-[3.08cqw] leading-none font-semibold text-[#161229]">
+                  <span>{value}</span>
+                  {delta ? <span className="ml-[0.77cqw] text-[1.15cqw] font-semibold text-[#4fa365]">{delta}</span> : null}
+                </p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-[3.46cqw] rounded-[1.92cqw] border border-black/10 bg-white px-[1.92cqw] pt-[1.92cqw] pb-[2.69cqw]">
+            <p className="text-[1.35cqw] leading-none font-semibold text-[#5d5a6f]">Run history</p>
+            <div className="mt-[1.35cqw] h-[14.62cqw]">
+              <svg className="h-full w-full" viewBox="0 0 940 190" preserveAspectRatio="none" aria-hidden="true">
+                <path
+                  d="M0 28 L90 26 L167 27 L171 82 L175 28 L285 27 L350 30 L412 25 L513 26 L517 108 L521 27 L650 24 L736 26 L812 25 L876 29 L940 27 L940 190 L0 190 Z"
+                  fill="#dceaff"
+                />
+                <path
+                  d="M0 28 L90 26 L167 27 L171 82 L175 28 L285 27 L350 30 L412 25 L513 26 L517 108 L521 27 L650 24 L736 26 L812 25 L876 29 L940 27"
+                  fill="none"
+                  stroke="#8fb5ff"
+                  strokeWidth="3"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+        <div className="px-[2.69cqw] py-[1.92cqw]">
+          <div className="grid grid-cols-[1.15fr_1.1fr_0.65fr_1.45fr_0.75fr_1fr] border-b border-black/5 pb-[1.15cqw] text-[1.35cqw] font-semibold text-[#2c2c2a]">
+            <span>Run start</span>
+            <span>Workspace</span>
+            <span>OS</span>
+            <span>Device config</span>
+            <span>Duration</span>
+            <span>Results</span>
+          </div>
+          {dashboardRows.map(([runStart, workspace, os, device, duration, results]) => (
+            <div className="grid grid-cols-[1.15fr_1.1fr_0.65fr_1.45fr_0.75fr_1fr] border-b border-black/5 py-[1.15cqw] text-[1.35cqw] font-normal text-[#777]" key={`${runStart}-${workspace}`}>
+              <span className="text-[#777]">{runStart}</span>
+              <span>{workspace}</span>
+              <span>{os}</span>
+              <span className="text-[#777]">{device}</span>
+              <span className="text-[#777]">{duration}</span>
+              <span className={results.includes("2 failure") ? "text-[#b43a34]" : "text-[#1f8a67]"}>{results}</span>
+            </div>
+          ))}
+        </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function Cloud() {
   return (
     <section id="cloud">
@@ -55,13 +164,7 @@ export function Cloud() {
 
       <div className="bordered-div-padding !pt-6 !pb-10 md:!pt-7 md:!pb-[50px] lg:!pt-8 lg:!pb-[60px]">
         <div className="bg-muted overflow-hidden rounded-3xl border lg:h-[320px]">
-          <img
-            src="/images/homepage/cursor-reference/cursor-square-reference-4.png"
-            alt="Cursor dashboard screenshot"
-            width={1200}
-            height={1200}
-            className="h-auto w-full lg:h-full lg:object-cover lg:object-top"
-          />
+          <CloudDashboardMockup />
         </div>
 
         <div className="mt-8 grid gap-8 md:grid-cols-3">
