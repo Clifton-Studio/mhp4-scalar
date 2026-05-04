@@ -2,6 +2,8 @@
 
 import { useEffect, useState, useRef } from 'react';
 
+import { Moon01Icon, Sun03Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 import { motion as m } from 'motion/react';
 
 import { Button } from '@/components/ui/button';
@@ -97,17 +99,9 @@ export function ThemeToggle({ className }: ThemeToggleProps = {}) {
       className={cn('flex rounded-md px-4 py-0 lg:px-2', className)}
       size="sm"
     >
-      <div className="relative size-4">
+      <div className="relative size-5">
         {/* Sun Icon */}
-        <m.svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+        <m.span
           className="absolute inset-0"
           initial={{ opacity: 0, scale: 0.8, rotate: -90 }}
           animate={{
@@ -117,36 +111,15 @@ export function ThemeToggle({ className }: ThemeToggleProps = {}) {
           }}
           transition={{ duration: 0.4 }}
         >
-          <circle cx="12" cy="12" r="4" />
-          <m.g
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{
-              opacity: theme === 'light' ? 1 : 0,
-              scale: theme === 'light' ? 1 : 0.8,
-            }}
-            transition={{ duration: 0.3, delay: 0.1 }}
-          >
-            <m.path d="M12 2v2" />
-            <m.path d="M12 20v2" />
-            <m.path d="M4.93 4.93l1.41 1.41" />
-            <m.path d="M17.66 17.66l1.41 1.41" />
-            <m.path d="M2 12h2" />
-            <m.path d="M20 12h2" />
-            <m.path d="M6.34 17.66l-1.41 1.41" />
-            <m.path d="M19.07 4.93l-1.41 1.41" />
-          </m.g>
-        </m.svg>
+          <HugeiconsIcon
+            icon={Sun03Icon}
+            className="size-5"
+            strokeWidth={1.8}
+          />
+        </m.span>
 
         {/* Moon Icon */}
-        <m.svg
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
+        <m.span
           className="absolute inset-0"
           initial={{ opacity: 0, scale: 0.8, rotate: -90 }}
           animate={{
@@ -156,8 +129,12 @@ export function ThemeToggle({ className }: ThemeToggleProps = {}) {
           }}
           transition={{ duration: 0.4 }}
         >
-          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-        </m.svg>
+          <HugeiconsIcon
+            icon={Moon01Icon}
+            className="size-5"
+            strokeWidth={1.8}
+          />
+        </m.span>
       </div>
     </Button>
   );

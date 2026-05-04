@@ -2,19 +2,14 @@
 
 import * as React from "react";
 
+import { Github01Icon, Menu01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 import { motion, AnimatePresence } from "motion/react";
-import { FaGithub } from "react-icons/fa6";
 
 import { ThemeToggle } from "@/components/elements/theme-toggle";
 import Logo from "@/components/layout/logo";
 import { Button } from "@/components/ui/button";
 import { EXTERNAL_LINKS } from "@/constants/external-links";
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
 import { useMediaQuery } from "@/hooks/use-media-query";
 import { cn } from "@/lib/utils";
 
@@ -30,6 +25,9 @@ const navigationItems: NavItem[] = [
   { title: "Blog", href: "/blog" },
   { title: "Pricing", href: "/pricing" },
 ];
+
+const navControlClass =
+  "h-7 rounded-md hover:bg-muted/40 hover:text-accent-foreground dark:hover:bg-white/12";
 
 interface NavbarProps {
   currentPage?: string;
@@ -119,55 +117,32 @@ function Navbar({ currentPage }: NavbarProps) {
 
         {/* Hamburger Menu Button (Mobile Only) */}
         <div className="ml-auto flex flex-1 items-center justify-end space-x-2 lg:hidden">
-          <GitHubLink className="h-8 px-2" />
-          <ThemeToggle className="h-8 w-8 p-0 lg:hidden" />
+          <GitHubLink />
+          <ThemeToggle className="h-7 w-7 p-0 lg:hidden" />
 
           <Button
             variant="ghost"
             size="icon"
-            className={cn("relative flex h-8 w-8 p-0")}
+            className={cn("relative -mr-1 flex h-7 w-7 rounded-md p-0")}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
-            <div className="absolute top-1/2 left-1/2 block w-[18px] -translate-x-1/2 -translate-y-1/2">
-              <span
-                aria-hidden="true"
-                className={cn(
-                  "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
-                  isMenuOpen ? "rotate-45" : "-translate-y-1.5",
-                )}
-              ></span>
-              <span
-                aria-hidden="true"
-                className={cn(
-                  "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
-                  isMenuOpen ? "opacity-0" : "",
-                )}
-              ></span>
-              <span
-                aria-hidden="true"
-                className={cn(
-                  "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
-                  isMenuOpen ? "-rotate-45" : "translate-y-1.5",
-                )}
-              ></span>
-            </div>
+            <HugeiconsIcon
+              icon={Menu01Icon}
+              className="size-5"
+              strokeWidth={1.8}
+            />
           </Button>
         </div>
         {/* Desktop Navigation */}
         <div className="ms-auto hidden flex-1 items-center justify-end gap-2 lg:flex">
-          <NavigationMenu>
-            <NavigationMenuList className="gap-1">
-              {navigationItems.map((item) => (
-                <DesktopNavItem
-                  key={item.title}
-                  item={item}
-                  currentPage={currentPage}
-                />
-              ))}
-            </NavigationMenuList>
-          </NavigationMenu>
-
+          {navigationItems.map((item) => (
+            <DesktopNavItem
+              key={item.title}
+              item={item}
+              currentPage={currentPage}
+            />
+          ))}
           <NavBarAction />
         </div>
 
@@ -229,10 +204,12 @@ function Navbar({ currentPage }: NavbarProps) {
 
 const NavBarAction = () => {
   return (
-    <div className="bordered-div-padding flex items-center justify-between gap-2 border lg:border-none lg:!p-0">
+    <>
       <GitHubLink className="hidden lg:inline-flex" />
-      <ThemeToggle className="hidden lg:block" />
-    </div>
+      <ThemeToggle
+        className={cn("hidden w-7 p-0 lg:flex lg:px-0", navControlClass)}
+      />
+    </>
   );
 };
 
@@ -241,8 +218,12 @@ function GitHubLink({ className }: { className?: string }) {
     <Button
       asChild
       variant="ghost"
-      size="sm"
-      className={cn("gap-1.5 rounded-md px-2", className)}
+      size="icon"
+      className={cn(
+        navControlClass,
+        "w-auto gap-1 px-1.5 py-0",
+        className,
+      )}
     >
       <a
         href={EXTERNAL_LINKS.GITHUB_REPO}
@@ -250,7 +231,11 @@ function GitHubLink({ className }: { className?: string }) {
         rel="noopener noreferrer"
         aria-label="GitHub"
       >
-        <FaGithub className="size-4" />
+        <HugeiconsIcon
+          icon={Github01Icon}
+          className="size-5"
+          strokeWidth={1.8}
+        />
         <span className="text-sm font-normal">13.8k</span>
       </a>
     </Button>
@@ -281,18 +266,17 @@ function DesktopNavItem({
   currentPage?: string;
 }) {
   return (
-    <NavigationMenuItem className="">
-      <a
-        href={item.href}
-        className={cn(
-          navigationMenuTriggerStyle(),
-          "h-8 px-3 text-sm font-normal tracking-normal",
-          currentPage === item.href && "text-secondary",
-        )}
-      >
-        {item.title}
-      </a>
-    </NavigationMenuItem>
+    <a
+      href={item.href}
+      className={cn(
+        "inline-flex w-max items-center justify-center bg-background outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1",
+        navControlClass,
+        "px-2 py-0 text-sm font-normal tracking-normal",
+        currentPage === item.href && "text-secondary",
+      )}
+    >
+      {item.title}
+    </a>
   );
 }
 
