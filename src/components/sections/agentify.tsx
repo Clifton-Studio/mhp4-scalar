@@ -1,25 +1,32 @@
-import { Bot, BrainCircuit, ShieldCheck } from "lucide-react";
+import {
+  BookmarkCheck01Icon,
+  RoboticIcon,
+  Rocket01Icon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 
 const agentifyFeatures = [
   {
     title: "The Maestro Bot",
     description:
       "Activate Maestro's cloud agent in your CI to react to every PR, analyzing code changes and binaries to create or fix tests automatically.",
-    icon: Bot,
+    icon: RoboticIcon,
   },
   {
     title: "Trust but verify",
     description:
       "Receive PR reports with crisp summaries, evidence of coverage, and test run histories - with full logs for you or your agent to dive deeper.",
-    icon: ShieldCheck,
+    icon: BookmarkCheck01Icon,
   },
   {
     title: "Fully autonomous QA",
     description:
       "Treat the Maestro Bot like you would a true Head of QA. Set guidelines. Ask questions. Request further coverage. Build institutional knowledge.",
-    icon: BrainCircuit,
+    icon: Rocket01Icon,
   },
 ];
+
+type AgentifyFeatureIcon = IconSvgElement;
 
 export function Agentify() {
   return (
@@ -65,7 +72,11 @@ export function Agentify() {
         <div className="mt-8 grid gap-8 md:grid-cols-3">
           {agentifyFeatures.map((feature) => (
             <div className="flex gap-3" key={feature.title}>
-              <feature.icon className="mt-1 size-5 shrink-0" />
+              <HugeiconsIcon
+                icon={feature.icon as AgentifyFeatureIcon}
+                className="size-5 shrink-0"
+                strokeWidth={1.8}
+              />
               <div>
                 <h4 className="card-heading">
                   {feature.title}

@@ -1,10 +1,15 @@
-import { CalendarClock, ChartBar, SquarePen } from "lucide-react";
+import {
+  BrickWallIcon,
+  Orbit02Icon,
+  TimeScheduleIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 
 import { Card, CardContent } from "@/components/ui/card";
 
 const features = [
   {
-    icon: SquarePen,
+    icon: Orbit02Icon,
     title: "Close the agentic loop",
     description:
       "Unlock high-velocity mobile development by powering up your agents with Maestro's AI toolkit.",
@@ -16,7 +21,7 @@ const features = [
     },
   },
   {
-    icon: CalendarClock,
+    icon: TimeScheduleIcon,
     title: "Generate deterministic E2E tests",
     description:
       "Maestro tests are human-readable YAML files, not black boxes. Repeatable, auditable, trustworthy.",
@@ -28,7 +33,7 @@ const features = [
     },
   },
   {
-    icon: ChartBar,
+    icon: BrickWallIcon,
     title: "Build on open-source integrity",
     description:
       "Extensible and with no vendor lock-in, Maestro is the foundation for thousands of teams’ mobile testing.",
@@ -40,6 +45,8 @@ const features = [
     },
   },
 ];
+
+type FeatureIcon = IconSvgElement;
 
 type TerminalCodeRow = {
   line: string;
@@ -607,7 +614,11 @@ export function Features() {
               <CardContent className="flex h-full flex-col gap-6">
                 <div className="space-y-4 pt-2">
                   <h4 className="card-heading flex items-center gap-2">
-                    <feature.icon className="size-5" />
+                    <HugeiconsIcon
+                      icon={feature.icon as FeatureIcon}
+                      className="size-5"
+                      strokeWidth={1.8}
+                    />
                     {feature.title}
                   </h4>
                   <p className="text-muted-foreground text-sm leading-relaxed md:text-base">

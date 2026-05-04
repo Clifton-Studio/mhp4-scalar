@@ -1,4 +1,9 @@
-import { FastForward, Plug, SearchCheck } from "lucide-react";
+import {
+  BlendIcon,
+  Forward02Icon,
+  ThreeDViewIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/react";
 
 import { Button } from "@/components/ui/button";
 
@@ -7,21 +12,23 @@ const cloudFeatures = [
     title: "Parallel execution",
     description:
       "Run your entire test suite across real devices simultaneously to cut CI wait times down to minutes. Enterprise-grade.",
-    icon: FastForward,
+    icon: Forward02Icon,
   },
   {
     title: "Test with context",
     description:
       "Every run includes step-by-step video playback, detailed logs, and flake detection so you can diagnose and fix bugs efficiently.",
-    icon: SearchCheck,
+    icon: ThreeDViewIcon,
   },
   {
     title: "Seamless CI integration",
     description:
       "Plug Maestro into your existing pipeline with a single command to get instant reporting and deep diagnostic context.",
-    icon: Plug,
+    icon: BlendIcon,
   },
 ];
+
+type CloudFeatureIcon = IconSvgElement;
 
 const dashboardRows = [
   ["Today, 10:42 AM", "wikipedia-ios", "iOS", "iPhone 17 Pro / iOS 26.2", "3m 18s", "24 success / 0 failure"],
@@ -162,7 +169,11 @@ export function Cloud() {
         <div className="mt-8 grid gap-8 md:grid-cols-3">
           {cloudFeatures.map((feature) => (
             <div className="flex gap-3" key={feature.title}>
-              <feature.icon className="mt-1 size-5 shrink-0" />
+              <HugeiconsIcon
+                icon={feature.icon as CloudFeatureIcon}
+                className="size-5 shrink-0"
+                strokeWidth={1.8}
+              />
               <div>
                 <h4 className="card-heading">
                   {feature.title}

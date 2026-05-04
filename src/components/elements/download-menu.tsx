@@ -15,6 +15,10 @@ const downloadOptions = [
   { label: "Studio desktop app - Windows", href: "/download#studio-windows" },
   { label: "Studio desktop app - Linux", href: "/download#studio-linux" },
   { label: "Maestro CLI", href: "/download#cli" },
+  {
+    label: "Source code from GitHub",
+    href: "https://github.com/mobile-dev-inc/Maestro",
+  },
 ];
 
 export function DownloadMenu() {
@@ -35,7 +39,13 @@ export function DownloadMenu() {
         <DropdownMenuContent align="end" className="min-w-56">
           {downloadOptions.map((option) => (
             <DropdownMenuItem key={option.href} asChild>
-              <a href={option.href}>{option.label}</a>
+              <a
+                href={option.href}
+                rel={option.href.startsWith("http") ? "noreferrer" : undefined}
+                target={option.href.startsWith("http") ? "_blank" : undefined}
+              >
+                {option.label}
+              </a>
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
