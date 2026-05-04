@@ -95,7 +95,10 @@
   /* Page is the outer browser canvas; surface is used by bg-background. */
   --page-background: oklch(0.9676 0 0);
   --surface-background: oklch(0.99 0 0);
-  --page-frame-shadow: 0 10px 30px oklch(0 0 0 / 0.14);
+  --app-frame-shadow:
+    -8px 0 18px -16px oklch(0.62 0 0 / 0.14),
+    0 -8px 18px -16px oklch(0.62 0 0 / 0.14),
+    8px 0 18px -16px oklch(0.62 0 0 / 0.14);
   --background: var(--surface-background);
   --foreground: oklch(0.18 0 0);
   --card: oklch(1 0 0);
@@ -135,7 +138,10 @@
   /* Page is the outer browser canvas; surface is used by bg-background. */
   --page-background: oklch(0.23 0.006 80);
   --surface-background: oklch(0.18 0 0);
-  --page-frame-shadow: 0 10px 30px oklch(0 0 0 / 0.32);
+  --app-frame-shadow:
+    -8px 0 18px -16px oklch(0.68 0 0 / 0.22),
+    0 -8px 18px -16px oklch(0.68 0 0 / 0.22),
+    8px 0 18px -16px oklch(0.68 0 0 / 0.22);
   --background: var(--surface-background);
   --foreground: oklch(0.99 0 0);
   --card: oklch(0.05 0 0);
@@ -198,8 +204,10 @@
 }
 
 @layer utilities {
-  .page-frame {
-    box-shadow: var(--page-frame-shadow);
+  .app-frame {
+    box-shadow: var(--app-frame-shadow);
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
   }
 
   .bordered-div-padding {

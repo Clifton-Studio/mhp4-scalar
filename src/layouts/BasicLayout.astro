@@ -1,17 +1,17 @@
 ---
-import BaseHead from '@/components/BaseHead.astro';
-import Footer from '@/components/layout/footer';
-import Navbar from '@/components/layout/navbar';
-import WindowChrome from '@/components/layout/window-chrome.astro';
+import BaseHead from "@/components/BaseHead.astro";
+import Footer from "@/components/layout/footer";
+import Navbar from "@/components/layout/navbar";
+import WindowChrome from "@/components/layout/window-chrome.astro";
 
 const { title, description, currentPage, frontmatter } = Astro.props;
 
 // Format the date if it exists
 const formattedDate = frontmatter?.date
-  ? new Date(frontmatter.date).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric',
+  ? new Date(frontmatter.date).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
     })
   : null;
 
@@ -23,18 +23,22 @@ const pageTitle = frontmatter?.title || title;
   <head>
     <BaseHead title={title} description={description} />
   </head>
-  <body class="antialiased pt-[7px]">
-    <WindowChrome />
-    <Navbar currentPage={currentPage} client:load />
-    <main>
-      <section class="container">
-        <div class="hidden border-x border-b-0 p-7.5 md:block"></div>
+  <body class="antialiased">
+    <div
+      class="app-frame mx-3.5 md:mx-7 mt-3.5 md:mt-7 max-w-[1200px] border-x border-t bg-background xl:mx-auto"
+    >
+      <WindowChrome />
+      <Navbar currentPage={currentPage} client:load />
+      <main>
+        <section>
+          <div class="hidden border-b-0 p-7.5 md:block"></div>
 
-        <div class="mdx-content divide-y border-x">
-          <slot />
-        </div>
-      </section>
-    </main>
+          <div class="mdx-content divide-y">
+            <slot />
+          </div>
+        </section>
+      </main>
+    </div>
     <Footer client:load />
     <style>
       /* Custom MDX component styles - scoped to mdx-content */

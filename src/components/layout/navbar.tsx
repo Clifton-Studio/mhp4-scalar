@@ -103,7 +103,7 @@ function Navbar({ currentPage }: NavbarProps) {
     >
       <div
         className={cn(
-          "container bg-background flex items-center border-x border-b px-[19px] py-3",
+          "bg-background flex items-center border-b px-[19px] py-3",
         )}
       >
         <Logo
