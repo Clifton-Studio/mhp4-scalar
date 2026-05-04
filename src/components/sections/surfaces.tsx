@@ -54,7 +54,7 @@ function SurfaceWindowTopBar({
   className?: string;
 }) {
   return (
-    <div className={["relative flex h-4 shrink-0 items-center border-b border-black/5 bg-[#eeecea] px-2.5", className].filter(Boolean).join(" ")}>
+    <div className={["relative flex h-4 shrink-0 items-center border-b border-black/5 bg-[#f4f2ef] px-2.5", className].filter(Boolean).join(" ")}>
       <div className="flex items-center gap-1">
         <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
         <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
@@ -64,19 +64,6 @@ function SurfaceWindowTopBar({
         {title}
       </span>
     </div>
-  );
-}
-
-function SurfaceGrainOverlay() {
-  return (
-    <div
-      className="pointer-events-none absolute inset-0 opacity-[0.18] mix-blend-screen"
-      style={{
-        backgroundImage:
-          "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.72'/%3E%3C/svg%3E\")",
-      }}
-      aria-hidden="true"
-    />
   );
 }
 
@@ -134,12 +121,11 @@ function MaestroMcpMockup() {
   return (
     <div
       aria-label="Agent review interface showing Maestro test changes"
-      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[radial-gradient(ellipse_at_58%_-8%,rgba(255,239,212,0.7)_0%,rgba(242,205,163,0.3)_28%,rgba(255,255,255,0.07)_56%,transparent_76%),radial-gradient(ellipse_at_0%_54%,rgba(226,183,134,0.4)_0%,rgba(226,183,134,0.14)_34%,transparent_64%),radial-gradient(ellipse_at_88%_88%,rgba(255,223,185,0.22)_0%,rgba(255,223,185,0.08)_36%,transparent_68%),linear-gradient(135deg,#332923_0%,#44382f_46%,#241f1b_100%)] pt-5 pl-5"
+      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[oklch(0.935_0_0)] pt-5 pl-5"
       role="img"
     >
-      <SurfaceGrainOverlay />
       <div className="origin-top-left scale-[0.72] sm:scale-[0.76] md:scale-[0.72] lg:scale-100">
-        <div className="h-[320px] w-[340px] overflow-hidden rounded-sm bg-white text-[#252525] shadow-md">
+        <div className="h-[320px] w-[340px] overflow-hidden rounded-sm bg-[#fbfaf8] text-[#252525] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.34),0_10px_20px_-12px_rgba(0,0,0,0.24)]">
           <SurfaceWindowTopBar title="Claude Codex" className="!px-2" />
           <div className="grid h-[304px] min-h-0 grid-cols-[2fr_1fr] text-[0.5rem] leading-[1.45]">
             <div className="relative flex min-w-0 flex-col overflow-hidden border-r border-black/10 bg-white px-4 py-3">
@@ -347,12 +333,11 @@ function MaestroStudioMockup() {
   return (
     <div
       aria-label="Maestro Studio interface showing a simulator and YAML editor"
-      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[radial-gradient(ellipse_at_18%_8%,rgba(255,238,210,0.48)_0%,rgba(255,206,156,0.18)_30%,rgba(255,255,255,0.04)_56%,transparent_74%),radial-gradient(ellipse_at_86%_26%,rgba(207,169,126,0.28)_0%,rgba(207,169,126,0.1)_36%,transparent_66%),radial-gradient(ellipse_at_34%_92%,rgba(255,231,190,0.22)_0%,rgba(255,231,190,0.08)_34%,transparent_66%),linear-gradient(135deg,#2a211b_0%,#171514_50%,#3a3028_100%)] pt-5 pl-5"
+      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[oklch(0.935_0_0)] pt-5 pl-5"
       role="img"
     >
-      <SurfaceGrainOverlay />
       <div className="origin-top-left scale-[0.72] sm:scale-[0.76] md:scale-[0.72] lg:scale-100">
-        <div className="h-[350px] w-[500px] overflow-hidden rounded-sm bg-[#f8f7f5] text-[#252525] shadow-md">
+        <div className="h-[350px] w-[500px] overflow-hidden rounded-sm bg-[#fbfaf8] text-[#252525] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.34),0_10px_20px_-12px_rgba(0,0,0,0.24)]">
           <SurfaceWindowTopBar title="Maestro Studio" className="!px-2" />
           <div className="flex h-[334px] min-h-0 bg-white text-[0.5rem] leading-[1.45]">
             <div className="w-[138px] shrink-0 border-r border-black/10 bg-[#f7f7f7] p-2">
@@ -431,19 +416,11 @@ function CliSurfaceMockup() {
   return (
     <div
       aria-label="Terminal output showing Maestro CLI help"
-      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[radial-gradient(ellipse_at_34%_-14%,rgba(255,231,196,0.84)_0%,rgba(232,180,126,0.34)_23%,rgba(255,255,255,0.05)_46%,transparent_66%),radial-gradient(ellipse_at_-8%_44%,rgba(235,190,140,0.48)_0%,rgba(235,190,140,0.15)_28%,transparent_56%),radial-gradient(ellipse_at_94%_78%,rgba(255,214,172,0.42)_0%,rgba(255,214,172,0.13)_32%,transparent_62%),linear-gradient(135deg,#130d0a_0%,#281d16_44%,#090706_100%)] pt-8 pl-8"
+      className="relative flex aspect-square items-start justify-start overflow-hidden bg-[oklch(0.935_0_0)] pt-8 pl-8"
       role="img"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.18] mix-blend-screen"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.72'/%3E%3C/svg%3E\")",
-        }}
-        aria-hidden="true"
-      />
       <div className="origin-top-left scale-[0.7] sm:scale-[0.74] md:scale-[0.72] lg:scale-100">
-        <div className="h-[300px] w-[540px] overflow-hidden rounded-sm bg-[#f8f7f5] text-[#5d5d64] shadow-md">
+        <div className="h-[300px] w-[540px] overflow-hidden rounded-sm bg-[#fbfaf8] text-[#5d5d64] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.34),0_10px_20px_-12px_rgba(0,0,0,0.24)]">
           <SurfaceWindowTopBar title="Terminal" className="!px-2" />
           <div className="overflow-hidden px-2.5 py-2 font-mono text-[0.45rem] leading-[1.55] tracking-normal whitespace-pre-wrap">
             <p>
@@ -592,7 +569,7 @@ export function Surfaces() {
               ].join(" ")}
             >
               <CardContent className="flex h-full flex-col gap-6">
-                <div className="bg-muted overflow-hidden rounded-md border">
+                <div className="overflow-hidden rounded-md border bg-[oklch(0.935_0_0)]">
                   {index === 0 ? (
                     <MaestroMcpMockup />
                   ) : index === 1 ? (

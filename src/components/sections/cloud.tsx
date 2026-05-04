@@ -45,26 +45,18 @@ function CloudDashboardMockup() {
   return (
     <div
       aria-label="Maestro Cloud dashboard showing agent usage metrics"
-      className="relative aspect-square overflow-hidden bg-[radial-gradient(ellipse_at_18%_8%,rgba(255,238,210,0.48)_0%,rgba(255,206,156,0.18)_30%,rgba(255,255,255,0.04)_56%,transparent_74%),radial-gradient(ellipse_at_86%_26%,rgba(207,169,126,0.28)_0%,rgba(207,169,126,0.1)_36%,transparent_66%),radial-gradient(ellipse_at_34%_92%,rgba(255,231,190,0.22)_0%,rgba(255,231,190,0.08)_34%,transparent_66%),linear-gradient(135deg,#2a211b_0%,#171514_50%,#3a3028_100%)] lg:aspect-auto lg:h-full"
+      className="relative aspect-square overflow-hidden bg-[oklch(0.935_0_0)] lg:aspect-auto lg:h-full"
       role="img"
     >
-      <div
-        className="pointer-events-none absolute inset-0 opacity-[0.18] mix-blend-screen"
-        style={{
-          backgroundImage:
-            "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 160 160' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.72'/%3E%3C/svg%3E\")",
-        }}
-        aria-hidden="true"
-      />
-      <div className="@container absolute top-[5%] left-[5%] aspect-[1040/1440] w-[90%] overflow-hidden rounded-[1.15cqw] border border-black/10 bg-[#f7f7f4] shadow-2xl [container-type:inline-size]">
+      <div className="@container absolute top-[5%] left-[5%] aspect-[1040/1440] w-[90%] overflow-hidden rounded-[1.15cqw] border border-black/10 bg-[#fbfaf8] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.34),0_10px_20px_-12px_rgba(0,0,0,0.24)] [container-type:inline-size] lg:top-[8%]">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="flex h-[4.65cqw] items-center border-b border-black/5 bg-[#eeecea] px-[2.31cqw]">
-            <div className="flex items-center gap-[1.14cqw]">
-              <span className="size-[1.48cqw] rounded-full bg-[#c7c2bb]" />
-              <span className="size-[1.48cqw] rounded-full bg-[#c7c2bb]" />
-              <span className="size-[1.48cqw] rounded-full bg-[#c7c2bb]" />
+          <div className="flex h-[3.7cqw] items-center border-b border-black/5 bg-[#f4f2ef] px-[1.9cqw]">
+            <div className="flex items-center gap-[0.9cqw]">
+              <span className="size-[1.15cqw] rounded-full bg-[#c7c2bb]" />
+              <span className="size-[1.15cqw] rounded-full bg-[#c7c2bb]" />
+              <span className="size-[1.15cqw] rounded-full bg-[#c7c2bb]" />
             </div>
-            <p className="mx-auto text-[1.62cqw] leading-none font-medium tracking-normal text-[#8d8b86]">app.maestro.dev/test-runs</p>
+            <p className="mx-auto text-[1.35cqw] leading-none font-medium tracking-normal text-[#8d8b86]">app.maestro.dev/test-runs</p>
           </div>
         <div className="flex h-[5.45cqw] items-center gap-[3.08cqw] border-b border-black/10 px-[2.69cqw] text-[1.35cqw]">
           <img className="h-[1.25cqw] w-auto" src="/layout/maestro-logo.svg" alt="Maestro" />
@@ -163,7 +155,7 @@ export function Cloud() {
       </div>
 
       <div className="bordered-div-padding !pt-6 !pb-10 md:!pt-7 md:!pb-[50px] lg:!pt-8 lg:!pb-[60px]">
-        <div className="bg-muted overflow-hidden rounded-3xl border lg:h-[320px]">
+        <div className="overflow-hidden rounded-3xl border bg-[oklch(0.935_0_0)] md:aspect-[5/3] lg:aspect-auto lg:h-[320px]">
           <CloudDashboardMockup />
         </div>
 

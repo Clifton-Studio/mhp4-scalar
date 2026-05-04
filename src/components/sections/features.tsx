@@ -57,16 +57,16 @@ function TerminalCodeMockup({
   return (
     <div
       aria-label={ariaLabel}
-      className="relative aspect-[3/4] overflow-hidden bg-[#f8f7f5] text-[#5d5d64]"
+      className="relative h-full w-full overflow-hidden bg-[#fbfaf8] text-[#5d5d64]"
       role="img"
     >
       <div className="absolute inset-0 flex flex-col">
-        <div className="flex h-14 shrink-0 items-center gap-3 border-b border-black/5 bg-[#eeecea] px-5">
-          <span className="size-4 rounded-full bg-[#c7c2bb]" />
-          <span className="size-4 rounded-full bg-[#c7c2bb]" />
-          <span className="size-4 rounded-full bg-[#c7c2bb]" />
+        <div className="flex h-8 shrink-0 items-center gap-2 border-b border-black/5 bg-[#f4f2ef] px-3">
+          <span className="size-2.5 rounded-full bg-[#c7c2bb]" />
+          <span className="size-2.5 rounded-full bg-[#c7c2bb]" />
+          <span className="size-2.5 rounded-full bg-[#c7c2bb]" />
         </div>
-        <div className="min-h-0 flex-1 overflow-hidden px-5 py-6 font-mono text-sm leading-[1.45] tracking-normal md:text-xs lg:text-base">
+        <div className="min-h-0 flex-1 overflow-hidden px-5 py-6 font-mono text-sm leading-[1.45] tracking-normal md:text-xs lg:text-sm">
           {children}
         </div>
       </div>
@@ -614,23 +614,27 @@ export function Features() {
                     {feature.description}
                   </p>
                 </div>
-                <div className="mt-auto -mr-5 -mb-4 ml-5">
-                  <div className="bg-muted overflow-hidden rounded-sm rounded-tl-3xl shadow-md">
-                    {index === 0 ? (
-                      <AgentPlanningCodeMockup />
-                    ) : index === 1 ? (
-                      <AgenticLoopCodeMockup />
-                    ) : index === 2 ? (
-                      <GitCloneCodeMockup />
-                    ) : (
-                      <img
-                        src={feature.image.src}
-                        alt={feature.image.alt}
-                        width={feature.image.width}
-                        height={feature.image.height}
-                        className="h-auto w-full"
-                      />
-                    )}
+                <div className="mt-auto">
+                  <div
+                    className="relative aspect-[3/4] overflow-hidden rounded-sm rounded-tl-lg bg-[oklch(0.935_0_0)]"
+                  >
+                    <div className="absolute top-5 right-0 bottom-5 left-5 overflow-hidden rounded-sm rounded-tl-lg shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]">
+                      {index === 0 ? (
+                        <AgentPlanningCodeMockup />
+                      ) : index === 1 ? (
+                        <AgenticLoopCodeMockup />
+                      ) : index === 2 ? (
+                        <GitCloneCodeMockup />
+                      ) : (
+                        <img
+                          src={feature.image.src}
+                          alt={feature.image.alt}
+                          width={feature.image.width}
+                          height={feature.image.height}
+                          className="h-auto w-full"
+                        />
+                      )}
+                    </div>
                   </div>
                 </div>
               </CardContent>
