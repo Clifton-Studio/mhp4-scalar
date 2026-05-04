@@ -101,132 +101,127 @@ function Navbar({ currentPage }: NavbarProps) {
           : "",
       )}
     >
-      <div className="container">
-        <div
+      <div
+        className={cn(
+          "container bg-background flex items-center border-x border-b px-[19px] py-3",
+        )}
+      >
+        <Logo
           className={cn(
-            "bg-background flex items-center border-x border-b px-[19px] py-3",
+            "transition-all duration-300",
+            isMenuColorInverted
+              ? theme === "dark"
+                ? "[&>img]:invert-0"
+                : "[&>img]:invert"
+              : "dark:[&>img]:invert",
           )}
-        >
-          <Logo
-            className={cn(
-              "transition-all duration-300",
-              isMenuColorInverted
-                ? theme === "dark"
-                  ? "[&>img]:invert-0"
-                  : "[&>img]:invert"
-                : "dark:[&>img]:invert",
-            )}
-          />
+        />
 
-          {/* Hamburger Menu Button (Mobile Only) */}
-          <div className="ml-auto flex flex-1 items-center justify-end gap-2 lg:hidden">
-            <GitHubLink className="h-8 w-8 p-0" />
-            <ThemeToggle className="h-8 w-8 p-0 lg:hidden" />
+        {/* Hamburger Menu Button (Mobile Only) */}
+        <div className="ml-auto flex flex-1 items-center justify-end space-x-2 lg:hidden">
+          <GitHubLink className="h-8 px-2" />
+          <ThemeToggle className="h-8 w-8 p-0 lg:hidden" />
 
-            <Button
-              variant="ghost"
-              size="icon"
-              className={cn("relative flex h-8 w-8 p-0")}
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              <span className="sr-only">Open main menu</span>
-              <div className="absolute top-1/2 left-1/2 block w-[18px] -translate-x-1/2 -translate-y-1/2">
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
-                    isMenuOpen ? "rotate-45" : "-translate-y-1.5",
-                  )}
-                ></span>
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
-                    isMenuOpen ? "opacity-0" : "",
-                  )}
-                ></span>
-                <span
-                  aria-hidden="true"
-                  className={cn(
-                    "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
-                    isMenuOpen ? "-rotate-45" : "translate-y-1.5",
-                  )}
-                ></span>
-              </div>
-            </Button>
-          </div>
-          {/* Desktop Navigation */}
-          <div className="ms-auto hidden flex-1 items-center justify-end gap-2 lg:flex">
-            <NavigationMenu>
-              <NavigationMenuList className="gap-1">
-                {navigationItems.map((item) => (
-                  <DesktopNavItem
-                    key={item.title}
-                    item={item}
-                    currentPage={currentPage}
-                  />
-                ))}
-              </NavigationMenuList>
-            </NavigationMenu>
-
-            <NavBarAction />
-          </div>
-
-          {/* Mobile Navigation */}
-          <AnimatePresence>
-            {isMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{
-                  duration: 0.4,
-                  ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic-bezier for smooth feel
-                }}
+          <Button
+            variant="ghost"
+            size="icon"
+            className={cn("relative flex h-8 w-8 p-0")}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            <span className="sr-only">Open main menu</span>
+            <div className="absolute top-1/2 left-1/2 block w-[18px] -translate-x-1/2 -translate-y-1/2">
+              <span
+                aria-hidden="true"
                 className={cn(
-                  "bg-background fixed inset-x-0 top-16 bottom-0 z-40 container flex flex-col overflow-hidden text-sm font-medium lg:hidden",
-                  isMenuColorInverted
-                    ? theme === "dark"
-                      ? "light bg-foreground text-background"
-                      : "dark bg-background text-foreground"
-                    : "",
+                  "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
+                  isMenuOpen ? "rotate-45" : "-translate-y-1.5",
                 )}
-              >
-                <motion.div
-                  className="bordered-div-padding flex flex-1 flex-col space-y-3 overflow-y-auto border-x"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.15, duration: 0.3 }}
-                >
-                  {navigationItems.map((item, index) => (
-                    <motion.div
-                      key={item.title}
-                      initial={{ opacity: 0, y: -20 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{
-                        delay: 0.2 + index * 0.05,
-                        duration: 0.3,
-                        ease: "easeOut",
-                      }}
-                    >
-                      <MobileNavItem
-                        item={item}
-                        setIsMenuOpen={setIsMenuOpen}
-                      />
-                    </motion.div>
-                  ))}
-                </motion.div>
-
-                <motion.div
-                  className="border border-b-0 p-8"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ delay: 0.3, duration: 0.2 }}
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
+              ></span>
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
+                  isMenuOpen ? "opacity-0" : "",
+                )}
+              ></span>
+              <span
+                aria-hidden="true"
+                className={cn(
+                  "absolute block h-0.5 w-full rounded-full bg-current transition-transform duration-500 ease-in-out",
+                  isMenuOpen ? "-rotate-45" : "translate-y-1.5",
+                )}
+              ></span>
+            </div>
+          </Button>
         </div>
+        {/* Desktop Navigation */}
+        <div className="ms-auto hidden flex-1 items-center justify-end gap-2 lg:flex">
+          <NavigationMenu>
+            <NavigationMenuList className="gap-1">
+              {navigationItems.map((item) => (
+                <DesktopNavItem
+                  key={item.title}
+                  item={item}
+                  currentPage={currentPage}
+                />
+              ))}
+            </NavigationMenuList>
+          </NavigationMenu>
+
+          <NavBarAction />
+        </div>
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{
+                duration: 0.4,
+                ease: [0.25, 0.46, 0.45, 0.94], // Custom cubic-bezier for smooth feel
+              }}
+              className={cn(
+                "bg-background fixed inset-x-0 top-16 bottom-0 z-40 container flex flex-col overflow-hidden text-sm font-medium lg:hidden",
+                isMenuColorInverted
+                  ? theme === "dark"
+                    ? "light bg-foreground text-background"
+                    : "dark bg-background text-foreground"
+                  : "",
+              )}
+            >
+              <motion.div
+                className="bordered-div-padding flex flex-1 flex-col space-y-3 overflow-y-auto border-x"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.15, duration: 0.3 }}
+              >
+                {navigationItems.map((item, index) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      delay: 0.2 + index * 0.05,
+                      duration: 0.3,
+                      ease: "easeOut",
+                    }}
+                  >
+                    <MobileNavItem item={item} setIsMenuOpen={setIsMenuOpen} />
+                  </motion.div>
+                ))}
+              </motion.div>
+
+              <motion.div
+                className="border border-b-0 p-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.3, duration: 0.2 }}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </header>
   );
@@ -243,7 +238,12 @@ const NavBarAction = () => {
 
 function GitHubLink({ className }: { className?: string }) {
   return (
-    <Button asChild variant="ghost" size="sm" className={cn("gap-1.5 rounded-md px-2", className)}>
+    <Button
+      asChild
+      variant="ghost"
+      size="sm"
+      className={cn("gap-1.5 rounded-md px-2", className)}
+    >
       <a
         href={EXTERNAL_LINKS.GITHUB_REPO}
         target="_blank"

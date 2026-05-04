@@ -105,38 +105,38 @@ const Footer = () => {
 
   return (
     <footer className={cn("overflow-hidden", themeClass)}>
-      <div className="container">
-        <div className="grid border-x border-b md:grid-cols-[1fr_2fr]">
+      <div className="container border-x border-b">
+        <div className="grid md:grid-cols-[1fr_2fr]">
           <div className="bordered-div-padding flex flex-col justify-between gap-8 border-b md:border-r md:border-b-0">
             <Logo href="/" wordmarkClassName={smallLogoClass} />
             <div className="flex items-center space-x-3">
-            <a
-              href={EXTERNAL_LINKS.SLACK}
-              className="px-3 py-2.5 transition-opacity hover:opacity-80"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Slack"
-            >
-              <FaSlack className="size-5" />
-            </a>
-            <a
-              href={EXTERNAL_LINKS.GITHUB_REPO}
-              className="px-3 py-2.5 transition-opacity hover:opacity-80"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub"
-            >
-              <FaGithub className="size-5" />
-            </a>
-            <a
-              href={EXTERNAL_LINKS.TWITTER}
-              className="px-3 py-2.5 transition-opacity hover:opacity-80"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-            >
-              <FaXTwitter className="size-5" />
-            </a>
+              <a
+                href={EXTERNAL_LINKS.SLACK}
+                className="px-3 py-2.5 transition-opacity hover:opacity-80"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Slack"
+              >
+                <FaSlack className="size-5" />
+              </a>
+              <a
+                href={EXTERNAL_LINKS.GITHUB_REPO}
+                className="px-3 py-2.5 transition-opacity hover:opacity-80"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+              >
+                <FaGithub className="size-5" />
+              </a>
+              <a
+                href={EXTERNAL_LINKS.TWITTER}
+                className="px-3 py-2.5 transition-opacity hover:opacity-80"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter"
+              >
+                <FaXTwitter className="size-5" />
+              </a>
             </div>
           </div>
           <div className="bordered-div-padding grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -172,7 +172,7 @@ const Footer = () => {
 
         {/* Large Logo */}
         <Logo
-          className="justify-center border-x"
+          className="justify-center"
           iconClassName="hidden"
           wordmarkClassName={logoWordmarkClass}
         />

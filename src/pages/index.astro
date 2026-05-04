@@ -12,27 +12,25 @@ import DefaultLayout from "@/layouts/DefaultLayout.astro";
 ---
 
 <DefaultLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <main class="container bg-transparent">
-    <div class="border-x bg-background">
-      <div class="border-b">
-        <section class="hero-composite">
-          <Hero compact client:load />
-          <TrustedTeams compact client:only="react" />
-          <HeroVideo compact client:load />
-        </section>
-      </div>
-      <div class="border-b">
-        <Features client:visible />
-      </div>
-      <div class="border-b">
-        <Surfaces />
-      </div>
-      <div class="border-b">
-        <Cloud />
-      </div>
-      <div class="border-b">
-        <Agentify />
-      </div>
+  <main class="page-frame container border-x bg-background">
+    <div class="border-b">
+      <section class="hero-composite">
+        <Hero compact client:load />
+        <TrustedTeams compact client:only="react" />
+        <HeroVideo compact client:load />
+      </section>
+    </div>
+    <div class="border-b">
+      <Features client:visible />
+    </div>
+    <div class="border-b">
+      <Surfaces />
+    </div>
+    <div class="border-b">
+      <Cloud />
+    </div>
+    <div class="border-b">
+      <Agentify />
     </div>
   </main>
 </DefaultLayout>

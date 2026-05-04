@@ -1,7 +1,7 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @property --rotate {
-  syntax: '<angle>';
+  syntax: "<angle>";
   initial-value: 40deg;
   inherits: false;
 }
@@ -16,7 +16,7 @@
   --font-display: var(--display-family);
   --font-text: var(--text-family);
 
-  --color-background: var(--background);
+  --color-background: var(--surface-background);
   --color-foreground: var(--foreground);
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -92,8 +92,11 @@
   --display-weight: 600;
   --text-weight: 400;
 
-  --background: oklch(0.99 0 0);
-  --page-shell: oklch(0.95 0.003 80);
+  /* Page is the outer browser canvas; surface is used by bg-background. */
+  --page-background: oklch(0.9676 0 0);
+  --surface-background: oklch(0.99 0 0);
+  --page-frame-shadow: 0 10px 30px oklch(0 0 0 / 0.14);
+  --background: var(--surface-background);
   --foreground: oklch(0.18 0 0);
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.18 0 0);
@@ -129,8 +132,11 @@
 }
 
 .dark {
-  --background: oklch(0.18 0 0);
-  --page-shell: oklch(0.23 0.006 80);
+  /* Page is the outer browser canvas; surface is used by bg-background. */
+  --page-background: oklch(0.23 0.006 80);
+  --surface-background: oklch(0.18 0 0);
+  --page-frame-shadow: 0 10px 30px oklch(0 0 0 / 0.32);
+  --background: var(--surface-background);
   --foreground: oklch(0.99 0 0);
   --card: oklch(0.05 0 0);
   --card-foreground: oklch(0.99 0 0);
@@ -180,11 +186,7 @@
   }
   body {
     @apply text-foreground font-text font-weight-text tracking-tight;
-    background-color: var(--page-shell);
-  }
-
-  main > .container {
-    background-color: var(--background);
+    background-color: var(--page-background);
   }
 }
 @utility font-weight-display {
@@ -196,6 +198,10 @@
 }
 
 @layer utilities {
+  .page-frame {
+    box-shadow: var(--page-frame-shadow);
+  }
+
   .bordered-div-padding {
     @apply p-6 md:p-8 lg:p-10;
   }
@@ -402,7 +408,7 @@ html.theme-transition::view-transition-new(root) {
 
 /* Add a subtle grid pattern that matches the website's diamond/plus patterns */
 html.theme-transition::before {
-  content: '';
+  content: "";
   position: fixed;
   top: 0;
   left: 0;
