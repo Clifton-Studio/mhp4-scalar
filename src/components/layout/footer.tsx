@@ -156,7 +156,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className="bordered-div-padding grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="bordered-div-padding grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {footerLinkGroups.map((group) => (
               <div key={group.title}>
                 <h2 className="text-sm font-medium">{group.title}</h2>

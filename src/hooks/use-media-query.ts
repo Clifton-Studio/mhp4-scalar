@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 
-// Tailwind default breakpoints in pixels
+// Tailwind breakpoints in pixels
 const SCREEN_SIZES = {
   sm: 640,
-  md: 768,
+  md: 650,
   lg: 1024,
   xl: 1280,
   '2xl': 1536,

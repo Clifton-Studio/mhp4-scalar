@@ -15,6 +15,7 @@
   --radius: 0.625rem;
   --font-display: var(--display-family);
   --font-text: var(--text-family);
+  --breakpoint-md: 650px;
 
   --color-background: var(--surface-background);
   --color-foreground: var(--foreground);
@@ -358,9 +359,6 @@
 @utility container {
   margin-inline: auto;
   padding-inline: calc(var(--spacing) * 4);
-  @media (width >= --theme(--breakpoint-sm)) {
-    max-width: none;
-  }
 
   @media (width >= 1200px) {
     max-width: 1400px;

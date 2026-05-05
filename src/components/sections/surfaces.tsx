@@ -124,7 +124,7 @@ function MaestroMcpMockup() {
       className="relative flex aspect-square items-start justify-start overflow-hidden bg-[oklch(0.935_0_0)] pt-5 pl-5"
       role="img"
     >
-      <div className="origin-top-left scale-[0.72] sm:scale-[0.76] md:scale-[0.72] lg:scale-100">
+      <div className="origin-top-left scale-[0.9] md:scale-[0.72] lg:scale-100">
         <div className="h-[320px] w-[340px] overflow-hidden rounded-sm bg-[#fbfaf8] text-[#252525] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.34),0_10px_20px_-12px_rgba(0,0,0,0.24)]">
           <SurfaceWindowTopBar title="Claude Codex" className="!px-2" />
           <div className="grid h-[304px] min-h-0 grid-cols-[2fr_1fr] text-[0.5rem] leading-[1.45]">
@@ -336,7 +336,7 @@ function MaestroStudioMockup() {
       className="relative flex aspect-square items-start justify-start overflow-hidden bg-[oklch(0.935_0_0)] pt-5 pl-5"
       role="img"
     >
-      <div className="origin-top-left scale-[0.72] sm:scale-[0.76] md:scale-[0.72] lg:scale-100">
+      <div className="origin-top-left scale-[0.72] md:scale-[0.72] lg:scale-100">
         <div className="h-[350px] w-[500px] overflow-hidden rounded-sm bg-[#fbfaf8] text-[#252525] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.34),0_10px_20px_-12px_rgba(0,0,0,0.24)]">
           <SurfaceWindowTopBar title="Maestro Studio" className="!px-2" />
           <div className="flex h-[334px] min-h-0 bg-white text-[0.5rem] leading-[1.45]">
@@ -419,7 +419,7 @@ function CliSurfaceMockup() {
       className="relative flex aspect-square items-start justify-start overflow-hidden bg-[oklch(0.935_0_0)] pt-8 pl-8"
       role="img"
     >
-      <div className="origin-top-left scale-[0.7] sm:scale-[0.74] md:scale-[0.72] lg:scale-100">
+      <div className="origin-top-left scale-[0.7] md:scale-[0.72] lg:scale-100">
         <div className="h-[300px] w-[540px] overflow-hidden rounded-sm bg-[#fbfaf8] text-[#5d5d64] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.34),0_10px_20px_-12px_rgba(0,0,0,0.24)]">
           <SurfaceWindowTopBar title="Terminal" className="!px-2" />
           <div className="overflow-hidden px-2.5 py-2 font-mono text-[0.45rem] leading-[1.55] tracking-normal whitespace-pre-wrap">
