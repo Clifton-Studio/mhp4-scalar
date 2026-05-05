@@ -1,3 +1,5 @@
+import Marquee from "react-fast-marquee";
+
 import { cn } from "@/lib/utils";
 
 interface Company {
@@ -182,24 +184,42 @@ const maestroCompanies: Company[] = [
   },
 ];
 
-const featuredCompanies = [
+const companyByName = (name: string) =>
+  maestroCompanies.find((company) => company.name === name)!;
+
+const topRowCompanies = [
   "Microsoft",
   "Meta",
   "DoorDash",
   "Uber",
   "xAI",
   "Amazon",
-  "Disney",
-  "Stripe",
-  "Kraken",
   "Block",
   "Atlassian",
+  "Blockchain.com",
+  "Skyscanner",
+  "Flipkart",
+  "Brex",
+  "IKEA",
+].map(companyByName);
+
+const bottomRowCompanies = [
   "Pinterest",
   "Bluesky",
-  "Deel",
-  "DuckDuckGo",
+  "Disney",
+  "Stripe",
   "KFC",
-].map((name) => maestroCompanies.find((company) => company.name === name)!);
+  "DuckDuckGo",
+  "Kraken",
+  "Deel",
+  "Sentry",
+  "Komoot",
+  "Phantom",
+  "Flightradar24",
+  "GoodRx",
+  "Yum! Brands",
+  "Holland & Barrett",
+].map(companyByName);
 
 export function TrustedTeams({
   heading = "Trusted by the world's best teams",
@@ -210,7 +230,7 @@ export function TrustedTeams({
   return (
     <section
       className={cn(
-        "overflow-hidden px-4 py-8 md:py-10 lg:py-12",
+        "overflow-visible px-4 py-8 md:overflow-hidden md:py-10 lg:py-12",
         compact && "trusted-teams-compact",
         className,
       )}
@@ -218,7 +238,8 @@ export function TrustedTeams({
       <div className={cn(compact ? "trusted-teams-stack" : "space-y-0 md:space-y-8 lg:space-y-12")}>
         <div className="text-center">
           <p className="section-overline">
-            {heading}
+            <span className="md:hidden">Trusted by thousands</span>
+            <span className="max-md:hidden">{heading}</span>
             {subheading ? (
               <>
                 <br className="max-md:hidden" />
@@ -228,34 +249,44 @@ export function TrustedTeams({
           </p>
         </div>
 
-        <LogoGrid companies={featuredCompanies} />
+        <LogoMarqueeRows />
       </div>
     </section>
   );
 }
 
-interface LogoGridProps {
-  companies: Company[];
+function LogoMarqueeRows() {
+  return (
+    <div className="trusted-logo-marquees flex w-full flex-col gap-3 overflow-hidden [container-type:inline-size]">
+      <LogoMarquee companies={topRowCompanies} direction="right" />
+      <LogoMarquee companies={bottomRowCompanies} direction="left" />
+    </div>
+  );
 }
 
-function LogoGrid({ companies }: LogoGridProps) {
+interface LogoMarqueeProps {
+  companies: Company[];
+  direction: "left" | "right";
+}
+
+function LogoMarquee({ companies, direction }: LogoMarqueeProps) {
   return (
-    <div className="grid w-full grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
-      {companies.map((company, index) => (
-        <a
-          href={company.href || "#"}
-          target="_blank"
-          rel="noreferrer"
-          key={index}
-          className={cn(
-            "inline-flex h-[78px] items-center justify-center rounded-[14px] border border-[#e5e2de] bg-[#f4f3f0] p-6 transition-opacity hover:opacity-70 lg:h-[80px]",
-            index >= 12 && "md:hidden lg:inline-flex",
-          )}
+    <Marquee
+      autoFill
+      direction={direction}
+      gradient={false}
+      pauseOnHover
+      speed={28}
+    >
+      {companies.map((company) => (
+        <div
+          key={company.name}
+          className="trusted-logo-tile mr-3 inline-flex h-[72px] items-center justify-center rounded-[13px] border border-[#e5e2de] bg-[#f4f3f0] p-5.5 md:h-[78px] md:rounded-[14px] md:p-6 lg:h-[80px]"
         >
           <LogoImage company={company} className="h-full w-full" />
-        </a>
+        </div>
       ))}
-    </div>
+    </Marquee>
   );
 }
 
