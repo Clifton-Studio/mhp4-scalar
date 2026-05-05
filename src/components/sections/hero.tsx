@@ -40,7 +40,7 @@ export function Hero({ compact = false }: HeroProps) {
             href="https://docs.maestro.dev/get-started/maestro-mcp"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex h-9 items-center justify-center rounded-[2px] px-3 py-0 text-sm font-normal text-foreground transition-[color,box-shadow] hover:bg-muted/40 hover:text-accent-foreground focus-visible:ring-[3px] focus-visible:outline-1 dark:hover:bg-white/12"
+            className="inline-flex h-9 items-center justify-center rounded-[2px] px-3 py-0 text-sm font-normal text-foreground transition-[color,box-shadow] hover:bg-muted/40 hover:text-current focus-visible:ring-[3px] focus-visible:outline-1"
           >
             Install MCP
           </a>

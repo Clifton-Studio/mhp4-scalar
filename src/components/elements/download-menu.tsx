@@ -36,9 +36,16 @@ export function DownloadMenu() {
             <ChevronDown className="size-4" />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent align="end" className="min-w-56">
+        <DropdownMenuContent
+          align="end"
+          className="min-w-56 rounded-[2px] bg-foreground p-1 text-background shadow-xs [&_*]:border-border/30"
+        >
           {downloadOptions.map((option) => (
-            <DropdownMenuItem key={option.href} asChild>
+            <DropdownMenuItem
+              key={option.href}
+              asChild
+              className="h-9 rounded-[2px] px-3 py-0 text-sm font-normal tracking-normal hover:bg-muted/40 hover:text-current focus:bg-muted/40 focus:text-current dark:hover:bg-[oklch(0.94_0_0)] dark:focus:bg-[oklch(0.94_0_0)]"
+            >
               <a
                 href={option.href}
                 rel={option.href.startsWith("http") ? "noreferrer" : undefined}
