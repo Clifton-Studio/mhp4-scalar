@@ -568,7 +568,7 @@ export function Surfaces() {
                 index > 0 ? "border-t md:border-t-0" : "",
               ].join(" ")}
             >
-              <CardContent className="flex h-full flex-col gap-6">
+              <CardContent className="flex h-full flex-col gap-4 px-4 pt-0 pb-0 md:gap-5 md:px-5 md:pt-1 md:pb-1 lg:gap-6 lg:px-6 lg:pt-2 lg:pb-2">
                 <div className="overflow-hidden rounded-md border bg-[oklch(0.935_0_0)]">
                   {index === 0 ? (
                     <MaestroMcpMockup />

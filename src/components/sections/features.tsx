@@ -611,8 +611,8 @@ export function Features() {
                 index > 0 ? "border-t md:border-t-0" : "",
               ].join(" ")}
             >
-              <CardContent className="flex h-full flex-col gap-6">
-                <div className="space-y-4 pt-2">
+              <CardContent className="flex h-full flex-col gap-4 px-4 pb-0 md:gap-5 md:px-5 md:pb-1 lg:gap-6 lg:px-6 lg:pb-2">
+                <div className="space-y-4 pt-0 md:pt-1 lg:pt-2">
                   <h4 className="card-heading flex items-center gap-2">
                     <HugeiconsIcon
                       icon={feature.icon as FeatureIcon}
