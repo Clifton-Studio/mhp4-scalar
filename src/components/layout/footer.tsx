@@ -110,7 +110,7 @@ const Footer = () => {
 
   return (
     <footer className={cn("overflow-hidden", themeClass)}>
-      <div className="container border-x border-b">
+      <div className="mx-3.5 max-w-[1200px] border-x border-b md:mx-7 xl:mx-auto">
         <div className="grid md:grid-cols-[1fr_2fr]">
           <div className="bordered-div-padding flex flex-col justify-between gap-8 border-b md:border-r md:border-b-0">
             <Logo href="/" wordmarkClassName={smallLogoClass} />

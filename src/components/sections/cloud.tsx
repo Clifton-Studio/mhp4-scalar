@@ -48,24 +48,36 @@ const dashboardRows = [
   ["Yesterday, 4:30 PM", "nightly-matrix", "Mixed", "18-device matrix", "6m 55s", "30 success / 0 failure"],
 ];
 
-function CloudDashboardMockup() {
+type CloudDashboardMockupProps = {
+  ariaLabel?: string;
+  headerText?: string;
+  showContent?: boolean;
+};
+
+export function CloudDashboardMockup({
+  ariaLabel = "Maestro Cloud dashboard showing agent usage metrics",
+  headerText = "app.maestro.dev/test-runs",
+  showContent = true,
+}: CloudDashboardMockupProps) {
   return (
     <div
-      aria-label="Maestro Cloud dashboard showing agent usage metrics"
+      aria-label={ariaLabel}
       className="relative aspect-square overflow-hidden bg-[oklch(0.935_0_0)] lg:aspect-auto lg:h-full"
       role="img"
     >
       <div className="@container absolute top-[5%] left-[5%] aspect-[1040/1440] w-[90%] overflow-hidden rounded-[1.15cqw] border border-black/10 bg-[#fbfaf8] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.34),0_10px_20px_-12px_rgba(0,0,0,0.24)] [container-type:inline-size] lg:top-[8%]">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="flex h-[3.7cqw] items-center border-b border-black/5 bg-[#f4f2ef] px-[1.9cqw]">
+          <div className="flex h-[3.35cqw] items-center border-b border-black/5 bg-[#f4f2ef] px-[1.3cqw]">
             <div className="flex items-center gap-[0.9cqw]">
               <span className="size-[1.15cqw] rounded-full bg-[#c7c2bb]" />
               <span className="size-[1.15cqw] rounded-full bg-[#c7c2bb]" />
               <span className="size-[1.15cqw] rounded-full bg-[#c7c2bb]" />
             </div>
-            <p className="mx-auto text-[1.35cqw] leading-none font-medium tracking-normal text-[#8d8b86]">app.maestro.dev/test-runs</p>
+            <p className="mx-auto text-[1.35cqw] leading-none font-medium tracking-normal text-[#8d8b86]">{headerText}</p>
           </div>
-        <div className="flex h-[5.45cqw] items-center gap-[3.08cqw] border-b border-black/10 px-[2.69cqw] text-[1.35cqw]">
+        {showContent ? (
+          <>
+        <div className="flex h-[5.45cqw] items-center gap-[3.08cqw] border-b border-black/10 pr-[2.69cqw] pl-[3.08cqw] text-[1.35cqw]">
           <img className="h-[1.25cqw] w-auto" src="/layout/maestro-logo.svg" alt="Maestro" />
           <span>Dashboard</span>
           <span className="flex h-full items-center border-b-[0.19cqw] border-[#24241f] font-semibold">Test runs</span>
@@ -125,6 +137,8 @@ function CloudDashboardMockup() {
             </div>
           ))}
         </div>
+          </>
+        ) : null}
         </div>
       </div>
     </div>

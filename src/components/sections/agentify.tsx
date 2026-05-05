@@ -59,15 +59,7 @@ export function Agentify() {
       </div>
 
       <div className="bordered-div-padding !pt-6 !pb-10 md:!pt-7 md:!pb-[50px] lg:!pt-8 lg:!pb-[60px]">
-        <div className="bg-muted overflow-hidden rounded-3xl border lg:h-[320px]">
-          <img
-            src="/images/homepage/cursor-reference/cursor-square-reference-5.png"
-            alt="Cursor model picker screenshot"
-            width={760}
-            height={760}
-            className="h-auto w-full lg:h-full lg:object-cover lg:object-top"
-          />
-        </div>
+        <div className="aspect-square overflow-hidden rounded-3xl border bg-[oklch(0.935_0_0)] md:aspect-[5/3] lg:aspect-auto lg:h-[320px]" />
 
         <div className="mt-8 grid gap-8 md:grid-cols-3">
           {agentifyFeatures.map((feature) => (
