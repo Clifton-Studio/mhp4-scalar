@@ -1,7 +1,12 @@
 "use client";
 import { useEffect, useState } from "react";
 
-import { FaGithub, FaSlack, FaXTwitter } from "react-icons/fa6";
+import {
+  Github01Icon,
+  NewTwitterIcon,
+  SlackIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
 
 import Logo from "@/components/layout/logo";
 import { EXTERNAL_LINKS } from "@/constants/external-links";
@@ -112,12 +117,16 @@ const Footer = () => {
             <div className="flex items-center space-x-3">
               <a
                 href={EXTERNAL_LINKS.SLACK}
-                className="px-3 py-2.5 transition-opacity hover:opacity-80"
+                className="py-2.5 pr-3 transition-opacity hover:opacity-80"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Slack"
               >
-                <FaSlack className="size-5" />
+                <HugeiconsIcon
+                  icon={SlackIcon}
+                  className="size-5"
+                  strokeWidth={1.8}
+                />
               </a>
               <a
                 href={EXTERNAL_LINKS.GITHUB_REPO}
@@ -126,7 +135,11 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="GitHub"
               >
-                <FaGithub className="size-5" />
+                <HugeiconsIcon
+                  icon={Github01Icon}
+                  className="size-5"
+                  strokeWidth={1.8}
+                />
               </a>
               <a
                 href={EXTERNAL_LINKS.TWITTER}
@@ -135,7 +148,11 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 aria-label="Twitter"
               >
-                <FaXTwitter className="size-5" />
+                <HugeiconsIcon
+                  icon={NewTwitterIcon}
+                  className="size-5"
+                  strokeWidth={1.8}
+                />
               </a>
             </div>
           </div>
