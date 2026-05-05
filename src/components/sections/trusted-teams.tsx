@@ -1,7 +1,3 @@
-"use client";
-
-import Marquee from "react-fast-marquee";
-
 import { cn } from "@/lib/utils";
 
 interface Company {
@@ -9,14 +5,11 @@ interface Company {
   logo: string;
   href?: string;
   logoScale?: string;
-  needsScaleGutter?: boolean;
 }
 
 interface TrustedTeamsProps {
   heading?: string;
   subheading?: string;
-  topRowCompanies?: Company[];
-  bottomRowCompanies?: Company[];
   className?: string;
   compact?: boolean;
 }
@@ -31,14 +24,12 @@ const maestroCompanies: Company[] = [
     name: "Microsoft",
     logo: brandfetchLogo("microsoft.com"),
     href: "https://microsoft.com",
-    logoScale: "scale-[0.95]",
   },
   {
     name: "Meta",
     logo: brandfetchLogo("meta.com"),
     href: "https://meta.com",
-    logoScale: "scale-[2.0]",
-    needsScaleGutter: true,
+    logoScale: "scale-[1.4]",
   },
   {
     name: "DoorDash",
@@ -55,27 +46,25 @@ const maestroCompanies: Company[] = [
     name: "xAI",
     logo: brandfetchLogo("x.ai"),
     href: "https://x.ai",
-    logoScale: "scale-[0.9]",
+    logoScale: "scale-[0.8]",
   },
   {
     name: "Amazon",
     logo: brandfetchLogo("amazon.com"),
     href: "https://amazon.com",
-    logoScale: "scale-[0.9]",
+    logoScale: "scale-[0.8]",
   },
   {
     name: "Disney",
     logo: brandfetchLogo("disney.com"),
     href: "https://disney.com",
-    logoScale: "scale-[1.2]",
-    needsScaleGutter: true,
+    logoScale: "scale-[0.9]",
   },
   {
     name: "Stripe",
     logo: brandfetchLogo("stripe.com"),
     href: "https://stripe.com",
-    logoScale: "scale-[1.4]",
-    needsScaleGutter: true,
+    logoScale: "scale-[1.0]",
   },
   {
     name: "Kraken",
@@ -92,14 +81,13 @@ const maestroCompanies: Company[] = [
     name: "Deel",
     logo: brandfetchLogo("deel.com"),
     href: "https://deel.com",
-    logoScale: "scale-[0.8]",
+    logoScale: "scale-[0.7]",
   },
   {
     name: "DuckDuckGo",
     logo: brandfetchLogo("duckduckgo.com"),
     href: "https://duckduckgo.com",
     logoScale: "scale-[1.2]",
-    needsScaleGutter: true,
   },
   {
     name: "Brex",
@@ -111,13 +99,13 @@ const maestroCompanies: Company[] = [
     name: "Flipkart",
     logo: brandfetchLogo("flipkart.com"),
     href: "https://flipkart.com",
+    logoScale: "scale-[0.9]",
   },
   {
     name: "KFC",
     logo: brandfetchLogo("kfc.com"),
     href: "https://kfc.com",
-    logoScale: "scale-[1.22]",
-    needsScaleGutter: true,
+    logoScale: "scale-[1.0]",
   },
   {
     name: "IKEA",
@@ -139,13 +127,13 @@ const maestroCompanies: Company[] = [
     name: "Bluesky",
     logo: brandfetchLogo("bsky.app"),
     href: "https://bsky.app",
+    logoScale: "scale-[0.9]",
   },
   {
     name: "Sentry",
     logo: brandfetchLogo("sentry.io"),
     href: "https://sentry.io",
     logoScale: "scale-[1.12]",
-    needsScaleGutter: true,
   },
   {
     name: "Komoot",
@@ -162,7 +150,6 @@ const maestroCompanies: Company[] = [
     logo: brandfetchLogo("flightradar24.com"),
     href: "https://flightradar24.com",
     logoScale: "scale-[1.18]",
-    needsScaleGutter: true,
   },
   {
     name: "GoodRx",
@@ -174,22 +161,19 @@ const maestroCompanies: Company[] = [
     name: "Yum! Brands",
     logo: brandfetchLogo("yum.com"),
     href: "https://yum.com",
-    logoScale: "scale-[1.35]",
-    needsScaleGutter: true,
+    logoScale: "scale-[1.0]",
   },
   {
     name: "Holland & Barrett",
     logo: brandfetchLogo("hollandandbarrett.com"),
     href: "https://hollandandbarrett.com",
     logoScale: "scale-[1.14]",
-    needsScaleGutter: true,
   },
   {
     name: "Skyscanner",
     logo: brandfetchLogo("skyscanner.com"),
     href: "https://skyscanner.com",
     logoScale: "scale-[1.12]",
-    needsScaleGutter: true,
   },
   {
     name: "Blockchain.com",
@@ -198,22 +182,31 @@ const maestroCompanies: Company[] = [
   },
 ];
 
+const featuredCompanies = [
+  "Microsoft",
+  "Meta",
+  "DoorDash",
+  "Uber",
+  "xAI",
+  "Amazon",
+  "Disney",
+  "Stripe",
+  "Kraken",
+  "Block",
+  "Atlassian",
+  "Pinterest",
+  "Bluesky",
+  "Deel",
+  "DuckDuckGo",
+  "KFC",
+].map((name) => maestroCompanies.find((company) => company.name === name)!);
+
 export function TrustedTeams({
   heading = "Trusted by the world's best teams",
   subheading,
-  topRowCompanies = maestroCompanies.slice(0, 14),
-  bottomRowCompanies = maestroCompanies.slice(14),
   className,
   compact = false,
 }: TrustedTeamsProps) {
-  const desktopRows = [
-    maestroCompanies.slice(0, 6),
-    maestroCompanies.slice(6, 12),
-    maestroCompanies.slice(12, 18),
-    maestroCompanies.slice(18, 23),
-    maestroCompanies.slice(23),
-  ];
-
   return (
     <section
       className={cn(
@@ -225,8 +218,7 @@ export function TrustedTeams({
       <div className={cn(compact ? "trusted-teams-stack" : "space-y-0 md:space-y-8 lg:space-y-12")}>
         <div className="text-center">
           <p className="section-overline">
-            <span className="md:hidden">Trusted By Thousands</span>
-            <span className="max-md:hidden">{heading}</span>
+            {heading}
             {subheading ? (
               <>
                 <br className="max-md:hidden" />
@@ -236,28 +228,19 @@ export function TrustedTeams({
           </p>
         </div>
 
-        <div className="hidden w-full flex-col items-center gap-6 md:flex">
-          {desktopRows.map((companies, index) => (
-            <LogoRow companies={companies} key={index} />
-          ))}
-        </div>
-
-        <div className="flex w-full flex-col items-center gap-1 md:hidden">
-          <LogoMarquee companies={topRowCompanies} />
-          <LogoMarquee companies={bottomRowCompanies} direction="right" />
-        </div>
+        <LogoGrid companies={featuredCompanies} />
       </div>
     </section>
   );
 }
 
-interface LogoRowProps {
+interface LogoGridProps {
   companies: Company[];
 }
 
-function LogoRow({ companies }: LogoRowProps) {
+function LogoGrid({ companies }: LogoGridProps) {
   return (
-    <div className="flex w-full items-center justify-center gap-x-8 lg:gap-x-10">
+    <div className="grid w-full grid-cols-2 gap-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
       {companies.map((company, index) => (
         <a
           href={company.href || "#"}
@@ -265,11 +248,11 @@ function LogoRow({ companies }: LogoRowProps) {
           rel="noreferrer"
           key={index}
           className={cn(
-            "inline-flex items-center justify-center",
-            company.needsScaleGutter && "px-4",
+            "inline-flex h-[78px] items-center justify-center rounded-[14px] border border-[#e5e2de] bg-[#f4f3f0] p-6 transition-opacity hover:opacity-70 lg:h-[80px]",
+            index >= 12 && "md:hidden lg:inline-flex",
           )}
         >
-          <LogoImage company={company} className="h-8 max-w-36" />
+          <LogoImage company={company} className="h-full w-full" />
         </a>
       ))}
     </div>
@@ -287,38 +270,10 @@ function LogoImage({ company, className }: LogoImageProps) {
       src={company.logo}
       alt={`${company.name} logo`}
       className={cn(
-        "origin-center transform-gpu object-contain",
+        "origin-center transform-gpu object-contain grayscale",
         className,
         company.logoScale,
       )}
     />
-  );
-}
-
-interface LogoMarqueeProps {
-  companies: Company[];
-  direction?: "left" | "right";
-}
-
-function LogoMarquee({ companies, direction }: LogoMarqueeProps) {
-  return (
-    <div className="w-full">
-      <Marquee direction={direction} pauseOnHover>
-        {companies.map((company, index) => (
-          <a
-            href={company.href || "#"}
-            target="_blank"
-            rel="noreferrer"
-            key={index}
-            className={cn(
-              "mx-5 inline-flex h-10 items-center justify-center transition-opacity hover:opacity-70",
-              company.needsScaleGutter && "px-4",
-            )}
-          >
-            <LogoImage company={company} className="h-6 max-w-[6.75rem]" />
-          </a>
-        ))}
-      </Marquee>
-    </div>
   );
 }
