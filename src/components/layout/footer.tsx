@@ -1,5 +1,4 @@
 "use client";
-import { useEffect, useState } from "react";
 
 import {
   Github01Icon,
@@ -10,7 +9,6 @@ import { HugeiconsIcon } from "@hugeicons/react";
 
 import Logo from "@/components/layout/logo";
 import { EXTERNAL_LINKS } from "@/constants/external-links";
-import { cn } from "@/lib/utils";
 
 const footerLinkGroups = [
   {
@@ -53,63 +51,12 @@ function isExternalLink(href: string) {
 }
 
 const Footer = () => {
-  const [theme, setTheme] = useState<"light" | "dark">("light");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-
-    // Get initial theme from localStorage, default to 'light' if none exists
-    const savedTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-    setTheme(savedTheme || "light");
-
-    // Listen for theme changes
-    const handleStorageChange = () => {
-      const newTheme = localStorage.getItem("theme") as "light" | "dark" | null;
-      if (newTheme) {
-        setTheme(newTheme);
-      }
-    };
-
-    window.addEventListener("storage", handleStorageChange);
-
-    // Listen for direct DOM class changes (for immediate updates)
-    const observer = new MutationObserver(() => {
-      const isDark = document.documentElement.classList.contains("dark");
-      setTheme(isDark ? "dark" : "light");
-    });
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    return () => {
-      window.removeEventListener("storage", handleStorageChange);
-      observer.disconnect();
-    };
-  }, []);
-
-  // Prevent hydration mismatch by using a consistent theme class until mounted
-  // Footer is in light mode when dark theme is applied (inverted behavior)
-  const themeClass =
-    mounted && theme === "dark"
-      ? "light bg-foreground text-background [&_*]:border-border/30"
-      : "dark bg-background text-foreground";
-
-  // Logo should be inverted when footer has light background (dark theme)
-  // and not inverted when footer has dark background (light theme)
-  const logoWordmarkClass = cn(
-    "w-[min(100%,400px)] translate-y-1/4 md:translate-y-1/3 md:h-32 md:w-full lg:h-73 opacity-10",
-    mounted && theme === "dark" ? "invert-0" : "invert",
-  );
-  const smallLogoClass = cn(
-    "h-4 w-auto",
-    mounted && theme === "dark" ? "invert-0" : "invert",
-  );
+  const logoWordmarkClass =
+    "w-[min(100%,400px)] translate-y-1/4 invert opacity-10 md:translate-y-1/3 md:h-32 md:w-full lg:h-73";
+  const smallLogoClass = "h-4 w-auto invert";
 
   return (
-    <footer className={cn("overflow-hidden", themeClass)}>
+    <footer className="dark overflow-hidden bg-background text-foreground">
       <div className="mx-3.5 max-w-[1200px] border-x border-b md:mx-7 xl:mx-auto">
         <div className="grid md:grid-cols-[1fr_2fr]">
           <div className="bordered-div-padding flex flex-col justify-between gap-8 border-b md:border-r md:border-b-0">
@@ -156,7 +103,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          <div className="bordered-div-padding grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+          <div className="bordered-div-padding grid grid-cols-2 gap-8 lg:grid-cols-4">
             {footerLinkGroups.map((group) => (
               <div key={group.title}>
                 <h2 className="text-sm font-medium">{group.title}</h2>
