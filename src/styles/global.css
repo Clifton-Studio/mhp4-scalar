@@ -192,7 +192,7 @@
     @apply !overflow-x-hidden;
   }
   body {
-    @apply text-foreground font-text font-weight-text tracking-tight;
+    @apply text-foreground font-text font-weight-text tracking-[-0.020em];
     background-color: var(--page-background);
   }
 }
