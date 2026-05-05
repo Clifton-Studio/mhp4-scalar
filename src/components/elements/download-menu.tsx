@@ -24,14 +24,14 @@ const downloadOptions = [
 export function DownloadMenu() {
   return (
     <div className="inline-flex rounded-md shadow-sm">
-      <Button asChild className="rounded-r-none">
+      <Button asChild className="rounded-r-none px-3">
         <a href="/download">Download</a>
       </Button>
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button
             aria-label="Choose download option"
-            className="rounded-l-none border-l border-primary-foreground/20 px-3"
+            className="rounded-l-none border-l border-primary-foreground/20 px-2"
           >
             <ChevronDown className="size-4" />
           </Button>

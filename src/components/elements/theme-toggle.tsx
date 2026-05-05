@@ -96,7 +96,7 @@ export function ThemeToggle({ className }: ThemeToggleProps = {}) {
       onClick={toggleTheme}
       data-theme-toggle
       ref={buttonRef}
-      className={cn('flex rounded-md px-4 py-0 lg:px-2', className)}
+      className={cn('flex rounded-[2px] px-4 py-0 lg:px-2', className)}
       size="sm"
     >
       <div className="relative size-5">

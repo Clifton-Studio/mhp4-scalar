@@ -34,7 +34,17 @@ export function Hero({ compact = false }: HeroProps) {
           </p>
         </div>
 
-        <DownloadMenu />
+        <div className="flex items-center gap-1 md:gap-3">
+          <DownloadMenu />
+          <a
+            href="https://docs.maestro.dev/get-started/maestro-mcp"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex h-9 items-center justify-center rounded-[2px] px-3 py-0 text-sm font-normal text-foreground transition-[color,box-shadow] hover:bg-muted/40 hover:text-accent-foreground focus-visible:ring-[3px] focus-visible:outline-1 dark:hover:bg-white/12"
+          >
+            Install MCP
+          </a>
+        </div>
         <div
           className={cn(
             "pointer-events-none absolute top-0 left-full hidden h-[calc(100%+1px)] w-screen overflow-hidden border-b text-start select-none lg:block",

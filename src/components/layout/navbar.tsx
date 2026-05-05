@@ -27,7 +27,7 @@ const navigationItems: NavItem[] = [
 ];
 
 const navControlClass =
-  "h-7 rounded-md hover:bg-muted/40 hover:text-accent-foreground dark:hover:bg-white/12";
+  "h-9 rounded-[2px] hover:bg-muted/40 hover:text-accent-foreground dark:hover:bg-white/12";
 
 interface NavbarProps {
   currentPage?: string;
@@ -101,7 +101,7 @@ function Navbar({ currentPage }: NavbarProps) {
     >
       <div
         className={cn(
-          "bg-background flex items-center border-b px-[19px] py-3",
+          "bg-background flex items-center border-b px-[19px] py-2",
         )}
       >
         <Logo
@@ -116,14 +116,14 @@ function Navbar({ currentPage }: NavbarProps) {
         />
 
         {/* Hamburger Menu Button (Mobile Only) */}
-        <div className="ml-auto flex flex-1 items-center justify-end space-x-2 lg:hidden">
-          <GitHubLink />
-          <ThemeToggle className="h-7 w-7 p-0 lg:hidden" />
+        <div className="ml-auto flex flex-1 items-center justify-end gap-1 lg:hidden">
+          <GitHubLink className="px-2 lg:px-3" />
+          <ThemeToggle className={cn("h-9 w-9 p-0 lg:hidden", navControlClass)} />
 
           <Button
             variant="ghost"
             size="icon"
-            className={cn("relative -mr-1 flex h-7 w-7 rounded-md p-0")}
+            className={cn("relative -mr-1 flex h-9 w-9 rounded-[2px] p-0")}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             <span className="sr-only">Open main menu</span>
@@ -135,7 +135,7 @@ function Navbar({ currentPage }: NavbarProps) {
           </Button>
         </div>
         {/* Desktop Navigation */}
-        <div className="ms-auto hidden flex-1 items-center justify-end gap-2 lg:flex">
+        <div className="ms-auto hidden flex-1 items-center justify-end gap-1 lg:flex">
           {navigationItems.map((item) => (
             <DesktopNavItem
               key={item.title}
@@ -207,7 +207,7 @@ const NavBarAction = () => {
     <>
       <GitHubLink className="hidden lg:inline-flex" />
       <ThemeToggle
-        className={cn("hidden w-7 p-0 lg:flex lg:px-0", navControlClass)}
+        className={cn("hidden h-9 w-9 p-0 lg:flex", navControlClass)}
       />
     </>
   );
@@ -221,7 +221,7 @@ function GitHubLink({ className }: { className?: string }) {
       size="icon"
       className={cn(
         navControlClass,
-        "w-auto gap-1 px-1.5 py-0",
+        "w-auto gap-1 px-3 py-0",
         className,
       )}
     >
@@ -271,7 +271,7 @@ function DesktopNavItem({
       className={cn(
         "inline-flex w-max items-center justify-center bg-background outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1",
         navControlClass,
-        "px-2 py-0 text-sm font-normal tracking-normal",
+        "px-3 py-0 text-sm font-normal tracking-normal",
         currentPage === item.href && "text-secondary",
       )}
     >
