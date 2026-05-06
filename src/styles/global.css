@@ -396,8 +396,7 @@
 }
 
 @keyframes hero-speed-flicker {
-  0%,
-  100% {
+  0% {
     opacity: 1;
     filter: blur(0);
     font-style: normal;
@@ -405,15 +404,23 @@
     transform: translateX(0) skewX(0);
   }
 
-  12% {
-    opacity: 0.94;
-    filter: blur(0.25px);
-    font-style: oblique 4deg;
-    text-shadow: 0.04em 0 0 oklch(0.18 0 0 / 0.08);
-    transform: translateX(0.02rem) skewX(-3deg);
+  5% {
+    opacity: 0.98;
+    filter: blur(0.15px);
+    font-style: oblique 2deg;
+    text-shadow: 0.03em 0 0 oklch(0.18 0 0 / 0.06);
+    transform: translateX(0.01rem) skewX(-2deg);
   }
 
-  16% {
+  9% {
+    opacity: 1;
+    filter: blur(0);
+    font-style: normal;
+    text-shadow: none;
+    transform: translateX(-0.01rem) skewX(1deg);
+  }
+
+  14% {
     opacity: 0.88;
     filter: blur(0.5px);
     font-style: oblique 7deg;
@@ -423,47 +430,69 @@
     transform: translateX(0.05rem) skewX(-6deg);
   }
 
-  19% {
-    opacity: 0.78;
-    filter: blur(1px);
-    font-style: oblique 12deg;
-    text-shadow:
-      -0.08em 0 0 oklch(0.18 0 0 / 0.18),
-      0.14em 0 0 oklch(0.18 0 0 / 0.12);
-    transform: translateX(0.1rem) skewX(-10deg);
-  }
-
-  21% {
-    opacity: 0.68;
-    filter: blur(1.45px);
-    font-style: oblique 14deg;
-    text-shadow:
-      -0.1em 0 0 oklch(0.18 0 0 / 0.17),
-      0.18em 0 0 oklch(0.18 0 0 / 0.11);
-    transform: translateX(0.15rem) skewX(-12deg);
-  }
-
-  22.5% {
-    opacity: 0.58;
-    filter: blur(2px);
-    font-style: oblique 16deg;
-    text-shadow:
-      -0.13em 0 0 oklch(0.18 0 0 / 0.16),
-      0.22em 0 0 oklch(0.18 0 0 / 0.1);
-    transform: translateX(0.2rem) skewX(-14deg);
-  }
-
-  23.35% {
-    opacity: 0.5;
-    filter: blur(2.55px);
+  15.5% {
+    opacity: 0.54;
+    filter: blur(2.4px);
     font-style: oblique 17deg;
     text-shadow:
-      -0.15em 0 0 oklch(0.18 0 0 / 0.16),
+      -0.14em 0 0 oklch(0.18 0 0 / 0.16),
       0.25em 0 0 oklch(0.18 0 0 / 0.1);
-    transform: translateX(0.24rem) skewX(-15deg);
+    transform: translateX(0.22rem) skewX(-15deg);
   }
 
-  24% {
+  17% {
+    opacity: 1;
+    filter: blur(0);
+    font-style: normal;
+    text-shadow: none;
+    transform: translateX(0) skewX(0);
+  }
+
+  31% {
+    opacity: 0.96;
+    filter: blur(0.3px);
+    font-style: oblique 5deg;
+    text-shadow: -0.04em 0 0 oklch(0.18 0 0 / 0.08);
+    transform: translateX(-0.03rem) skewX(4deg);
+  }
+
+  34% {
+    opacity: 0.7;
+    filter: blur(1.4px);
+    font-style: oblique 12deg;
+    text-shadow:
+      -0.08em 0 0 oklch(0.18 0 0 / 0.14),
+      0.16em 0 0 oklch(0.18 0 0 / 0.09);
+    transform: translateX(0.12rem) skewX(-10deg);
+  }
+
+  36% {
+    opacity: 0.98;
+    filter: blur(0.1px);
+    font-style: normal;
+    text-shadow: none;
+    transform: translateX(0.01rem) skewX(-1deg);
+  }
+
+  52% {
+    opacity: 1;
+    filter: blur(0);
+    font-style: normal;
+    text-shadow: 0.04em 0 0 oklch(0.18 0 0 / 0.05);
+    transform: translateX(0.02rem) skewX(-2deg);
+  }
+
+  58% {
+    opacity: 0.9;
+    filter: blur(0.65px);
+    font-style: oblique 8deg;
+    text-shadow:
+      -0.05em 0 0 oklch(0.18 0 0 / 0.12),
+      0.1em 0 0 oklch(0.18 0 0 / 0.08);
+    transform: translateX(0.07rem) skewX(-7deg);
+  }
+
+  59.5% {
     opacity: 0.42;
     filter: blur(3px);
     font-style: oblique 18deg;
@@ -473,17 +502,34 @@
     transform: translateX(0.28rem) skewX(-16deg);
   }
 
-  25% {
-    opacity: 0.72;
-    filter: blur(1.5px);
-    font-style: oblique 10deg;
-    text-shadow:
-      -0.08em 0 0 oklch(0.18 0 0 / 0.12),
-      0.14em 0 0 oklch(0.18 0 0 / 0.08);
-    transform: translateX(0.12rem) skewX(-8deg);
+  61.5% {
+    opacity: 1;
+    filter: blur(0);
+    font-style: normal;
+    text-shadow: none;
+    transform: translateX(0) skewX(0);
   }
 
-  26% {
+  76% {
+    opacity: 0.97;
+    filter: blur(0.25px);
+    font-style: oblique 4deg;
+    text-shadow: 0.06em 0 0 oklch(0.18 0 0 / 0.07);
+    transform: translateX(0.04rem) skewX(-4deg);
+  }
+
+  78% {
+    opacity: 0.82;
+    filter: blur(0.9px);
+    font-style: oblique 10deg;
+    text-shadow:
+      -0.06em 0 0 oklch(0.18 0 0 / 0.12),
+      0.13em 0 0 oklch(0.18 0 0 / 0.08);
+    transform: translateX(0.1rem) skewX(-9deg);
+  }
+
+  80%,
+  100% {
     opacity: 1;
     filter: blur(0);
     font-style: normal;
