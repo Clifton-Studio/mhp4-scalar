@@ -14,7 +14,13 @@ interface ThemeToggleProps {
 }
 
 export function ThemeToggle({ className }: ThemeToggleProps = {}) {
-  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+  const [theme, setTheme] = useState<'light' | 'dark'>(() => {
+    if (typeof document === 'undefined') {
+      return 'light';
+    }
+
+    return document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+  });
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -103,7 +109,7 @@ export function ThemeToggle({ className }: ThemeToggleProps = {}) {
         {/* Sun Icon */}
         <m.span
           className="absolute inset-0"
-          initial={{ opacity: 0, scale: 0.8, rotate: -90 }}
+          initial={false}
           animate={{
             opacity: theme === 'light' ? 1 : 0,
             scale: theme === 'light' ? 1 : 0.8,
@@ -121,7 +127,7 @@ export function ThemeToggle({ className }: ThemeToggleProps = {}) {
         {/* Moon Icon */}
         <m.span
           className="absolute inset-0"
-          initial={{ opacity: 0, scale: 0.8, rotate: -90 }}
+          initial={false}
           animate={{
             opacity: theme === 'dark' ? 1 : 0,
             scale: theme === 'dark' ? 1 : 0.8,

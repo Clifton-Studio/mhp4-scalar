@@ -16,7 +16,9 @@ import DefaultLayout from "@/layouts/DefaultLayout.astro";
     <div class="border-b">
       <section class="hero-composite">
         <Hero compact client:load />
-        <TrustedTeams compact client:only="react" />
+        <div class="trusted-teams-reserve">
+          <TrustedTeams compact client:only="react" />
+        </div>
         <HeroVideo compact client:load />
       </section>
     </div>

@@ -279,6 +279,10 @@
     width: 100%;
   }
 
+  .trusted-teams-reserve {
+    min-height: 171px;
+  }
+
   .trusted-teams-stack {
     display: flex;
     flex-direction: column;
@@ -325,6 +329,10 @@
       gap: 1.5rem;
     }
 
+    .trusted-teams-reserve {
+      min-height: 223px;
+    }
+
     .trusted-logo-marquees {
       --trusted-logo-columns: 6;
       --trusted-logo-mobile-edge-offset: 0px;
@@ -345,6 +353,10 @@
 
     .trusted-teams-compact {
       margin-top: 2rem;
+    }
+
+    .trusted-teams-reserve {
+      min-height: 249px;
     }
 
     .trusted-teams-stack {
