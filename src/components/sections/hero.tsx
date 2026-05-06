@@ -2,12 +2,20 @@
 
 import { DownloadMenu } from "@/components/elements/download-menu";
 import { cn } from "@/lib/utils";
+import { useEffect, useState } from "react";
 
 interface HeroProps {
   compact?: boolean;
 }
 
 export function Hero({ compact = false }: HeroProps) {
+  const [speedReady, setSpeedReady] = useState(false);
+
+  useEffect(() => {
+    const timeout = window.setTimeout(() => setSpeedReady(true), 1000);
+    return () => window.clearTimeout(timeout);
+  }, []);
+
   return (
     <section className="relative overflow-hidden">
       <div
@@ -22,9 +30,14 @@ export function Hero({ compact = false }: HeroProps) {
             <p className="section-overline">
               AGENTIC UI TESTING
             </p>
-            <h1 className="text-4xl leading-snug tracking-tighter font-light md:text-[2.625rem] lg:text-5xl">
-              Go ahead.{" "}
-              <span className="block whitespace-nowrap">Code at 150mph.</span>
+            <h1
+              className={cn(
+                "hero-speed-title text-4xl leading-snug tracking-tighter font-light md:text-[2.625rem] lg:text-5xl",
+                speedReady && "hero-speed-ready",
+              )}
+            >
+              <span className="hero-speed-line block">Go ahead.</span>
+              <span className="hero-speed-line hero-speed-line-active block whitespace-nowrap">Code at 150mph.</span>
             </h1>
           </div>
           <p className="text-muted-foreground mx-auto max-w-[700px] text-sm leading-relaxed md:text-lg lg:text-xl">

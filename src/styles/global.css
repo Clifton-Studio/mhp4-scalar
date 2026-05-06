@@ -260,6 +260,20 @@
     gap: 0.5rem;
   }
 
+  .hero-speed-line {
+    display: block;
+    opacity: 1;
+    filter: blur(0);
+    font-style: normal;
+    text-shadow: none;
+    transform: translateX(0) skewX(0);
+    transform-origin: left center;
+  }
+
+  .hero-speed-ready .hero-speed-line-active {
+    animation: hero-speed-flicker 5s ease-in-out infinite;
+  }
+
   .trusted-teams-compact {
     padding: 0;
     width: 100%;
@@ -378,6 +392,109 @@
   100% {
     clip-path: inset(0 0 0 100%);
     opacity: 0;
+  }
+}
+
+@keyframes hero-speed-flicker {
+  0%,
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    font-style: normal;
+    text-shadow: none;
+    transform: translateX(0) skewX(0);
+  }
+
+  12% {
+    opacity: 0.94;
+    filter: blur(0.25px);
+    font-style: oblique 4deg;
+    text-shadow: 0.04em 0 0 oklch(0.18 0 0 / 0.08);
+    transform: translateX(0.02rem) skewX(-3deg);
+  }
+
+  16% {
+    opacity: 0.88;
+    filter: blur(0.5px);
+    font-style: oblique 7deg;
+    text-shadow:
+      -0.03em 0 0 oklch(0.18 0 0 / 0.1),
+      0.08em 0 0 oklch(0.18 0 0 / 0.08);
+    transform: translateX(0.05rem) skewX(-6deg);
+  }
+
+  19% {
+    opacity: 0.78;
+    filter: blur(1px);
+    font-style: oblique 12deg;
+    text-shadow:
+      -0.08em 0 0 oklch(0.18 0 0 / 0.18),
+      0.14em 0 0 oklch(0.18 0 0 / 0.12);
+    transform: translateX(0.1rem) skewX(-10deg);
+  }
+
+  21% {
+    opacity: 0.68;
+    filter: blur(1.45px);
+    font-style: oblique 14deg;
+    text-shadow:
+      -0.1em 0 0 oklch(0.18 0 0 / 0.17),
+      0.18em 0 0 oklch(0.18 0 0 / 0.11);
+    transform: translateX(0.15rem) skewX(-12deg);
+  }
+
+  22.5% {
+    opacity: 0.58;
+    filter: blur(2px);
+    font-style: oblique 16deg;
+    text-shadow:
+      -0.13em 0 0 oklch(0.18 0 0 / 0.16),
+      0.22em 0 0 oklch(0.18 0 0 / 0.1);
+    transform: translateX(0.2rem) skewX(-14deg);
+  }
+
+  23.35% {
+    opacity: 0.5;
+    filter: blur(2.55px);
+    font-style: oblique 17deg;
+    text-shadow:
+      -0.15em 0 0 oklch(0.18 0 0 / 0.16),
+      0.25em 0 0 oklch(0.18 0 0 / 0.1);
+    transform: translateX(0.24rem) skewX(-15deg);
+  }
+
+  24% {
+    opacity: 0.42;
+    filter: blur(3px);
+    font-style: oblique 18deg;
+    text-shadow:
+      -0.18em 0 0 oklch(0.18 0 0 / 0.16),
+      0.28em 0 0 oklch(0.18 0 0 / 0.1);
+    transform: translateX(0.28rem) skewX(-16deg);
+  }
+
+  25% {
+    opacity: 0.72;
+    filter: blur(1.5px);
+    font-style: oblique 10deg;
+    text-shadow:
+      -0.08em 0 0 oklch(0.18 0 0 / 0.12),
+      0.14em 0 0 oklch(0.18 0 0 / 0.08);
+    transform: translateX(0.12rem) skewX(-8deg);
+  }
+
+  26% {
+    opacity: 1;
+    filter: blur(0);
+    font-style: normal;
+    text-shadow: none;
+    transform: translateX(0) skewX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-speed-line {
+    animation: none;
   }
 }
 
