@@ -272,8 +272,8 @@
   }
 
   .trusted-logo-marquees {
-    --trusted-logo-columns: 2.18;
-    --trusted-logo-gap: 0.75rem;
+    --trusted-logo-columns: 2.35;
+    --trusted-logo-gap: 0.625rem;
     --trusted-logo-mobile-edge-offset: var(--hero-section-px, 1.5rem);
     width: calc(100% + (var(--trusted-logo-mobile-edge-offset) * 2));
     margin-inline: calc(var(--trusted-logo-mobile-edge-offset) * -1);

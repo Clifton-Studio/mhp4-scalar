@@ -9,6 +9,9 @@ import { defineConfig, fontProviders } from 'astro/config';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://scalar-astro-template.vercel.app',
+  devToolbar: {
+    enabled: false,
+  },
   integrations: [
     starlight({
       title: 'Scalar Docs',

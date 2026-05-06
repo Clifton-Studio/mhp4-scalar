@@ -281,7 +281,7 @@ function LogoMarquee({ companies, direction }: LogoMarqueeProps) {
       {companies.map((company) => (
         <div
           key={company.name}
-          className="trusted-logo-tile mr-3 inline-flex h-[72px] items-center justify-center rounded-[13px] border border-[#e5e2de] bg-[#f4f3f0] p-5.5 md:h-[78px] md:rounded-[14px] md:p-6 lg:h-[80px]"
+          className="trusted-logo-tile mr-2.5 inline-flex h-16 items-center justify-center rounded-[12px] border border-[#e5e2de] bg-[#f4f3f0] p-5 md:mr-3 md:h-[78px] md:rounded-[14px] md:p-6 lg:h-[80px]"
         >
           <LogoImage company={company} className="h-full w-full" />
         </div>

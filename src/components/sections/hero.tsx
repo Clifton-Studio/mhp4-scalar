@@ -22,7 +22,7 @@ export function Hero({ compact = false }: HeroProps) {
             <p className="section-overline">
               AGENTIC UI TESTING
             </p>
-            <h1 className="text-3xl leading-snug tracking-tighter font-light md:text-4xl lg:text-5xl">
+            <h1 className="text-4xl leading-snug tracking-tighter font-light md:text-[2.625rem] lg:text-5xl">
               Go ahead.{" "}
               <span className="block whitespace-nowrap">Code at 150mph.</span>
             </h1>
