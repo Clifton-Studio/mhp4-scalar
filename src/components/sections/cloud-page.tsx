@@ -71,20 +71,24 @@ const flows = [
 
 const caseStudies = [
   {
-    title: "Eneco Slashed Regression Testing from 16 Hours to < 1 Hour",
+    title: "Eneco Cut Regression Testing from 16hrs to <1hr",
     body: "What used to take 4 teams a full 16+ hours of testing now takes under an hour with Maestro.",
+    href: "#",
   },
   {
-    title: "How Wahed Cut Test Creation Time by 95%",
+    title: "Wahed Slashed Test Creation Time by 95%",
     body: "By switching to Maestro, Wahed's team went from spending 3-4 hours per test to just 10-15 minutes.",
+    href: "#",
   },
   {
     title: "Doccla Eliminated a Full Day of Manual Testing",
     body: "Doccla replaced a full day of manual regression testing with a fully automated Maestro pipeline.",
+    href: "#",
   },
   {
     title: "Komoot Built 100+ Tests in Just Two Weeks",
     body: "Komoot was able to get up and running with a robust suite of over 100 tests in less than 2 weeks.",
+    href: "#",
   },
 ];
 
@@ -254,8 +258,9 @@ export function FeatureBlocks() {
         {features.map((feature, index) => (
           <article
             className={cn(
-              "bordered-div-padding flex flex-col gap-8 border-b md:min-h-[520px]",
+              "bordered-div-padding flex flex-col gap-6 border-b pb-6 md:min-h-[520px] md:gap-7 md:pb-7 lg:gap-8 lg:pb-8",
               index % 2 === 0 && "md:border-r",
+              index === features.length - 1 && "md:border-b-0",
             )}
             key={feature.title}
           >
@@ -273,7 +278,7 @@ export function FeatureBlocks() {
             />
           </article>
         ))}
-        <article className="bordered-div-padding flex flex-col gap-8 border-b md:min-h-[520px]">
+        <article className="bordered-div-padding flex flex-col gap-6 border-b-0 pb-6 md:min-h-[520px] md:gap-7 md:pb-7 lg:gap-8 lg:pb-8">
           <div className="max-w-2xl space-y-4">
             <h2 className="section-heading">
               For every workflow: nightly releases, pull requests, regression
@@ -297,37 +302,64 @@ export function FeatureBlocks() {
 export function CaseStudies() {
   return (
     <section className="border-b">
-      <div className="bordered-div-padding space-y-8 md:space-y-10">
+      <div className="flex items-center gap-3 border-b px-[19px] py-3">
+        <div className="flex items-center gap-2">
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#ff5f57]"></span>
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#febc2e]"></span>
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#28c840]"></span>
+        </div>
+        <p
+          className="text-muted-foreground text-xs font-medium tracking-normal uppercase md:text-sm"
+          style={{
+            fontFamily:
+              'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+          }}
+        >
+          Case studies
+        </p>
+      </div>
+      <div className="bordered-div-padding space-y-6 md:space-y-7 lg:space-y-8">
         <div className="max-w-3xl space-y-4">
           <h2 className="section-heading">
-            Join thousands of companies who have turned testing into traction
+            In good companies
           </h2>
+          <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
+            Join thousands of companies who have turned testing into traction.
+          </p>
         </div>
-        <div className="grid gap-0 border md:grid-cols-2">
-          {caseStudies.map((study, index) => (
-            <article
-              className={cn(
-                "bordered-div-padding flex min-h-[300px] flex-col justify-between gap-8 border-b",
-                index % 2 === 0 && "md:border-r",
-                index >= caseStudies.length - 2 && "md:border-b-0",
-              )}
-              key={study.title}
-            >
-              <div className="space-y-4">
-                <p className="section-overline">Read the full case study</p>
-                <h3 className="text-foreground text-lg leading-snug font-medium md:text-xl">
-                  {study.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
-                  {study.body}
-                </p>
-              </div>
-              <PlaceholderFrame
-                label="Case study image placeholder"
-                aspectClassName="aspect-[16/8]"
-              />
-            </article>
-          ))}
+        <div className="overflow-x-auto border">
+          <div className="flex w-max">
+            {caseStudies.map((study, index) => (
+              <article
+                className={cn(
+                  "bordered-div-padding flex min-h-[300px] w-[66vw] max-w-[288px] shrink-0 flex-col gap-8 md:w-[415px] md:max-w-none",
+                  index < caseStudies.length - 1 && "border-r",
+                )}
+                key={study.title}
+              >
+                <PlaceholderFrame
+                  label="Case study image placeholder"
+                  aspectClassName="aspect-[16/8]"
+                />
+                <div className="space-y-4">
+                  <p className="section-overline">Case study</p>
+                  <h3 className="text-foreground text-lg leading-snug font-medium md:text-xl">
+                    {study.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
+                    {study.body}
+                  </p>
+                  <a
+                    className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:text-secondary"
+                    href={study.href}
+                  >
+                    Read the full study
+                    <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
+                  </a>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
@@ -337,7 +369,7 @@ export function CaseStudies() {
 export function CloudCta() {
   return (
     <section>
-      <div className="bordered-div-padding text-center lg:!py-25">
+      <div className="bordered-div-padding !py-12 text-center md:!py-16 lg:!py-25">
         <div className="mx-auto max-w-2xl space-y-6 md:space-y-8">
           <div className="space-y-4">
             <h2 className="text-4xl leading-snug font-light tracking-tighter md:text-[2.625rem] lg:text-5xl">
