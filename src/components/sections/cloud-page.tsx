@@ -59,25 +59,14 @@ const features = [
   },
   {
     title:
-      "Ensures your app works for all your users with configurable device models and OS versions",
+      "Ensure your app works for all your users with configurable device models and OS versions",
     body: "You know what devices your users are using. Maestro Cloud lets you test across a variety of device configurations, so you can tune your device to match the distribution of your user base.",
     href: EXTERNAL_LINKS.DOCS,
   },
 ];
 
 const flows = [
-  {
-    title: "Nightly Releases",
-    body: "Use Maestro automatically run scheduled builds and deploy to production servers",
-  },
-  {
-    title: "Pull Requests",
-    body: "Run unit and integration tests on every pull request to avoid merging breaking changes.",
-  },
-  {
-    title: "Regression Testing",
-    body: "Make sure every change is backwards-compatible with the current version.",
-  },
+  "Automatically run scheduled builds for nightly releases, test every pull request before breaking changes merge, and keep each update backwards-compatible with reliable regression coverage.",
 ];
 
 const caseStudies = [
@@ -105,7 +94,6 @@ export function CloudPage() {
       <CloudHero />
       <UpgradeSteps />
       <FeatureBlocks />
-      <DesignedForFlows />
       <CaseStudies />
       <CloudCta />
     </main>
@@ -210,7 +198,7 @@ export function UpgradeSteps() {
               )}
               key={step.title}
             >
-              <CardContent className="flex h-full flex-col gap-4 px-4 pb-4 md:gap-5 md:px-5 md:pb-5 lg:gap-6 lg:px-6 lg:pb-6">
+              <CardContent className="flex h-full flex-col gap-4 px-4 pb-0 md:gap-5 md:px-5 md:pb-1 lg:gap-6 lg:px-6 lg:pb-2">
                 <div className="space-y-4 pt-0 md:pt-1 lg:pt-2">
                   <h3 className="card-heading flex items-center gap-2">
                     <HugeiconsIcon
@@ -246,13 +234,28 @@ export function UpgradeSteps() {
 export function FeatureBlocks() {
   return (
     <section className="border-b">
+      <div className="flex items-center gap-3 border-b px-[19px] py-3">
+        <div className="flex items-center gap-2">
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#ff5f57]"></span>
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#febc2e]"></span>
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#28c840]"></span>
+        </div>
+        <p
+          className="text-muted-foreground text-xs font-medium tracking-normal uppercase md:text-sm"
+          style={{
+            fontFamily:
+              'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+          }}
+        >
+          Cloud features
+        </p>
+      </div>
       <div className="grid md:grid-cols-2">
         {features.map((feature, index) => (
           <article
             className={cn(
               "bordered-div-padding flex flex-col gap-8 border-b md:min-h-[520px]",
               index % 2 === 0 && "md:border-r",
-              index === features.length - 1 && "md:col-span-2 md:border-r-0",
             )}
             key={feature.title}
           >
@@ -266,36 +269,26 @@ export function FeatureBlocks() {
             <PlaceholderFrame
               className="mt-auto"
               label="Feature image placeholder"
-              aspectClassName={index === features.length - 1 ? "aspect-[16/7]" : "aspect-[5/3]"}
+              aspectClassName="aspect-[5/3]"
             />
           </article>
         ))}
-      </div>
-    </section>
-  );
-}
-
-export function DesignedForFlows() {
-  return (
-    <section className="border-b">
-      <div className="bordered-div-padding space-y-8 md:space-y-10">
-        <h2 className="section-heading">Designed for every flow</h2>
-        <div className="grid border md:grid-cols-3">
-          {flows.map((flow, index) => (
-            <div
-              className={cn(
-                "bordered-div-padding min-h-48 space-y-4",
-                index < flows.length - 1 && "border-b md:border-r md:border-b-0",
-              )}
-              key={flow.title}
-            >
-              <h3 className="card-heading">{flow.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {flow.body}
-              </p>
-            </div>
-          ))}
-        </div>
+        <article className="bordered-div-padding flex flex-col gap-8 border-b md:min-h-[520px]">
+          <div className="max-w-2xl space-y-4">
+            <h2 className="section-heading">
+              For every workflow: nightly releases, pull requests, regression
+              testing, &lt;insert yours&gt;
+            </h2>
+            <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
+              {flows[0]}
+            </p>
+          </div>
+          <PlaceholderFrame
+            className="mt-auto"
+            label="Flow image placeholder"
+            aspectClassName="aspect-[5/3]"
+          />
+        </article>
       </div>
     </section>
   );
