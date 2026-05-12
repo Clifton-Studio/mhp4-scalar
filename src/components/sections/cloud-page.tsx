@@ -1,27 +1,34 @@
-import { ArrowRight02Icon, Share05Icon } from "@hugeicons/core-free-icons";
+import {
+  ArrowRight02Icon,
+  OneCircleIcon,
+  Share05Icon,
+  ThreeCircleIcon,
+  TwoCircleIcon,
+} from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import type { ReactNode } from "react";
 
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { EXTERNAL_LINKS } from "@/constants/external-links";
 import { cn } from "@/lib/utils";
 
 const steps = [
   {
-    eyebrow: "Step 1",
+    icon: OneCircleIcon,
     title: "Sign up for Maestro Cloud and start your free trial",
     cta: "Get started",
     href: EXTERNAL_LINKS.CLOUD_TRIAL,
   },
   {
-    eyebrow: "Step 2",
+    icon: TwoCircleIcon,
     title: "Upload tests from your CLI, or integrate directly into your CI",
     cta: "Read the docs",
     href: EXTERNAL_LINKS.DOCS,
   },
   {
-    eyebrow: "Step 3",
-    title: "Get fast results with parallel execution",
+    icon: ThreeCircleIcon,
+    title: "Get fast results with parallel, async execution",
     cta: "Learn more",
     href: EXTERNAL_LINKS.DOCS,
   },
@@ -169,36 +176,66 @@ export function CloudHero() {
 export function UpgradeSteps() {
   return (
     <section className="border-b">
-      <div className="bordered-div-padding space-y-8 md:space-y-10">
+      <div className="flex items-center gap-3 border-b px-[19px] py-3">
+        <div className="flex items-center gap-2">
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#ff5f57]"></span>
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#febc2e]"></span>
+          <span className="h-3 w-3 rounded-full border border-black/8 bg-[#28c840]"></span>
+        </div>
+        <p
+          className="text-muted-foreground text-xs font-medium tracking-normal uppercase md:text-sm"
+          style={{
+            fontFamily:
+              'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
+          }}
+        >
+          UPGRADE
+        </p>
+      </div>
+      <div className="bordered-div-padding !pb-10 space-y-6 md:!pb-[50px] md:space-y-7 lg:!pb-[60px] lg:space-y-8">
         <div className="max-w-3xl space-y-4">
           <h2 className="section-heading">
-            Take your Maestro tests to the next level. Upgrade in under two
-            minutes.
+            Upgrade in under two minutes.
           </h2>
+          <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
+            Take your Maestro tests to the next level. Send them to the Cloud.
+          </p>
         </div>
-        <div className="grid border md:grid-cols-3">
+        <div className="grid grid-cols-1 border md:grid-cols-3">
           {steps.map((step, index) => (
-            <div
+            <Card
               className={cn(
-                "bordered-div-padding flex min-h-[320px] flex-col justify-between gap-8",
-                index < steps.length - 1 && "border-b md:border-r md:border-b-0",
+                "overflow-hidden rounded-none border-x-0 border-y-0 shadow-none",
+                index > 0 && "border-t md:border-t-0 md:border-l",
               )}
-              key={step.eyebrow}
+              key={step.title}
             >
-              <div className="space-y-5">
-                <p className="section-overline">{step.eyebrow}</p>
-                <h3 className="text-foreground text-lg leading-snug font-medium md:text-xl">
-                  {step.title}
-                </h3>
-              </div>
-              <div className="space-y-6">
-                <PlaceholderFrame
-                  label={`${step.eyebrow} image placeholder`}
-                  aspectClassName="aspect-[4/3]"
-                />
-                <InlineLink href={step.href}>{step.cta}</InlineLink>
-              </div>
-            </div>
+              <CardContent className="flex h-full flex-col gap-4 px-4 pb-4 md:gap-5 md:px-5 md:pb-5 lg:gap-6 lg:px-6 lg:pb-6">
+                <div className="space-y-4 pt-0 md:pt-1 lg:pt-2">
+                  <h3 className="card-heading flex items-center gap-2">
+                    <HugeiconsIcon
+                      icon={step.icon}
+                      className="size-5 shrink-0"
+                      strokeWidth={1.8}
+                    />
+                    {step.title}
+                  </h3>
+                </div>
+                <div className="mt-auto space-y-6">
+                  <PlaceholderFrame
+                    label={`${step.title} image placeholder`}
+                    aspectClassName="aspect-[4/3]"
+                  />
+                  <div className="flex justify-center">
+                    <Button asChild>
+                      <a href={step.href}>
+                        {step.cta}
+                      </a>
+                    </Button>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
