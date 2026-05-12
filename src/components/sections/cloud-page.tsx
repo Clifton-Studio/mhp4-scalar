@@ -6,26 +6,6 @@ import { Button } from "@/components/ui/button";
 import { EXTERNAL_LINKS } from "@/constants/external-links";
 import { cn } from "@/lib/utils";
 
-const trustedTeams = [
-  "Microsoft",
-  "Komoot",
-  "Doordash",
-  "Meta",
-  "xAI",
-  "Amazon",
-  "Kraken",
-  "Atlassian",
-  "Brex",
-  "DuckDuckGo",
-  "Phantom",
-  "FlightRadar24",
-  "GoodRx",
-  "Yum! Brands",
-  "Holland & Barett",
-  "Skyscanner",
-  "Blockchain.com",
-];
-
 const steps = [
   {
     eyebrow: "Step 1",
@@ -116,7 +96,6 @@ export function CloudPage() {
   return (
     <main>
       <CloudHero />
-      <LogoPlaceholderGrid />
       <UpgradeSteps />
       <FeatureBlocks />
       <DesignedForFlows />
@@ -126,87 +105,68 @@ export function CloudPage() {
   );
 }
 
-function CloudHero() {
+export function CloudHero() {
   return (
-    <section className="border-b">
-      <div className="bordered-div-padding relative grid items-center gap-6 overflow-hidden md:gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,1.05fr)] lg:gap-10 lg:!pt-16 lg:!pb-25">
-        <a
-          className="absolute top-6 right-10 hidden items-center gap-1 text-sm font-normal text-foreground hover:text-secondary lg:inline-flex"
-          href={EXTERNAL_LINKS.CLOUD_DASHBOARD}
-        >
-          Cloud dashboard
-          <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
-        </a>
-        <div className="flex flex-col items-start gap-6 md:gap-8">
-          <div className="max-w-4xl space-y-3 md:space-y-4">
-            <div className="space-y-2">
-              <p className="section-overline">Maestro Cloud</p>
-              <h1 className="-ml-[4px] text-4xl leading-snug font-light tracking-tighter md:text-[2.625rem] lg:text-5xl">
-                Enterprise-grade test execution and debugging
-              </h1>
+    <section>
+      <div className="bordered-div-padding relative overflow-hidden !pt-9 md:!pt-10 lg:!pt-16 lg:!pb-8">
+        <div className="grid items-center gap-6 md:gap-8 lg:grid-cols-[minmax(0,0.95fr)_minmax(360px,1.05fr)] lg:gap-10">
+          <div className="flex flex-col items-start gap-6 md:gap-8">
+            <div className="max-w-4xl space-y-3 md:space-y-4">
+              <div className="space-y-2">
+                <p className="section-overline">Maestro Cloud</p>
+                <h1 className="-ml-[4px] text-4xl leading-snug font-light tracking-tighter md:text-[2.625rem] lg:text-5xl">
+                  Enterprise-grade test execution and debugging
+                </h1>
+              </div>
+              <p className="text-muted-foreground max-w-[760px] text-sm leading-relaxed md:text-lg lg:text-xl">
+                Run your Maestro tests in parallel, across a variety of devices on
+                Maestro&apos;s official, purpose-built device cloud
+              </p>
             </div>
-            <p className="text-muted-foreground max-w-[760px] text-sm leading-relaxed md:text-lg lg:text-xl">
-              Run your Maestro tests in parallel, across a variety of devices on
-              Maestro&apos;s official, purpose-built device cloud
-            </p>
+
+            <div className="flex flex-wrap items-center gap-2 md:gap-3">
+              <Button asChild>
+                <a href={EXTERNAL_LINKS.CLOUD_TRIAL}>Start a Free Trial</a>
+              </Button>
+              <Button asChild variant="outline">
+                <a
+                  href={EXTERNAL_LINKS.BOOK_DEMO}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book a Demo
+                </a>
+              </Button>
+            </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-2 md:gap-3">
-            <Button asChild>
-              <a href={EXTERNAL_LINKS.CLOUD_TRIAL}>Start a Free Trial</a>
-            </Button>
-            <Button asChild variant="outline">
-              <a
-                href={EXTERNAL_LINKS.BOOK_DEMO}
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-              Book a Demo
-            </a>
-          </Button>
-          </div>
-        </div>
-
-        <div className="flex w-full flex-col gap-3 lg:gap-4">
-          <a
-            className="order-2 inline-flex items-center gap-1 self-center text-sm font-medium text-foreground hover:text-secondary lg:hidden"
-            href={EXTERNAL_LINKS.CLOUD_DASHBOARD}
-          >
-            Cloud dashboard
-            <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
-          </a>
           <PlaceholderFrame
-            className="order-1 w-full lg:order-2"
+            className="w-full"
             label="Cloud dashboard screenshot placeholder"
             aspectClassName="aspect-[16/10] lg:aspect-[4/3]"
           />
         </div>
-      </div>
-    </section>
-  );
-}
-
-function LogoPlaceholderGrid() {
-  return (
-    <section className="border-b">
-      <div className="bordered-div-padding space-y-6 md:space-y-8">
-        <p className="section-overline text-center">Trusted by top teams at</p>
-        <div className="grid grid-cols-2 gap-2 md:grid-cols-4 lg:grid-cols-6">
-          {trustedTeams.map((team) => (
-            <div
-              className="flex h-16 items-center justify-center rounded-[2px] border bg-muted/30 px-3 text-center text-xs font-medium text-muted-foreground md:h-18"
-              key={team}
+        <div className="mt-5 flex justify-center md:mt-6 lg:justify-end">
+          <Button
+            asChild
+            variant="ghost"
+          >
+            <a
+              href={EXTERNAL_LINKS.CLOUD_DASHBOARD}
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              {team}
-            </div>
-          ))}
+              Cloud dashboard
+              <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
+            </a>
+          </Button>
         </div>
       </div>
     </section>
   );
 }
 
-function UpgradeSteps() {
+export function UpgradeSteps() {
   return (
     <section className="border-b">
       <div className="bordered-div-padding space-y-8 md:space-y-10">
@@ -246,7 +206,7 @@ function UpgradeSteps() {
   );
 }
 
-function FeatureBlocks() {
+export function FeatureBlocks() {
   return (
     <section className="border-b">
       <div className="grid md:grid-cols-2">
@@ -278,7 +238,7 @@ function FeatureBlocks() {
   );
 }
 
-function DesignedForFlows() {
+export function DesignedForFlows() {
   return (
     <section className="border-b">
       <div className="bordered-div-padding space-y-8 md:space-y-10">
@@ -304,7 +264,7 @@ function DesignedForFlows() {
   );
 }
 
-function CaseStudies() {
+export function CaseStudies() {
   return (
     <section className="border-b">
       <div className="bordered-div-padding space-y-8 md:space-y-10">
@@ -344,7 +304,7 @@ function CaseStudies() {
   );
 }
 
-function CloudCta() {
+export function CloudCta() {
   return (
     <section>
       <div className="bordered-div-padding text-center lg:!py-25">

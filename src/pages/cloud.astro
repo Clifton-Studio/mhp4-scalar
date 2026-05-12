@@ -1,7 +1,15 @@
 ---
 import { SITE_DESCRIPTION } from "../consts";
 
-import { CloudPage } from "@/components/sections/cloud-page";
+import {
+  CaseStudies,
+  CloudCta,
+  CloudHero,
+  DesignedForFlows,
+  FeatureBlocks,
+  UpgradeSteps,
+} from "@/components/sections/cloud-page";
+import { TrustedTeams } from "@/components/sections/trusted-teams";
 import DefaultLayout from "@/layouts/DefaultLayout.astro";
 ---
 
@@ -9,5 +17,22 @@ import DefaultLayout from "@/layouts/DefaultLayout.astro";
   title="Maestro Cloud"
   description={SITE_DESCRIPTION}
 >
-  <CloudPage />
+  <main>
+    <div class="border-b">
+      <CloudHero />
+      <div class="bordered-div-padding !pt-2 !pb-10 space-y-6 md:!pt-0 md:!pb-12 md:space-y-8 lg:!-mt-2 lg:!pb-14">
+        <TrustedTeams
+          heading="Trusted by top teams at"
+          compact
+          className="px-0 py-0"
+          client:only="react"
+        />
+      </div>
+    </div>
+    <UpgradeSteps />
+    <FeatureBlocks />
+    <DesignedForFlows />
+    <CaseStudies />
+    <CloudCta />
+  </main>
 </DefaultLayout>
