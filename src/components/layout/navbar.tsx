@@ -169,10 +169,11 @@ function DesktopNavItem({
       target={item.openInNewWindow ? "_blank" : undefined}
       rel={item.openInNewWindow ? "noopener noreferrer" : undefined}
       className={cn(
-        "inline-flex w-max items-center justify-center bg-background outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1",
+        "relative inline-flex w-max items-center justify-center bg-background outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1",
         navControlClass,
         "px-3 py-0 text-sm font-normal tracking-normal",
-        currentPage === item.href && "text-secondary",
+        currentPage === item.href &&
+          "after:absolute after:right-3 after:-bottom-2 after:left-3 after:h-[6px] after:bg-foreground after:content-['']",
       )}
     >
       {item.title}

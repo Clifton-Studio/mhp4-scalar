@@ -146,19 +146,15 @@ export function CloudHero() {
           />
         </div>
         <div className="mt-5 flex justify-center md:mt-6 lg:justify-end">
-          <Button
-            asChild
-            variant="ghost"
+          <a
+            className="inline-thick-link"
+            href={EXTERNAL_LINKS.CLOUD_DASHBOARD}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <a
-              href={EXTERNAL_LINKS.CLOUD_DASHBOARD}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Cloud dashboard
-              <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
-            </a>
-          </Button>
+            Cloud dashboard
+            <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
+          </a>
         </div>
       </div>
     </section>
@@ -218,7 +214,7 @@ export function UpgradeSteps() {
                     label={`${step.title} image placeholder`}
                     aspectClassName="aspect-[4/3]"
                   />
-                  <div className="flex justify-center">
+                  <div className="flex justify-center pb-4 md:pb-0">
                     <Button asChild>
                       <a href={step.href}>
                         {step.cta}
@@ -350,7 +346,7 @@ export function CaseStudies() {
                     {study.body}
                   </p>
                   <a
-                    className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:text-secondary"
+                    className="inline-thick-link"
                     href={study.href}
                   >
                     Read the full study
@@ -424,7 +420,7 @@ function InlineLink({
 }) {
   return (
     <a
-      className="inline-flex items-center gap-1 text-sm font-medium text-foreground hover:text-secondary"
+      className="inline-thick-link"
       href={href}
     >
       {children}
