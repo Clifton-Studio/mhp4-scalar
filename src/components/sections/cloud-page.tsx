@@ -118,8 +118,8 @@ export function CloudHero() {
                 </h1>
               </div>
               <p className="text-muted-foreground max-w-[760px] text-sm leading-relaxed md:text-lg lg:text-xl">
-                Run your Maestro tests in parallel, across a variety of devices on
-                Maestro&apos;s official, purpose-built device cloud
+              Run your Maestro tests in parallel, across a variety of devices on
+              Maestro&apos;s official, purpose-built device cloud.
               </p>
             </div>
 
@@ -183,7 +183,7 @@ export function UpgradeSteps() {
       <div className="bordered-div-padding !pb-10 space-y-6 md:!pb-[50px] md:space-y-7 lg:!pb-[60px] lg:space-y-8">
         <div className="max-w-3xl space-y-4">
           <h2 className="section-heading">
-            Upgrade in under two minutes.
+            Upgrade in under two minutes
           </h2>
           <p className="text-muted-foreground text-sm leading-relaxed md:text-base">
             Take your Maestro tests to the next level. Send them to the Cloud.
