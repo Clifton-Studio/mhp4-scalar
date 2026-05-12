@@ -9,6 +9,7 @@ export const EXTERNAL_LINKS = {
   STUDIO: 'https://studio.maestro.dev',
   CLI: 'https://docs.maestro.dev/maestro-cli/how-to-install-maestro-cli',
   PLAYGROUND: 'https://playground.maestro.dev',
+  COMMUNITY: 'https://maestrodev.typeform.com/to/FelIEe8A',
 
   // Contact
   EMAIL: 'mailto:hello@mobile.dev',

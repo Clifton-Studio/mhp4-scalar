@@ -20,12 +20,17 @@ import { cn } from "@/lib/utils";
 type NavItem = {
   title: string;
   href: string;
+  openInNewWindow?: boolean;
 };
 
 const navigationItems: NavItem[] = [
-  { title: "Documentation", href: "/docs" },
+  { title: "Documentation", href: EXTERNAL_LINKS.DOCS },
   { title: "Cloud", href: "/cloud" },
-  { title: "Community", href: "/community" },
+  {
+    title: "Community",
+    href: EXTERNAL_LINKS.COMMUNITY,
+    openInNewWindow: true,
+  },
   { title: "Blog", href: "/blog" },
   { title: "Pricing", href: "/pricing" },
 ];
@@ -137,7 +142,13 @@ function MobileNavMenu() {
             asChild
             className="h-9 rounded-[2px] px-3 py-0 text-sm font-normal tracking-normal hover:bg-muted/40 hover:text-current focus:bg-muted/40 focus:text-current dark:hover:bg-[oklch(0.94_0_0)] dark:focus:bg-[oklch(0.94_0_0)]"
           >
-            <a href={item.href}>{item.title}</a>
+            <a
+              href={item.href}
+              target={item.openInNewWindow ? "_blank" : undefined}
+              rel={item.openInNewWindow ? "noopener noreferrer" : undefined}
+            >
+              {item.title}
+            </a>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
@@ -155,6 +166,8 @@ function DesktopNavItem({
   return (
     <a
       href={item.href}
+      target={item.openInNewWindow ? "_blank" : undefined}
+      rel={item.openInNewWindow ? "noopener noreferrer" : undefined}
       className={cn(
         "inline-flex w-max items-center justify-center bg-background outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1",
         navControlClass,
