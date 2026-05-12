@@ -7,6 +7,7 @@ export const EXTERNAL_LINKS = {
   CLOUD_DASHBOARD: 'https://app.maestro.dev',
   CLOUD_TRIAL: 'https://signin.maestro.dev/sign-up',
   BOOK_DEMO: 'https://maestrodev.typeform.com/to/yJ1A2QGV',
+  ENTERPRISE_DEMO: 'https://maestrodev.typeform.com/to/yJ1A2QGV',
   BLOG: 'https://maestro.dev/blog',
   PRICING: 'https://maestro.dev/pricing',
   STUDIO: 'https://studio.maestro.dev',

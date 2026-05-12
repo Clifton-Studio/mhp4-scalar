@@ -125,7 +125,7 @@ export function CloudHero() {
 
             <div className="flex flex-wrap items-center gap-2 md:gap-3">
               <Button asChild>
-                <a href={EXTERNAL_LINKS.CLOUD_TRIAL}>Start a Free Trial</a>
+                <a href={EXTERNAL_LINKS.CLOUD_TRIAL}>Start a free trial</a>
               </Button>
               <Button asChild variant="outline">
                 <a
@@ -133,7 +133,7 @@ export function CloudHero() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Book a Demo
+                  Book a demo
                 </a>
               </Button>
             </div>
@@ -376,7 +376,7 @@ export function CloudCta() {
             </p>
           </div>
           <Button asChild>
-            <a href={EXTERNAL_LINKS.CLOUD_TRIAL}>Start Testing</a>
+            <a href={EXTERNAL_LINKS.CLOUD_TRIAL}>Start testing</a>
           </Button>
         </div>
       </div>
