@@ -1,0 +1,13 @@
+---
+import { SITE_DESCRIPTION } from "../consts";
+
+import { CloudPage } from "@/components/sections/cloud-page";
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+---
+
+<DefaultLayout
+  title="Maestro Cloud"
+  description={SITE_DESCRIPTION}
+>
+  <CloudPage />
+</DefaultLayout>
