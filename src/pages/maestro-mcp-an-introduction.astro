@@ -1,0 +1,179 @@
+---
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+
+const title = "Maestro MCP: An introduction";
+const description =
+  "Learn how Maestro MCP uses the Model Context Protocol to supercharge your mobile test creation, execution, and maintenance with AI agents.";
+---
+
+<DefaultLayout title={title} description={description}>
+  <main>
+    <article class="border-b">
+      <div class="blog-post-header-section">
+        <div class="blog-post-container">
+          <header class="blog-post-header">
+            <div class="blog-post-title-stack">
+              <p class="section-overline">BLOG</p>
+              <h1 class="blog-post-title">
+                Maestro MCP: An introduction
+              </h1>
+            </div>
+
+            <div class="blog-post-meta">
+              <span>Simon Gilmurray</span>
+              <span aria-hidden="true">•</span>
+              <span>April 14, 2026</span>
+            </div>
+          </header>
+        </div>
+      </div>
+
+      <div class="blog-post-body-section">
+        <div class="blog-article-content">
+          <img
+            src="https://a.storyblok.com/f/340025/1289x816/411c6b761b/hhio.png"
+            alt=""
+          />
+
+          <p>
+            Keeping up with the pace of development in this new agentic AI world
+            has become one of the biggest challenges that teams face.
+          </p>
+
+          <p>
+            One of the key things to come out of these new workflows is that
+            validation and testing are now more important than ever.
+          </p>
+
+          <p>
+            Enter:{" "}
+            <a href="https://docs.maestro.dev/get-started/maestro-mcp">Maestro MCP</a>
+          </p>
+
+          <h2>What is MCP?</h2>
+
+          <p>
+            The Model Context Protocol is an open standard that provides a
+            uniform interface for connecting Large Language Models to external
+            data sources, tools, and services. MCP defines a client-server
+            architecture where:
+          </p>
+
+          <ul>
+            <li>
+              MCP Servers expose resources like data sources, APIs, and tools
+              through a standardised interface
+            </li>
+            <li>
+              MCP Clients, such as AI apps, consume these resources via the
+              protocol
+            </li>
+            <li>
+              Transport Layer handles communication using JSON Remote Procedure
+              Call (RPC) 2.0 over stdio, HTTP with Server-Sent Events (SSE), or
+              WebSocket connections
+            </li>
+          </ul>
+
+          <p>
+            This architectural pattern decouples LLMs from specific
+            integrations, allowing Maestro to function as an MCP server that
+            exposes its capabilities through a protocol-defined interface rather
+            than requiring custom SDK implementations for each client. These can
+            then be directly integrated with MCP-compliant client apps such as
+            Claude, Cursor, Codex, Github Copilot, Gemini and Windsurf.
+          </p>
+
+          <h2>Main use-cases</h2>
+
+          <h3>Test creation</h3>
+
+          <p>
+            An AI agent can inspect the live view hierarchy of a mobile app,
+            take screenshots and generate Maestro flow YAML - removing the need
+            to manually figure out element IDs or app structure. Being able to
+            describe scenarios and steps in plain language, and having them
+            translated into Maestro syntax is a game-changer.
+          </p>
+
+          <h3>Interactive test execution</h3>
+
+          <p>
+            Drive a real device/emulator directly through the agent: launch
+            apps, tap elements, input text, scroll, go back - all in a
+            conversational loop without switching tools. Also known as closing
+            the agentic loop.
+          </p>
+
+          <h3>Test maintenance</h3>
+
+          <p>
+            Inspect what's on screen and iterate on failing tests interactively.
+            The agent can diagnose why a tap is missing or an assertion is
+            failing by looking at the hierarchy live. Provided with context, the
+            agent can work on self-healing a failing test which can greatly
+            reduce the maintenance burden. You can also even run self-healing
+            flows between your Agent and Maestro Cloud which is truly awesome!
+          </p>
+
+          <h3>Device management</h3>
+
+          <p>
+            List available devices, start a specific emulator/simulator, and
+            target runs at a particular device - useful when working across iOS
+            and Android in parallel.
+          </p>
+
+          <h3>Documentation querying & reference</h3>
+
+          <p>
+            Being able to easily query the documentation and pull back relevant
+            code and syntax is extremely helpful.
+          </p>
+
+          <p>
+            Tip - test creation/execution/maintenance can all be supercharged by
+            using Maestro MCP in conjunction with your app source code - your
+            agent will use the context from the codebase to assist with
+            constructing your Maestro flows
+          </p>
+
+          <h2>Getting Started with Maestro MCP</h2>
+
+          <ul>
+            <li>
+              <a href="https://docs.maestro.dev/get-started/maestro-mcp#install-the-maestro-mcp-server">Run the Maestro MCP Server</a>{" "}
+              using <code>maestro mcp</code> in your terminal
+            </li>
+            <li>
+              <a href="https://docs.maestro.dev/get-started/maestro-mcp#configure-the-mcp-server-on-your-ide">Configure the MCP server</a>{" "}
+              on your IDE by including the below json configuration on your
+              chosen workspace tool:
+            </li>
+          </ul>
+
+          <pre><code>{`{
+  "mcpServers": {
+    "maestro": {
+      "command": "maestro",
+      "args": [
+        "mcp"
+      ]
+    }
+  }
+}`}</code></pre>
+
+          <h2>What's Next?</h2>
+
+          <p>
+            Maestro MCP is an extremely powerful tool to have under your belt
+            for generating and maintaining tests and we're just getting started.
+            We're working on improving the MCP further to add more functionality
+            and improve integration with{" "}
+            <a href="https://maestro.dev/cloud">Maestro Cloud</a>.
+          </p>
+        </div>
+      </div>
+    </article>
+  </main>
+</DefaultLayout>

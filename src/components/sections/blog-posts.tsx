@@ -13,7 +13,7 @@ const posts = [
       "Today, we're announcing a completely redesigned Maestro Studio! Modern, elegant, and with new features that make building tests faster than ever. Maestro Studio is the desktop app for Maestro, the mobile UI testing framework used by teams at Microsoft, Meta, Uber, Amazon, DoorDash, and hundreds more.",
   },
   {
-    href: "https://maestro.dev/blog/maestro-mcp-an-introduction",
+    href: "/maestro-mcp-an-introduction",
     image:
       "https://a.storyblok.com/f/340025/1200x676/8d060bbaa6/banner_blogpost-2.png/m/0x288",
     alt: "Maestro MCP: An introduction",

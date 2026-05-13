@@ -1,7 +1,4 @@
 ---
-import { Share05Icon } from "@hugeicons/core-free-icons";
-import { HugeiconsIcon } from "@hugeicons/react";
-
 import DefaultLayout from "@/layouts/DefaultLayout.astro";
 
 const title = "New Maestro Studio";
@@ -12,21 +9,17 @@ const description =
 <DefaultLayout title={title} description={description}>
   <main>
     <article class="border-b">
-      <div class="bordered-div-padding !pt-12 md:!pt-16 lg:!pt-20">
-        <div class="mx-auto max-w-3xl space-y-8 md:space-y-10">
-          <header class="space-y-4 md:space-y-5">
-            <div class="space-y-2">
+      <div class="blog-post-header-section">
+        <div class="blog-post-container">
+          <header class="blog-post-header">
+            <div class="blog-post-title-stack">
               <p class="section-overline">BLOG</p>
-              <h1
-                class="text-4xl leading-snug font-light tracking-tighter md:-translate-x-1 md:text-[2.625rem] lg:text-5xl"
-              >
+              <h1 class="blog-post-title">
                 New Maestro Studio
               </h1>
             </div>
 
-            <div
-              class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium text-muted-foreground md:text-sm"
-            >
+            <div class="blog-post-meta">
               <span>Manu Armani</span>
               <span aria-hidden="true">•</span>
               <span>April 21, 2026</span>
@@ -35,8 +28,8 @@ const description =
         </div>
       </div>
 
-      <div class="bordered-div-padding !pt-0">
-        <div class="article-content mx-auto max-w-3xl">
+      <div class="blog-post-body-section">
+        <div class="blog-article-content">
           <p>
             Today, we're announcing a completely redesigned Maestro Studio!
             Modern, elegant, and with new features that make building tests
@@ -52,7 +45,7 @@ const description =
             maintenance.
           </p>
 
-          <div class="my-10 overflow-hidden rounded-sm rounded-tl-lg border bg-muted/40">
+          <div class="blog-article-media">
             <iframe
               class="aspect-video h-auto w-full"
               src="https://www.youtube.com/embed/PZiaGqOo0xY?si=uR45OuqGpyU0RyCf"
@@ -107,14 +100,13 @@ const description =
             download it fresh:
           </p>
 
-          <ul class="not-prose mt-8 list-disc space-y-3 pl-5">
+          <ul class="blog-article-link-list">
             <li>
               <a
                 class="thick-underline-link inline-flex items-center gap-1 text-sm font-medium text-foreground md:text-base"
                 href="https://studio.maestro.dev/MaestroStudio.dmg"
               >
                 Download for Mac
-                <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
               </a>
             </li>
             <li>
@@ -123,7 +115,6 @@ const description =
                 href="https://studio.maestro.dev/MaestroStudio.exe"
               >
                 Download for Windows
-                <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
               </a>
             </li>
             <li>
@@ -132,7 +123,6 @@ const description =
                 href="https://studio.maestro.dev/MaestroStudio.AppImage"
               >
                 Download for Linux
-                <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
               </a>
             </li>
           </ul>
@@ -141,39 +131,3 @@ const description =
     </article>
   </main>
 </DefaultLayout>
-
-<style>
-  .article-content {
-    color: var(--color-foreground);
-  }
-
-  .article-content p {
-    margin: 1.5rem 0;
-    font-size: 1rem;
-    line-height: 1.75;
-  }
-
-  .article-content p:first-child {
-    margin-top: 0.5rem;
-  }
-
-  .article-content h2 {
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    color: var(--color-foreground);
-    font-size: 1.5rem;
-    font-weight: 300;
-    letter-spacing: -0.025em;
-    line-height: 1.2;
-  }
-
-  @media (min-width: 768px) {
-    .article-content p {
-      font-size: 1.0625rem;
-    }
-
-    .article-content h2 {
-      font-size: 1.875rem;
-    }
-  }
-</style>

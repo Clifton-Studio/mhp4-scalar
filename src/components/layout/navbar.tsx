@@ -38,6 +38,8 @@ const navigationItems: NavItem[] = [
 const navControlClass =
   "h-9 rounded-[2px] hover:bg-muted/40 hover:text-accent-foreground";
 
+const standaloneBlogPostPaths = ["/maestro-mcp-an-introduction"];
+
 interface NavbarProps {
   currentPage?: string;
 }
@@ -165,7 +167,10 @@ function DesktopNavItem({
 }) {
   const isActive =
     currentPage === item.href ||
-    (item.href !== "/" && currentPage?.startsWith(`${item.href}/`));
+    (item.href !== "/" && currentPage?.startsWith(`${item.href}/`)) ||
+    (item.href === "/blog" &&
+      !!currentPage &&
+      standaloneBlogPostPaths.includes(currentPage));
 
   return (
     <a
