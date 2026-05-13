@@ -1,5 +1,4 @@
 import {
-  ArrowRight02Icon,
   OneCircleIcon,
   Share05Icon,
   ThreeCircleIcon,
@@ -147,7 +146,7 @@ export function CloudHero() {
         </div>
         <div className="mt-5 flex justify-center md:mt-6 lg:justify-end">
           <a
-            className="inline-thick-link"
+            className="thick-underline-link inline-flex items-center gap-1 text-sm font-medium text-foreground"
             href={EXTERNAL_LINKS.CLOUD_DASHBOARD}
             target="_blank"
             rel="noopener noreferrer"
@@ -350,7 +349,6 @@ export function CaseStudies() {
                     href={study.href}
                   >
                     Read the full study
-                    <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
                   </a>
                 </div>
               </article>
@@ -424,7 +422,6 @@ function InlineLink({
       href={href}
     >
       {children}
-      <HugeiconsIcon icon={ArrowRight02Icon} className="size-4" strokeWidth={1.8} />
     </a>
   );
 }

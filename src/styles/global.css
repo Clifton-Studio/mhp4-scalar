@@ -227,8 +227,28 @@
     @apply text-muted-foreground text-xxs font-medium tracking-[0.18em] uppercase md:text-xs lg:text-sm;
   }
 
+  .thick-underline-link {
+    @apply decoration-6 underline-offset-[3px] outline-none focus-visible:ring-[3px];
+    text-decoration-skip-ink: none;
+  }
+
+  .thick-underline-link:hover,
+  .thick-underline-link:focus-visible,
+  .inline-thick-link:hover,
+  .inline-thick-link:focus-visible {
+    text-decoration-line: underline;
+  }
+
   .inline-thick-link {
-    @apply relative inline-flex items-center gap-1 text-sm font-medium text-foreground outline-none after:absolute after:right-0 after:bottom-[-5px] after:left-0 after:hidden after:h-[6px] after:bg-foreground after:content-[''] hover:after:block focus-visible:ring-[3px] focus-visible:after:block;
+    @apply inline-flex items-center gap-1 text-sm font-medium text-foreground decoration-6 underline-offset-[3px] outline-none focus-visible:ring-[3px];
+    text-decoration-skip-ink: none;
+  }
+
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   .hero-composite {
