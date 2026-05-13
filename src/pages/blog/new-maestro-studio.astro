@@ -1,0 +1,179 @@
+---
+import { Share05Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react";
+
+import DefaultLayout from "@/layouts/DefaultLayout.astro";
+
+const title = "New Maestro Studio";
+const description =
+  "Maestro Studio is the desktop app for mobile UI testing. Now completely redesigned, with contextual autocomplete.";
+---
+
+<DefaultLayout title={title} description={description}>
+  <main>
+    <article class="border-b">
+      <div class="bordered-div-padding !pt-12 md:!pt-16 lg:!pt-20">
+        <div class="mx-auto max-w-3xl space-y-8 md:space-y-10">
+          <header class="space-y-4 md:space-y-5">
+            <div class="space-y-2">
+              <p class="section-overline">BLOG</p>
+              <h1
+                class="text-4xl leading-snug font-light tracking-tighter md:-translate-x-1 md:text-[2.625rem] lg:text-5xl"
+              >
+                New Maestro Studio
+              </h1>
+            </div>
+
+            <div
+              class="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs font-medium text-muted-foreground md:text-sm"
+            >
+              <span>Manu Armani</span>
+              <span aria-hidden="true">•</span>
+              <span>April 21, 2026</span>
+            </div>
+          </header>
+        </div>
+      </div>
+
+      <div class="bordered-div-padding !pt-0">
+        <div class="article-content mx-auto max-w-3xl">
+          <p>
+            Today, we're announcing a completely redesigned Maestro Studio!
+            Modern, elegant, and with new features that make building tests
+            faster than ever.
+          </p>
+
+          <p>
+            Maestro Studio is the desktop app for Maestro, the mobile UI testing
+            framework used by teams at Microsoft, Meta, Uber, Amazon, DoorDash,
+            and hundreds more. The idea behind it has always been simple:
+            writing and maintaining UI tests for mobile apps shouldn't be
+            painful. No complex setup, no steep learning curve, no brittle test
+            maintenance.
+          </p>
+
+          <div class="my-10 overflow-hidden rounded-sm rounded-tl-lg border bg-muted/40">
+            <iframe
+              class="aspect-video h-auto w-full"
+              src="https://www.youtube.com/embed/PZiaGqOo0xY?si=uR45OuqGpyU0RyCf"
+              title="New Maestro Studio"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen></iframe>
+          </div>
+
+          <p>Here's what's new:</p>
+
+          <h2>Autocomplete that knows your app</h2>
+
+          <p>
+            Maestro Studio now autocompletes commands, arguments, and selectors
+            directly from your connected device.
+          </p>
+
+          <p>
+            In practice this means: less time in the docs, fewer errors before
+            you even run a test, and commands you didn't know existed showing up
+            exactly when they're relevant. For new users, getting productive no
+            longer requires memorizing Maestro's syntax. For experienced users,
+            the repetitive parts of writing tests get significantly faster.
+          </p>
+
+          <p>
+            If no device is connected, command and argument suggestions still
+            work. Connect one, and selector suggestions instantly become
+            dynamic.
+          </p>
+
+          <h2>Faster test creation via the emulator</h2>
+
+          <p>
+            Right-clicking on the emulator gives you immediate access to common
+            commands and the correct selector in just a click. Building a test
+            by navigating through your app is now the natural path - for
+            developers and QA testers alike, including those coming from manual
+            testing who want a modern tool without a long learning curve.
+          </p>
+
+          <p>Device connection is also significantly more robust in this release.</p>
+
+          <h2>Upgrading</h2>
+
+          <p>
+            All your existing tests run as-is, with no migration needed. If
+            you've only been using the CLI so far, now's a great time to try
+            Studio. To get the latest version, update from within Studio or
+            download it fresh:
+          </p>
+
+          <ul class="not-prose mt-8 list-disc space-y-3 pl-5">
+            <li>
+              <a
+                class="thick-underline-link inline-flex items-center gap-1 text-sm font-medium text-foreground md:text-base"
+                href="https://studio.maestro.dev/MaestroStudio.dmg"
+              >
+                Download for Mac
+                <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
+              </a>
+            </li>
+            <li>
+              <a
+                class="thick-underline-link inline-flex items-center gap-1 text-sm font-medium text-foreground md:text-base"
+                href="https://studio.maestro.dev/MaestroStudio.exe"
+              >
+                Download for Windows
+                <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
+              </a>
+            </li>
+            <li>
+              <a
+                class="thick-underline-link inline-flex items-center gap-1 text-sm font-medium text-foreground md:text-base"
+                href="https://studio.maestro.dev/MaestroStudio.AppImage"
+              >
+                Download for Linux
+                <HugeiconsIcon icon={Share05Icon} className="size-4" strokeWidth={1.8} />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </article>
+  </main>
+</DefaultLayout>
+
+<style>
+  .article-content {
+    color: var(--color-foreground);
+  }
+
+  .article-content p {
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    line-height: 1.75;
+  }
+
+  .article-content p:first-child {
+    margin-top: 0.5rem;
+  }
+
+  .article-content h2 {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    color: var(--color-foreground);
+    font-size: 1.5rem;
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  @media (min-width: 768px) {
+    .article-content p {
+      font-size: 1.0625rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.875rem;
+    }
+  }
+</style>

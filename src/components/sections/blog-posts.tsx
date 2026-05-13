@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 const posts = [
   {
-    href: "https://maestro.dev/blog/new-maestro-studio",
+    href: "/blog/new-maestro-studio",
     image:
       "https://a.storyblok.com/f/340025/1200x630/0e9e97a63d/cover-blog-post-1200x630.png/m/0x288",
     alt: "New Maestro Studio",

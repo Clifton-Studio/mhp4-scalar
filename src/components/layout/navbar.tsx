@@ -163,6 +163,10 @@ function DesktopNavItem({
   item: NavItem;
   currentPage?: string;
 }) {
+  const isActive =
+    currentPage === item.href ||
+    (item.href !== "/" && currentPage?.startsWith(`${item.href}/`));
+
   return (
     <a
       href={item.href}
@@ -172,7 +176,7 @@ function DesktopNavItem({
         "relative inline-flex w-max items-center justify-center bg-background outline-none transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1",
         navControlClass,
         "px-3 py-0 text-sm font-normal tracking-normal",
-        currentPage === item.href &&
+        isActive &&
           "after:absolute after:right-3 after:-bottom-2 after:left-3 after:h-[6px] after:bg-foreground after:content-['']",
       )}
     >
