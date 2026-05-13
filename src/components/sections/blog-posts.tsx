@@ -257,8 +257,12 @@ export default function BlogPosts() {
               </h1>
             </div>
             <p className="text-muted-foreground mx-auto max-w-[760px] text-sm leading-relaxed md:text-lg lg:text-xl">
-              Release notes, product updates, guides, case studies, and more
-              for mobile UI testing with Maestro.
+              Release notes, product updates, guides, and case studies for
+              mobile UI testing with Maestro. Or find more in the{" "}
+              <a href="/insights" className="thick-underline-link text-foreground">
+                industry blog
+              </a>
+              .
             </p>
           </div>
         </div>
