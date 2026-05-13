@@ -170,7 +170,9 @@ function DesktopNavItem({
     (item.href !== "/" && currentPage?.startsWith(`${item.href}/`)) ||
     (item.href === "/blog" &&
       !!currentPage &&
-      standaloneBlogPostPaths.includes(currentPage));
+      (standaloneBlogPostPaths.includes(currentPage) ||
+        currentPage === "/insights" ||
+        currentPage.startsWith("/insights/")));
 
   return (
     <a

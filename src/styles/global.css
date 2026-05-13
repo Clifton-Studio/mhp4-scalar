@@ -228,7 +228,8 @@
   }
 
   .thick-underline-link {
-    @apply decoration-6 underline-offset-[3px] outline-none focus-visible:ring-[3px];
+    @apply underline-offset-[3px] outline-none focus-visible:ring-[3px];
+    text-decoration-thickness: 0.125rem;
     text-decoration-skip-ink: none;
   }
 
@@ -240,8 +241,29 @@
   }
 
   .inline-thick-link {
-    @apply inline-flex items-center gap-1 text-sm font-medium text-foreground decoration-6 underline-offset-[3px] outline-none focus-visible:ring-[3px];
+    @apply inline-flex items-center gap-1 text-sm font-medium text-foreground underline-offset-[3px] outline-none focus-visible:ring-[3px];
+    text-decoration-thickness: 0.125rem;
     text-decoration-skip-ink: none;
+  }
+
+  .thick-underline-link:hover,
+  .thick-underline-link:focus-visible,
+  .inline-thick-link:hover,
+  .inline-thick-link:focus-visible {
+    text-decoration-thickness: 0.25rem;
+  }
+
+  .article-inline-link {
+    color: inherit;
+    text-decoration-line: underline;
+    text-decoration-thickness: 0.125rem;
+    text-underline-offset: 0.1875rem;
+    text-decoration-skip-ink: none;
+  }
+
+  .article-inline-link:hover,
+  .article-inline-link:focus-visible {
+    text-decoration-thickness: 0.25rem;
   }
 
   .blog-post-header-section {
@@ -316,8 +338,29 @@
     padding-left: 1.25rem;
   }
 
+  .blog-article-content ol {
+    margin: 1.5rem 0;
+    list-style: decimal;
+    padding-left: 1.25rem;
+  }
+
   .blog-article-content li {
     margin: 0.5rem 0;
+  }
+
+  .blog-article-content strong {
+    font-weight: 600;
+  }
+
+  .blog-article-content blockquote {
+    margin: 1.5rem 0;
+    border-left: 2px solid var(--color-border);
+    padding-left: 1rem;
+    color: var(--color-muted-foreground);
+  }
+
+  .blog-article-content blockquote p {
+    color: inherit;
   }
 
   .blog-article-content a {
@@ -339,6 +382,36 @@
     border: 1px solid var(--color-border);
     border-radius: var(--radius-lg);
     object-fit: cover;
+  }
+
+  .blog-article-content figure {
+    margin: 2rem 0;
+  }
+
+  .blog-article-content figure img {
+    margin-bottom: 0.75rem;
+  }
+
+  .blog-article-content figcaption {
+    color: var(--color-muted-foreground);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  .blog-article-content br {
+    display: block;
+    margin-top: 0.5rem;
+    content: "";
+  }
+
+  .blog-article-content iframe {
+    margin: 2rem 0;
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
   }
 
   .blog-article-content pre {

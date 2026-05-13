@@ -123,7 +123,7 @@ export function PricingPage() {
                     {plan.features.map((feature) => (
                       <li
                         key={feature}
-                        className="card-heading flex gap-2 text-muted-foreground"
+                        className="flex gap-2 text-sm leading-snug md:text-base"
                       >
                         <HugeiconsIcon
                           icon={CheckmarkCircle02Icon}

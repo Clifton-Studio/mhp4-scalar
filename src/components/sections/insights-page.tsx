@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 
 const insights = [
   {
-    href: "https://maestro.dev/insights/debugging-flaky-test-flows-tips-qa-teams",
+    href: "/insights/debugging-flaky-test-flows-tips-qa-teams",
     image:
       "https://assets.seobotai.com/cdn-cgi/image/quality=75,w=1536,h=1024/docs.maestro.dev/69c5fa021b352ff267cc46d4-1774599868783.jpg",
     alt: "Debugging Flaky Test Flows: Tips for QA Teams",
