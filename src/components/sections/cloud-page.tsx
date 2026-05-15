@@ -152,11 +152,7 @@ export function CloudHero() {
             </div>
           </div>
 
-          <PlaceholderFrame
-            className="w-full"
-            label="Cloud dashboard screenshot placeholder"
-            aspectClassName="aspect-[16/10] lg:aspect-[4/3]"
-          />
+          <CloudHeroGraphic className="w-full" />
         </div>
         <div className="mt-5 flex justify-center md:mt-6 lg:justify-end">
           <a
@@ -171,6 +167,692 @@ export function CloudHero() {
         </div>
       </div>
     </section>
+  );
+}
+
+const cloudHeroSources = [
+  {
+    label: "Maestro Studio",
+    title: "Studio",
+    rows: ["Local simulator", "Recorded flow", "Selector map"],
+  },
+  {
+    label: "Your CLI",
+    title: "Terminal",
+    rows: ["maestro cloud", "Uploading flows", "Queued run"],
+  },
+  {
+    label: "Any CI Provider",
+    title: "CI",
+    rows: ["Pull request", "Nightly build", "Release branch"],
+  },
+];
+
+const cloudHeroDevices = [
+  {
+    label: "iPhone 17",
+    rows: 4,
+  },
+  {
+    label: "Pixel 9",
+    rows: 3,
+  },
+  {
+    label: "iPad Air",
+    rows: 5,
+  },
+  {
+    label: "Galaxy S25",
+    rows: 4,
+  },
+];
+
+function CloudHeroGraphic({ className }: { className?: string }) {
+  return (
+    <div
+      aria-label="Maestro Cloud routes local, CLI, and CI test runs into parallel device execution"
+      className={cn(
+        "relative aspect-[16/10] min-h-[340px] overflow-hidden rounded-md border bg-[oklch(0.935_0_0)] lg:aspect-[4/3] lg:min-h-[520px]",
+        className,
+      )}
+      role="img"
+    >
+      <div className="absolute inset-x-[8%] top-[14%] grid grid-cols-3 gap-[5%]">
+        {cloudHeroSources.map((source) => (
+          <CloudSourceWindow key={source.label} source={source} />
+        ))}
+      </div>
+
+      <div className="absolute left-[17%] top-[35%] h-[20%] w-px bg-black/10" />
+      <div className="absolute left-1/2 top-[35%] h-[16%] w-px -translate-x-1/2 bg-black/10" />
+      <div className="absolute right-[17%] top-[35%] h-[20%] w-px bg-black/10" />
+      <div className="absolute left-[17%] right-[17%] top-[51%] h-px bg-black/10" />
+
+      <div className="absolute left-1/2 top-[43%] w-[42%] -translate-x-1/2">
+        <div className="overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] text-[#252525] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.34),0_10px_20px_-12px_rgba(0,0,0,0.24)]">
+          <div className="flex h-5 items-center border-b border-black/5 bg-[#f4f2ef] px-2">
+            <div className="flex items-center gap-1">
+              <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+              <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+              <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+            </div>
+            <span className="mx-auto text-[0.5rem] leading-none font-medium tracking-normal text-[#8d8b86]">
+              Maestro Cloud
+            </span>
+          </div>
+          <div className="grid grid-cols-[auto_1fr] gap-3 px-4 py-4">
+            <MaestroMark />
+            <div className="min-w-0">
+              <p className="text-sm leading-none font-semibold text-[#252525]">
+                Parallel run matrix
+              </p>
+              <div className="mt-3 grid grid-cols-3 gap-1.5">
+                {Array.from({ length: 9 }).map((_, index) => (
+                  <span
+                    className="h-2 rounded-[2px] bg-[#c7c2bb]"
+                    key={index}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="absolute left-1/2 top-[60%] h-[10%] w-px -translate-x-1/2 bg-black/10" />
+      <div className="absolute bottom-[7%] left-[8%] right-[8%] grid grid-cols-4 gap-[5%]">
+        {cloudHeroDevices.map((device) => (
+          <CloudDevice key={device.label} device={device} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+const featureMockups = [
+  "priority",
+  "notifications",
+  "stability",
+  "debugging",
+  "devices",
+] as const;
+
+function CloudFeatureMockup({
+  variant,
+}: {
+  variant: (typeof featureMockups)[number];
+}) {
+  if (variant === "priority") {
+    return <PriorityRunsMockup />;
+  }
+
+  if (variant === "notifications") {
+    return <NotificationsMockup />;
+  }
+
+  if (variant === "stability") {
+    return <StabilityMockup />;
+  }
+
+  if (variant === "debugging") {
+    return <DebuggingMockup />;
+  }
+
+  return <DeviceMatrixMockup />;
+}
+
+function MockupStage({
+  ariaLabel,
+  children,
+}: {
+  ariaLabel: string;
+  children: ReactNode;
+}) {
+  return (
+    <div
+      aria-label={ariaLabel}
+      className="relative mt-auto aspect-[5/3] overflow-hidden rounded-sm border bg-[oklch(0.935_0_0)]"
+      role="img"
+    >
+      {children}
+    </div>
+  );
+}
+
+function PriorityRunsMockup() {
+  const rows = [
+    ["Medium", "feat/redesign/premium", "4eaeolc7eeb21d6e"],
+    ["Critical", "fix/login-bugs", "52d74a530765f3af"],
+    ["Low", "feat/redesign/profile", "ed85388ba0921472"],
+    ["High", "fix/websocket", "3b79d3fad98a3b44"],
+  ];
+
+  return (
+    <MockupStage ariaLabel="Prioritized Maestro Cloud run queue">
+      <div className="absolute inset-x-[7%] top-[8%] space-y-3">
+        {rows.map(([priority, branch, hash], index) => (
+          <div
+            className="grid grid-cols-[auto_1fr] gap-3 rounded-sm border border-black/10 bg-[#fbfaf8] px-4 py-3 shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]"
+            key={branch}
+          >
+            <ProgressRing offset={index} />
+            <div className="min-w-0">
+              <p className="truncate text-sm leading-none font-semibold text-[#252525]">
+                {priority} - {branch} - {hash}
+              </p>
+              <div className="mt-3 inline-flex items-center gap-2 rounded-[2px] border border-black/10 bg-white px-2 py-1">
+                <span className="size-2 rounded-full bg-[#c7c2bb]" />
+                <span className="font-mono text-[0.58rem] leading-none text-[#5d5d64]">
+                  {branch}
+                </span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </MockupStage>
+  );
+}
+
+function ProgressRing({ offset }: { offset: number }) {
+  return (
+    <div className="relative size-8 rounded-full bg-[#f4f2ef]">
+      <span
+        className={cn(
+          "absolute inset-1 rounded-full border-4 border-[#c7c2bb] border-r-transparent border-b-transparent",
+          offset % 2 === 1 && "rotate-90",
+          offset % 3 === 2 && "rotate-180",
+        )}
+      />
+      <span className="absolute inset-2 rounded-full bg-[#fbfaf8]" />
+    </div>
+  );
+}
+
+function NotificationsMockup() {
+  const rows = [
+    ["Email", "Test failure: test-login-flow", "Just now"],
+    ["Slack", "maestro-bot posted in #test-runs", "Just now"],
+    ["GitHub", "maestro-bot comment on PR #102", "Just now"],
+    ["Webhook", "test-login-flow failed", "Just now"],
+  ];
+
+  return (
+    <MockupStage ariaLabel="Maestro Cloud notifications for test results">
+      <div className="absolute inset-x-[8%] top-[9%] space-y-3">
+        {rows.map(([channel, title, time]) => (
+          <div
+            className="grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-sm border border-black/10 bg-[#fbfaf8] px-4 py-3 shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]"
+            key={channel}
+          >
+            <span className="flex size-8 items-center justify-center rounded-[2px] bg-[#f4f2ef] text-[0.52rem] font-semibold text-[#5d5d64]">
+              {channel.slice(0, 2)}
+            </span>
+            <div className="min-w-0">
+              <p className="truncate text-sm leading-none font-semibold text-[#252525]">
+                {title}
+              </p>
+              <p className="mt-2 truncate text-xs leading-none text-[#8d8b86]">
+                New Cloud result message delivered.
+              </p>
+            </div>
+            <span className="text-[0.58rem] font-medium text-[#8d8b86]">
+              {time}
+            </span>
+          </div>
+        ))}
+      </div>
+    </MockupStage>
+  );
+}
+
+function StabilityMockup() {
+  return (
+    <MockupStage ariaLabel="Stable test run replay with step logs">
+      <div className="absolute left-[7%] top-[8%] w-[28%]">
+        <MiniPhone />
+      </div>
+      <div className="absolute right-[7%] top-[18%] w-[63%] overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]">
+        <MiniWindowBar title="run log" />
+        <div className="px-4 py-3 font-mono text-[0.58rem] leading-[1.8] text-[#5d5d64]">
+          {[
+            "Define variables",
+            "Apply configuration",
+            "Run login",
+            "tapOn: username",
+            "inputText: hello@mobile.dev",
+            "assertVisible: Discover Lists",
+            "scrollUntilVisible: logout",
+          ].map((row, index) => (
+            <p className="grid grid-cols-[1rem_1fr_auto] gap-2" key={row}>
+              <span className="text-[#c7c2bb]">✓</span>
+              <span className={index === 2 ? "rounded-[2px] bg-[#f4f2ef] px-2 text-[#252525]" : ""}>
+                {row}
+              </span>
+              <span className="text-[#8d8b86]">02:{11 + index}</span>
+            </p>
+          ))}
+        </div>
+      </div>
+    </MockupStage>
+  );
+}
+
+function DebuggingMockup() {
+  return (
+    <MockupStage ariaLabel="Video playback, logs, and debug timeline">
+      <div className="absolute left-[7%] top-[10%] bottom-[10%] w-[42%] overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]">
+        <MiniWindowBar title="video" />
+        <div className="p-3">
+          <div className="aspect-[9/14] rounded-[2px] bg-white p-3">
+            <div className="mb-3 h-4 rounded-[2px] bg-[#f4f2ef]" />
+            <div className="mb-3 h-16 rounded-[2px] bg-[#c7c2bb]" />
+            <div className="space-y-1.5">
+              <span className="block h-1.5 rounded-full bg-black/10" />
+              <span className="block h-1.5 w-4/5 rounded-full bg-black/10" />
+              <span className="block h-1.5 w-2/3 rounded-full bg-black/10" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="absolute right-[7%] top-[16%] w-[48%] overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.34),0_10px_20px_-12px_rgba(0,0,0,0.24)]">
+        <MiniWindowBar title="debug trace" />
+        <div className="space-y-2 px-4 py-3">
+          {["Launch app", "Tap Login", "Enter email", "Assert dashboard", "Capture artifacts"].map((row) => (
+            <div className="flex items-center gap-2" key={row}>
+              <span className="size-2 rounded-full bg-[#c7c2bb]" />
+              <span className="h-2 flex-1 rounded-full bg-[#f4f2ef]" />
+              <span className="w-8 text-right text-[0.5rem] text-[#8d8b86]">{row.length}s</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </MockupStage>
+  );
+}
+
+function DeviceMatrixMockup() {
+  return (
+    <MockupStage ariaLabel="Device model and operating system matrix">
+      <div className="absolute inset-x-[8%] top-[9%] grid grid-cols-4 gap-3">
+        {["iPhone 13", "iPhone SE", "Pixel 9", "iPad Air", "Galaxy S25", "Pixel Fold", "iPhone 17", "Galaxy Tab"].map((device, index) => (
+          <div
+            className={cn(
+              "overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] p-2 shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]",
+              index % 3 === 1 && "translate-y-5",
+            )}
+            key={device}
+          >
+            <div className="mx-auto aspect-[9/16] w-10 rounded-[2px] border border-black/10 bg-white p-1">
+              <div className="mx-auto mb-1 h-0.5 w-3 rounded-full bg-[#c7c2bb]" />
+              <div className="h-5 rounded-[1px] bg-[#f4f2ef]" />
+              <div className="mt-1 space-y-1">
+                <span className="block h-0.5 rounded-full bg-black/10" />
+                <span className="block h-0.5 w-2/3 rounded-full bg-black/10" />
+              </div>
+            </div>
+            <p className="mt-2 truncate text-center text-[0.48rem] font-medium text-[#5d5d64]">
+              {device}
+            </p>
+          </div>
+        ))}
+      </div>
+    </MockupStage>
+  );
+}
+
+function WorkflowMockup() {
+  const workflows = ["Nightly releases", "Pull requests", "Regression tests"];
+
+  return (
+    <MockupStage ariaLabel="Workflow cards for nightly releases, pull requests, and regression testing">
+      <div className="absolute inset-x-[8%] top-[16%] grid grid-cols-3 gap-3">
+        {workflows.map((workflow, index) => (
+          <div
+            className="rounded-sm border border-black/10 bg-[#fbfaf8] p-4 shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]"
+            key={workflow}
+          >
+            <div className="mb-6 flex size-8 items-center justify-center rounded-[2px] bg-[#f4f2ef]">
+              <span className="size-3 rounded-full bg-[#c7c2bb]" />
+            </div>
+            <p className="text-xs font-semibold leading-tight text-[#252525]">
+              {workflow}
+            </p>
+            <div className="mt-4 space-y-1.5">
+              <span className="block h-1.5 rounded-full bg-black/10" />
+              <span className="block h-1.5 w-4/5 rounded-full bg-black/10" />
+              <span className="block h-1.5 w-2/3 rounded-full bg-black/10" />
+            </div>
+            <div className="mt-5 flex items-center gap-1.5">
+              {Array.from({ length: 3 + index }).map((_, dotIndex) => (
+                <span className="size-1.5 rounded-full bg-[#c7c2bb]" key={dotIndex} />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </MockupStage>
+  );
+}
+
+function MiniWindowBar({ title }: { title: string }) {
+  return (
+    <div className="flex h-5 items-center border-b border-black/5 bg-[#f4f2ef] px-2">
+      <div className="flex items-center gap-1">
+        <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+        <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+        <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+      </div>
+      <span className="mx-auto text-[0.5rem] font-medium leading-none text-[#8d8b86]">
+        {title}
+      </span>
+    </div>
+  );
+}
+
+function MiniPhone() {
+  return (
+    <div className="aspect-[9/16] overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] p-2 shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]">
+      <div className="mx-auto mb-3 h-1 w-8 rounded-full bg-[#c7c2bb]" />
+      <div className="space-y-3 rounded-[2px] bg-white p-3">
+        <p className="text-xs font-semibold text-[#252525]">Discover Lists</p>
+        <div className="h-5 rounded-[2px] bg-[#f4f2ef]" />
+        <div className="h-20 rounded-[2px] bg-[#c7c2bb]" />
+        <div className="space-y-1.5">
+          <span className="block h-1.5 rounded-full bg-black/10" />
+          <span className="block h-1.5 w-4/5 rounded-full bg-black/10" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CloudSourceWindow({
+  source,
+}: {
+  source: (typeof cloudHeroSources)[number];
+}) {
+  return (
+    <div className="overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]">
+      <div className="flex h-4 items-center border-b border-black/5 bg-[#f4f2ef] px-2">
+        <div className="flex items-center gap-1">
+          <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+          <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+          <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+        </div>
+        <span className="mx-auto text-[0.46rem] leading-none font-medium tracking-normal text-[#8d8b86]">
+          {source.title}
+        </span>
+      </div>
+      <div className="px-3 py-3">
+        <p className="text-[0.64rem] leading-none font-semibold text-[#252525] md:text-xs">
+          {source.label}
+        </p>
+        <div className="mt-3 space-y-1.5">
+          {source.rows.map((row) => (
+            <div className="flex items-center gap-2" key={row}>
+              <span className="size-2 rounded-full bg-[#c7c2bb]" />
+              <span className="h-1.5 flex-1 rounded-full bg-black/10" />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MaestroMark() {
+  return (
+    <div className="relative size-8 overflow-hidden rounded-[2px] bg-[#c7c2bb]">
+      <span className="absolute bottom-1.5 left-1/2 size-3 -translate-x-1/2 rounded-full bg-[#fbfaf8]" />
+    </div>
+  );
+}
+
+function CloudDevice({
+  device,
+}: {
+  device: (typeof cloudHeroDevices)[number];
+}) {
+  return (
+    <div className="relative mx-auto w-full max-w-[84px]">
+      <div className="aspect-[9/16] overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] p-1 shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]">
+        <div className="mx-auto mb-1 h-1 w-5 rounded-full bg-[#c7c2bb]" />
+        <div className="h-full rounded-[2px] bg-white px-2 py-2">
+          <p className="mb-2 text-[0.46rem] leading-none font-semibold tracking-normal text-[#252525]">
+            {device.label}
+          </p>
+          <div className="mb-2 h-8 rounded-[2px] bg-[#f4f2ef]" />
+          <div className="space-y-1">
+            {Array.from({ length: device.rows }).map((_, index) => (
+              <div className="flex items-center gap-1" key={index}>
+                <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+                <span className="h-1 flex-1 rounded-full bg-black/10" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function CloudSignupMockup() {
+  return (
+    <div
+      aria-label="Maestro Cloud signup form"
+      className="relative aspect-[4/3] overflow-hidden rounded-sm border bg-[oklch(0.935_0_0)]"
+      role="img"
+    >
+      <div className="absolute inset-x-[8%] top-[12%] bottom-[-18%] overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]">
+        <div className="flex h-5 items-center border-b border-black/5 bg-[#f4f2ef] px-2">
+          <div className="flex items-center gap-1">
+            <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+            <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+            <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+          </div>
+          <span className="mx-auto text-[0.5rem] leading-none font-medium tracking-normal text-[#8d8b86]">
+            app.maestro.dev/signup
+          </span>
+        </div>
+        <div className="flex h-full flex-col items-center px-[12%] pt-[12%]">
+          <div className="flex items-center gap-2">
+            <MaestroMark />
+            <span className="text-base leading-none font-semibold tracking-normal text-[#252525]">
+              Maestro
+            </span>
+          </div>
+          <p className="mt-5 text-lg leading-none font-semibold tracking-normal text-[#252525]">
+            Sign up
+          </p>
+          <div className="mt-6 w-full max-w-[260px] rounded-sm border border-black/10 bg-white p-4">
+            <div className="grid grid-cols-2 gap-3">
+              <SignupField label="First name" value="John" />
+              <SignupField label="Last name" value="Doe" />
+            </div>
+            <div className="mt-3">
+              <SignupField label="Email" value="jdoe@hooli.com" />
+            </div>
+            <div className="mt-4 flex h-8 items-center justify-center rounded-[2px] bg-[#c7c2bb] text-xs font-medium text-[#252525]">
+              Continue
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SignupField({ label, value }: { label: string; value: string }) {
+  return (
+    <div>
+      <p className="mb-1 text-[0.5rem] leading-none font-semibold tracking-normal text-[#252525]">
+        {label}
+      </p>
+      <div className="flex h-7 items-center rounded-[2px] border border-black/10 bg-[#fbfaf8] px-2 text-[0.58rem] leading-none text-[#252525]">
+        {value}
+      </div>
+    </div>
+  );
+}
+
+function CloudUploadMockup() {
+  return (
+    <div
+      aria-label="CI configuration and CLI upload command for Maestro Cloud"
+      className="relative aspect-[4/3] overflow-hidden rounded-sm border bg-[oklch(0.935_0_0)]"
+      role="img"
+    >
+      <div className="absolute inset-x-[6%] top-[9%] bottom-[12%] overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] text-[#5d5d64] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]">
+        <div className="flex h-5 items-center border-b border-black/5 bg-[#f4f2ef] px-2">
+          <div className="flex items-center gap-1">
+            <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+            <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+            <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+          </div>
+          <span className="mx-auto text-[0.5rem] leading-none font-medium tracking-normal text-[#8d8b86]">
+            .github/workflows/ci.yml
+          </span>
+        </div>
+        <div className="px-4 py-4 font-mono text-[0.55rem] leading-[1.55] tracking-normal">
+          {[
+            ["1", "name: Build and run Maestro tests"],
+            ["2", "jobs:"],
+            ["3", "  maestro-cloud:"],
+            ["4", "    runs-on: ubuntu-latest"],
+            ["5", "    outputs:"],
+            ["6", "      app: app/build/sample.apk"],
+            ["7", "    steps:"],
+            ["8", "      - uses: actions/checkout@v4"],
+            ["9", "      - uses: actions/setup-java@v4"],
+            ["10", "      - run: ./gradlew assembleDebug"],
+            ["11", "      - run: maestro cloud sample.apk flows/"],
+          ].map(([line, code]) => (
+            <p className="flex whitespace-pre" key={line}>
+              <span className="w-4 shrink-0 text-right text-[#8d8b86]">
+                {line}
+              </span>
+              <span className="pl-2 text-[#252525]">{code}</span>
+            </p>
+          ))}
+        </div>
+      </div>
+
+      <div className="absolute right-[5%] bottom-[7%] w-[58%] overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] text-[#5d5d64] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.34),0_10px_20px_-12px_rgba(0,0,0,0.24)]">
+        <div className="flex h-5 items-center border-b border-black/5 bg-[#f4f2ef] px-2">
+          <div className="flex items-center gap-1">
+            <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+            <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+            <span className="size-1.5 rounded-full bg-[#c7c2bb]" />
+          </div>
+          <span className="mx-auto text-[0.5rem] leading-none font-medium tracking-normal text-[#8d8b86]">
+            Terminal
+          </span>
+        </div>
+        <div className="px-4 py-4 font-mono text-[0.62rem] leading-[1.6] tracking-normal">
+          <p className="whitespace-pre text-[#252525]">
+            <span className="text-[#8d8b86]">&gt; </span>
+            maestro cloud \
+          </p>
+          <p className="whitespace-pre pl-4 text-[#252525]">
+            --api-key &lt;API_KEY&gt; \
+          </p>
+          <p className="whitespace-pre pl-4 text-[#252525]">
+            --project-id &lt;PROJECT_ID&gt; \
+          </p>
+          <p className="whitespace-pre pl-4 text-[#252525]">
+            sample.apk flows/
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+const resultCards = [
+  {
+    time: "2 minutes ago",
+    title: "Test login flow #1021",
+    device: "iPhone 13",
+    os: "iOS",
+    locale: "en_GB",
+  },
+  {
+    time: "3 minutes ago",
+    title: "Test checkout flow #1022",
+    device: "iPhone SE",
+    os: "iOS",
+    locale: "es_ES",
+  },
+  {
+    time: "5 minutes ago",
+    title: "Test search flow #1023",
+    device: "Samsung S23",
+    os: "Android 16",
+    locale: "en_US",
+  },
+];
+
+function CloudResultsMockup() {
+  return (
+    <div
+      aria-label="Recent successful Maestro Cloud test results"
+      className="relative aspect-[4/3] overflow-hidden rounded-sm border bg-[oklch(0.935_0_0)]"
+      role="img"
+    >
+      <div className="absolute inset-x-[9%] top-[13%] h-px bg-black/10" />
+      <div className="absolute inset-x-[9%] top-[44%] h-px bg-black/10" />
+      <div className="absolute inset-x-[9%] top-[75%] h-px bg-black/10" />
+      <div className="absolute inset-x-[7%] top-[7%] space-y-4">
+        {resultCards.map((result, index) => (
+          <ResultCard key={result.title} result={result} offset={index} />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ResultCard({
+  offset,
+  result,
+}: {
+  offset: number;
+  result: (typeof resultCards)[number];
+}) {
+  return (
+    <div
+      className={cn(
+        "overflow-hidden rounded-sm border border-black/10 bg-[#fbfaf8] px-4 py-4 text-[#252525] shadow-[0_4px_42px_-18px_rgba(0,0,0,0.17),0_10px_20px_-12px_rgba(0,0,0,0.12)]",
+        offset === 2 && "opacity-80",
+      )}
+    >
+      <div className="grid grid-cols-[auto_1fr] gap-3">
+        <div className="relative mt-1 size-7 rounded-full bg-[#c7c2bb]">
+          <span className="absolute left-[8px] top-[6px] h-3 w-2 rotate-45 border-r-2 border-b-2 border-[#fbfaf8]" />
+        </div>
+        <div className="min-w-0">
+          <p className="text-xs leading-none font-medium tracking-normal text-[#8d8b86]">
+            {result.time}
+          </p>
+          <p className="mt-2 truncate text-sm leading-none font-semibold tracking-normal text-[#252525]">
+            {result.title}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-2">
+            <ResultPill>{result.device}</ResultPill>
+            <ResultPill>{result.os}</ResultPill>
+            <ResultPill>{result.locale}</ResultPill>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ResultPill({ children }: { children: ReactNode }) {
+  return (
+    <span className="rounded-[2px] bg-[#f4f2ef] px-2 py-1 text-[0.58rem] leading-none font-semibold tracking-normal text-[#5d5d64]">
+      {children}
+    </span>
   );
 }
 
@@ -223,10 +905,18 @@ export function UpgradeSteps() {
                   </h3>
                 </div>
                 <div className="mt-auto space-y-6">
-                  <PlaceholderFrame
-                    label={`${step.title} image placeholder`}
-                    aspectClassName="aspect-[4/3]"
-                  />
+                  {index === 0 ? (
+                    <CloudSignupMockup />
+                  ) : index === 1 ? (
+                    <CloudUploadMockup />
+                  ) : index === 2 ? (
+                    <CloudResultsMockup />
+                  ) : (
+                    <PlaceholderFrame
+                      label={`${step.title} image placeholder`}
+                      aspectClassName="aspect-[4/3]"
+                    />
+                  )}
                   <div className="flex justify-center pb-4 md:pb-0">
                     <Button asChild>
                       <a href={step.href}>
@@ -280,11 +970,7 @@ export function FeatureBlocks() {
               </p>
               <InlineLink href={feature.href}>Learn more</InlineLink>
             </div>
-            <PlaceholderFrame
-              className="mt-auto"
-              label="Feature image placeholder"
-              aspectClassName="aspect-[5/3]"
-            />
+            <CloudFeatureMockup variant={featureMockups[index] ?? "priority"} />
           </article>
         ))}
         <article className="bordered-div-padding flex flex-col gap-6 border-b-0 pb-6 md:min-h-[520px] md:gap-7 md:pb-7 lg:gap-8 lg:pb-8">
@@ -297,11 +983,7 @@ export function FeatureBlocks() {
               {flows[0]}
             </p>
           </div>
-          <PlaceholderFrame
-            className="mt-auto"
-            label="Flow image placeholder"
-            aspectClassName="aspect-[5/3]"
-          />
+          <WorkflowMockup />
         </article>
       </div>
     </section>
