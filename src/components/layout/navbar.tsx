@@ -111,7 +111,7 @@ function GitHubLink({ className }: { className?: string }) {
           className="size-5"
           strokeWidth={1.8}
         />
-        <span className="text-sm font-normal">13.8k</span>
+        <span className="text-sm font-normal">14.0k</span>
       </a>
     </Button>
   );

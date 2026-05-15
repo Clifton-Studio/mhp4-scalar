@@ -70,21 +70,35 @@ const flows = [
 
 const caseStudies = [
   {
+    name: "Eneco",
+    logoClassName: "scale-[1.85]",
+    logoSrc:
+      "https://cdn.brandfetch.io/eneco.com/w/300/logo?c=1idjMwySZlfLUyQ7x24",
     title: "Eneco Cut Regression Testing from 16hrs to <1hr",
     body: "What used to take 4 teams a full 16+ hours of testing now takes under an hour with Maestro.",
     href: "#",
   },
   {
+    name: "Wahed",
+    logoSrc:
+      "https://cdn.brandfetch.io/wahed.com/w/300/logo?c=1idjMwySZlfLUyQ7x24",
     title: "Wahed Slashed Test Creation Time by 95%",
     body: "By switching to Maestro, Wahed's team went from spending 3-4 hours per test to just 10-15 minutes.",
     href: "#",
   },
   {
+    name: "Doccla",
+    logoClassName: "scale-[0.85]",
+    logoSrc:
+      "https://cdn.brandfetch.io/doccla.com/w/300/logo?c=1idjMwySZlfLUyQ7x24",
     title: "Doccla Eliminated a Full Day of Manual Testing",
     body: "Doccla replaced a full day of manual regression testing with a fully automated Maestro pipeline.",
     href: "#",
   },
   {
+    name: "Komoot",
+    logoSrc:
+      "https://cdn.brandfetch.io/komoot.com/w/300/logo?c=1idjMwySZlfLUyQ7x24",
     title: "Komoot Built 100+ Tests in Just Two Weeks",
     body: "Komoot was able to get up and running with a robust suite of over 100 tests in less than 2 weeks.",
     href: "#",
@@ -332,10 +346,18 @@ export function CaseStudies() {
                 )}
                 key={study.title}
               >
-                <PlaceholderFrame
-                  label="Case study image placeholder"
-                  aspectClassName="aspect-[16/8]"
-                />
+                <div
+                  className="flex h-28 w-full shrink-0 items-center justify-center rounded-[2px] border bg-muted/30 md:h-36"
+                >
+                  <div className="flex h-[80%] w-[80%] items-center justify-center">
+                    <img
+                      alt={`${study.name} logo`}
+                      className={cn("h-full w-full object-contain", study.logoClassName)}
+                      loading="lazy"
+                      src={study.logoSrc}
+                    />
+                  </div>
+                </div>
                 <div className="space-y-4">
                   <p className="section-overline">Case study</p>
                   <h3 className="text-foreground text-lg leading-snug font-medium md:text-xl">
